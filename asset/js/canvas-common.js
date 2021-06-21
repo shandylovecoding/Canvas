@@ -28,7 +28,6 @@ $('#canvas-real').mousemove(function(e){
 
 $('#canvas-real').mouseup(function(e){
     dragging = false;
-    console.log("Mouse Up: when user releases mouse");
     captureMouseEvent(e)
     currentFunction.onMouseUp([mouseX,mouseY],e);
 });
