@@ -1,6 +1,6 @@
 ## To Do List
 
-## NINE DAYS TILL PRESENTATION!!! :skull_and_crossbones:
+# NINE DAYS TILL PRESENTATION!!! :skull_and_crossbones:
 
 ## Sprint :athletic_shoe:
 
@@ -23,10 +23,9 @@
 |       | Tools 12: Color                   |    K     |                |             |
 
 
-   
-
-
-
-
-
+## Useful Links:
+Drawing textures - http://perfectionkills.com/exploring-canvas-drawing-techniques/
+On drawing polygons - https://www.arungudelli.com/html5/html5-canvas-polygon/
+Image filters - https://www.html5rocks.com/en/tutorials/canvas/imagefilters/
+Firebase (to save photos) - https://firebase.google.com/ 
 
