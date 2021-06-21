@@ -3,7 +3,6 @@ class DrawingRectangle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-
     }
     
     onMouseDown([mouseX,mouseY],e){
@@ -15,6 +14,7 @@ class DrawingRectangle extends PaintFunction{
         this.origY = mouseY;
         console.log(e)
     }
+
     onDragging([mouseX,mouseY],e){
         this.contextDraft.fillStyle = "#f44";
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
@@ -30,7 +30,9 @@ class DrawingRectangle extends PaintFunction{
         console.log("Rectangle3")
 
     }
+
     onMouseLeave(){}
+    
     onMouseEnter(){}
 }
 
