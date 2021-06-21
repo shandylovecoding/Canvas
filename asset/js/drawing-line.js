@@ -1,35 +1,41 @@
-class DrawingLine extends PaintFunction{
-    constructor(contextReal, contextDraft){
+class DrawingLine extends PaintFunction {
+    constructor(contextReal, contextDraft) {
         super();
-        this.context = contextReal;            
-    }
-    
-    onMouseDown([mouseX,mouseY],e){
-        this.context.strokeStyle = "blue";
-        this.context.fillStyle = "#42445A";
-        this.context.lineWidth = 5;
-        this.context.beginPath();
-        this.context.moveTo(mouseX,mouseY);
-        this.draw(mouseX,mouseY);
-    }
-    onDragging([mouseX,mouseY],e){
-        this.draw(mouseX,mouseY);
+        this.contextReal = contextReal;
+        this.contextDraft = contextDraft;
     }
 
-    onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
-
-    draw(x,y){
-        this.context.lineTo(x,y);
-        this.context.moveTo(x,y);
-        this.context.closePath();
-        this.context.stroke();    
+    onMouseDown([mouseX, mouseY], e) {
+        this.contextDraft.strokeStyle = "#002fa7";
+        this.contextReal.strokeStyle = "#002fa7";
+        this.contextDraft.lineWidth = 5;
+        this.contextReal.lineWidth = 5;
+        this.origX = mouseX;
+        this.origY = mouseY;
     }
+
+    onDragging(e) {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextDraft.beginPath();
+        this.contextDraft.moveTo(this.origX, this.origY);
+        this.contextDraft.lineTo(mouseX, mouseY);
+        this.contextDraft.stroke();
+    }
+
+    onMouseMove() {}
+    onMouseUp([mouseX, mouseY], e) {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextReal.beginPath();
+        this.contextReal.moveTo(this.origX, this.origY);
+        this.contextReal.lineTo(mouseX, mouseY);
+        this.contextReal.stroke();
+    }
+    onMouseLeave() {}
+    onMouseEnter() {}
+
 }
+
 $("#lineButton").click(function () {
     console.log("Line button clicked");
     currentFunction = new DrawingLine(contextReal, contextDraft);
-  });
-  
+});

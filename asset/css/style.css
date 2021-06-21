@@ -1,12 +1,16 @@
 #canvas-real{
     border:1px black dotted;
-    position:absolute;
-    top:0px;
-    bottom:0px;
-    left:0px;
-    right:0px
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 #canvas-draft{
     background-color: transparent;
+}
+
+html {
+    font-family:Arial, Helvetica, sans-serif;
 }
