@@ -18,9 +18,7 @@ class DrawingText extends PaintFunction {
 };
 
 function inputText(e) {
-    const font = "20px san-serif";
     addInput(e.clientX,e.clientY)
-console.log("123")
     //function to show input box
     function addInput(x, y) {
 
@@ -58,7 +56,7 @@ console.log("123")
 
     //function to draw text
     function drawText(text, x, y) {
-        const font = `200px san-serif`;
+        const font = `20px sans-serif`;
 
         contextReal.textBaseline = 'top';
         contextReal.textAlign = 'left';
