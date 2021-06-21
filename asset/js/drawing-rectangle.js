@@ -1,12 +1,10 @@
-class DrawingRectangle extends PaintFunction{
-    constructor(contextReal,contextDraft){
+class DrawingRectangle extends PaintFunction {
+    constructor(contextReal, contextDraft) {
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
     }
-    
-    onMouseDown([mouseX,mouseY],e){
-    console.log("Rectangle Button clicked2");
+    onMouseDown([mouseX, mouseY], e) {
 
         this.contextReal.fillStyle = "#f44";
         this.contextDraft.fillStyle = "#f44";
@@ -17,27 +15,25 @@ class DrawingRectangle extends PaintFunction{
 
     onDragging([mouseX,mouseY],e){
         this.contextDraft.fillStyle = "#f44";
-        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextDraft.fillRect(this.origX,this.origY,mouseX- this.origX,mouseY - this.origY)
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY)
         console.log("Rectangle2")
-
     }
 
-    onMouseMove(){}
-    onMouseUp([mouseX,mouseY],e){
-        this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextReal.fillRect(this.origX,this.origY,mouseX- this.origX,mouseY - this.origY)
+    onMouseMove() { }
+    onMouseUp([mouseX, mouseY], e) {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY)
         console.log("Rectangle3")
-
     }
 
-    onMouseLeave(){}
-    
-    onMouseEnter(){}
+    onMouseLeave() { }
+    onMouseEnter() { }
+
 }
 
 $("#rectButton").click(function () {
     console.log("Rectangle Button clicked");
     currentFunction = new DrawingRectangle(contextReal, contextDraft);
-  });
-  
+});
