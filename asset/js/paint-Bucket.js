@@ -10,8 +10,10 @@ var height2 = colorStrip.height;
 
 var colorLabel = document.getElementById('color-label');
 var fillcolorLabel = document.getElementById('fillcolor-label');
-
-
+var colorcolor;
+var fillcolor
+var colorStoke
+var colorFill
 var x = 0;
 var y = 0;
 var drag = false;
@@ -77,12 +79,14 @@ function changeColor(e,label) {
   
     if (colorcolor) {
       rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
-      let color1 = `${rgbaColor}`
-      colorLabel.style.backgroundColor = color1
+      colorFill = `${rgbaColor}`
+      colorLabel.style.backgroundColor = colorFill
+      console.log(colorFill);
     } else if (fillcolor) {
       rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
-      let color2 = `${rgbaColor}`
-      fillcolorLabel.style.backgroundColor = color2
+      colorStroke = `${rgbaColor}`
+      fillcolorLabel.style.backgroundColor = colorStroke
+      console.log(colorStroke);
     }
     
  
