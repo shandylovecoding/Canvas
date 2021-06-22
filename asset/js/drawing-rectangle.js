@@ -5,32 +5,34 @@ class DrawingRectangle extends PaintFunction {
         this.contextDraft = contextDraft;
     }
     onMouseDown([mouseX, mouseY], e) {
-
-        this.contextReal.fillStyle = `${color}`;
-        this.contextDraft.fillStyle = `${color}`;
-        this.origX = mouseX;
-        this.origY = mouseY;
-        console.log(e)
+        if (clicks == 0) {
+            this.contextReal.fillStyle = `${color}`;
+            this.contextDraft.fillStyle = `${color}`;
+            this.contextReal.strokeStyle = "#f44";
+            this.contextDraft.strokeStyle = "#f44";
+            this.origX = mouseX;
+            this.origY = mouseY;
+            clicks = 1;
+        } else if (clicks == 1) {
+            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+            clicks = 0;
+        }
     }
 
-    onDragging([mouseX,mouseY],e){
-        this.contextDraft.fillStyle = "#f44";
-        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY)
-        console.log("Rectangle2")
+    onDragging() {}
+
+    onMouseMove([mouseX, mouseY], e) {
+        if (clicks == 1){
+            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+        }
     }
+  
+    onMouseUp() {}
 
-    onMouseMove() { }
-    onMouseUp([mouseX, mouseY], e) {
-        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY)
-        console.log("Rectangle3")
-    }
-
-    onMouseLeave() { }
-    onMouseEnter() { }
-
-}
+    onMouseLeave() {}
+    onMouseEnter() {}
 
 $("#rectButton").click(function () {
     console.log("Rectangle Button clicked");

@@ -9,6 +9,7 @@
 
 #canvas-draft{
     background-color: transparent;
+    z-index: 9999999;
 }
 
 
@@ -40,5 +41,5 @@
 
 html {
     font-family:Arial, Helvetica, sans-serif;
+    font-size: small;
 }
-
