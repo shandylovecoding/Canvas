@@ -6,6 +6,7 @@ class DrawingLine extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
+        console.log("clicks", clicks)
         if (clicks == 0) {
             this.contextDraft.strokeStyle = "#002fa7";
             this.contextReal.strokeStyle = "#002fa7";
