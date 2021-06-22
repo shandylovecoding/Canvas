@@ -6,12 +6,12 @@
 
 | Done? | Function                          | PIC      | Estimated Time | Actual Time |
 | ----- | --------------------------------- | :------: | :------------: | :---------: |
-|       | Functionality 1: Circle           |    S     |                |             |
+|   X   | Functionality 1: Circle           |    S     |                |             |
 |       | Functionality 2: Polygons         |    A     |                |             |
-|       | Functionality 3: Text             |    K     |                |             |
-|       | Tools 1: Line (Straight, Curve)   |    S     |                |             |
-|       | Tools 2: Brush                    |    A     |                |             |
-|       | Tools 3: Eraser                   |    K     |                |             |
+|   X   | Functionality 3: Text             |    K     |                |             |
+|   X   | Tools 1: Line (Straight, Curve)   |    K     |                |             |
+|   X   | Tools 2: Pen                      |    A     |                |             |
+|   X   | Tools 3: Eraser                   |    K     |                |             |
 |       | Tools 4:                          |    S     |                |             |
 |       | Tools 5: Eye-dropper              |    A     |                |             |
 |       | Tools 6: JoinLine                 |    K     |                |             |

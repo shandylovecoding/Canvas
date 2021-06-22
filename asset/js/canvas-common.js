@@ -4,7 +4,7 @@ let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
-
+let color ="black"
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;
     this.mouseY = e.offsetY;
