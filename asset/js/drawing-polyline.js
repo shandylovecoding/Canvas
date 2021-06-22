@@ -26,6 +26,7 @@ class DrawingPolyline extends PaintFunction {
             this.contextReal.stroke();
             strokes.push({x: mouseX, y: mouseY});
             clicks++;
+            getsnapshot();
         }
     }
 

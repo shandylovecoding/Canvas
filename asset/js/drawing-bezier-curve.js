@@ -30,6 +30,7 @@ class DrawingBezierLine extends PaintFunction {
             this.contextReal.bezierCurveTo(this.firstcontrolX, this.firstcontrolY, mouseX, mouseY, this.endX, this.endY);
             this.contextReal.stroke();
             clicks = 0;
+            getsnapshot();
         }
     }
 

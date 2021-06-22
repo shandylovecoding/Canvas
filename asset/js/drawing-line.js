@@ -22,6 +22,7 @@ class DrawingLine extends PaintFunction {
             this.contextReal.lineTo(mouseX, mouseY);
             this.contextReal.stroke();
             clicks = 0;
+            getsnapshot();
         }
     }
 

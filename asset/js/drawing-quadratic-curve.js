@@ -26,6 +26,7 @@ class DrawingQuadraticLine extends PaintFunction {
             this.contextReal.quadraticCurveTo(mouseX, mouseY, this.endX, this.endY);
             this.contextReal.stroke();
             clicks = 0;
+            getsnapshot();
         }
     }
 
