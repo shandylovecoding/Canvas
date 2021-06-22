@@ -1,7 +1,9 @@
 .container {
   position: absolute;
   display: flex;
+  justify-content: space-around;
 }
+
 #canvas-real{
     border:1px black dotted;
     position: absolute;
@@ -24,11 +26,11 @@
   #color-label{
     margin-left: 15px;
     position: absolute;
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
   } 
   #fillcolor-label {
-    margin-left: 15px;
+    margin-left: -90px;
     position: relative;
     height: 30px;
     width: 30px;
@@ -36,7 +38,9 @@
   #color-input:checked ~ #color-picker {
     opacity: 1;
   }
-
+  #fillcolor-input:checked ~ #color-picker {
+    opacity: 1;
+  }
   #color-picker {
     position: absolute;
     left: 70px; 

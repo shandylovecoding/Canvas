@@ -9,6 +9,8 @@ var width2 = colorStrip.width;
 var height2 = colorStrip.height;
 
 var colorLabel = document.getElementById('color-label');
+var fillcolorLabel = document.getElementById('fillcolor-label');
+
 
 var x = 0;
 var y = 0;
@@ -55,6 +57,7 @@ function fillGradient() {
   ctx1.fillStyle = grdBlack;
   ctx1.fillRect(0, 0, width1, height1);
 }
+
 function mousedown(e) {
     drag = true;
     changeColor(e);
@@ -67,18 +70,34 @@ function mousedown(e) {
   function mouseup(e) {
     drag = false;
   }
-function changeColor(e) {
+function changeColor(e,label) {
     x = e.offsetX;
     y = e.offsetY;
     var imageData = ctx1.getImageData(x, y, 1, 1).data;
-    rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
-    colorLabel.style.backgroundColor = rgbaColor;
-    color = `${rgbaColor}`
+  
+    if (colorcolor) {
+      rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
+      let color1 = `${rgbaColor}`
+      colorLabel.style.backgroundColor = color1
+    } else if (fillcolor) {
+      rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
+      let color2 = `${rgbaColor}`
+      fillcolorLabel.style.backgroundColor = color2
+    }
+    
+ 
+
 }
 
 $("#color-label").click(function () {
     console.log("paintBucket clicked");
-    currentFunction = new paintBucket(contextReal, contextDraft);
+    colorcolor = true;
+    fillcolor = false;
+});
+$("#fillcolor-label").click(function () {
+  console.log("paintBucket clicked");
+  colorcolor = false;
+  fillcolor = true;
 });
 
 

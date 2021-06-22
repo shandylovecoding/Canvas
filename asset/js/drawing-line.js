@@ -7,8 +7,8 @@ class DrawingLine extends PaintFunction {
 
     onMouseDown([mouseX, mouseY], e) {
         if (clicks == 0) {
-            this.contextDraft.strokeStyle = "#002fa7";
-            this.contextReal.strokeStyle = "#002fa7";
+            this.contextDraft.strokeStyle = `${color}`;
+            this.contextReal.strokeStyle = `${color}`;
             this.contextDraft.lineWidth = 5;
             this.contextReal.lineWidth = 5;
             this.origX = mouseX;
