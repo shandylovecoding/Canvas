@@ -30,7 +30,6 @@ class DrawingRectangle extends PaintFunction {
     }
   
     onMouseUp() {}
-
     onMouseLeave() {}
     onMouseEnter() {}
 
