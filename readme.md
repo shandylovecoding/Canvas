@@ -1,15 +1,13 @@
-## To Do List
+# FIVE DAYS TILL PRESENTATION!!! :skull_and_crossbones:
 
-# NINE DAYS TILL PRESENTATION!!! :skull_and_crossbones:
-
-## Sprint :athletic_shoe:
+## Code Sprint :athletic_shoe:
 
 | Done? | Function                          | PIC      | Estimated Time | Actual Time |
 | ----- | --------------------------------- | :------: | :------------: | :---------: |
 |   x   | Functionality 1: Circle           |    S     |                |             |
 |       | Functionality 2: Polygons         |    A     |                |             |
 |   x   | Functionality 3: Text             |    K     |                |             |
-|       | Tools 1: Line (Straight, Curve)   |    S     |                |             |
+|   x   | Tools 1: Line (Straight, Curve)   |    K     |                |             |
 |   x   | Tools 2: Brush                    |    A     |                |             |
 |   x   | Tools 3: Eraser                   |    K     |                |             |
 |       | Tools 4:                          |    S     |                |             |
@@ -28,4 +26,9 @@ On drawing polygons - https://www.arungudelli.com/html5/html5-canvas-polygon/
 Image filters - https://www.html5rocks.com/en/tutorials/canvas/imagefilters/
 Firebase (to save photos) - https://firebase.google.com/
 Drag and Drop - https://codeboxsystems.com/tutorials/en/how-to-drag-and-drop-objects-javascript-canvas/
+
+# Canvas
+Canvas is a light web-based sketchpad, allowing users to make quick sketches that can then be shared or saved.
+
+## Key Features
 

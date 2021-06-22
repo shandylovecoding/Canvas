@@ -12,29 +12,34 @@
 </head>
 
 <body>
-    <canvas id="canvas-draft" width="1280" height="500"></canvas>
-    <canvas id="canvas-real" width="1280" height="500"></canvas>
-    <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect border-0">
-      Rectangle
-    </button>
-    <button type="button" id="circButton" class="btn btn-outline-dark waves-effect border-0">
-      Circle
-    </button>
-    <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect border-0">
-      Line
-    </button>
-    <button type="button" id="bezierButton" class="btn btn-outline-dark waves-effect border-0">
-      Bezier
-    </button>
-    <button type="button" id="textButton" class="btn btn-outline-dark waves-effect border-0">
-      Text
-    </button>
-    <button type="button" id="penButton" class="btn btn-outline-dark waves-effect border-0">
-      Pen
-    </button>
-    <button type="button" id="eraserButton" class="btn btn-outline-dark waves-effect border-0">
-      Eraser
-    </button>
+  <div>
+  <canvas id="canvas-real" width="1280" height="720"></canvas>
+  <canvas id="canvas-draft" width="1280" height="720"></canvas>
+</div>
+  <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect border-0">
+    Rectangle
+  </button>
+  <button type="button" id="circleButton" class="btn btn-outline-dark waves-effect border-0">
+    Circle
+  </button>
+  <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect border-0">
+    Line
+  </button>
+  <button type="button" id="bezierButton" class="btn btn-outline-dark waves-effect border-0">
+    Bezier
+  </button>
+  <button type="button" id="quadraticButton" class="btn btn-outline-dark waves-effect border-0">
+    Quadratic
+  </button>
+  <button type="button" id="textButton" class="btn btn-outline-dark waves-effect border-0">
+    Text
+  </button>
+  <button type="button" id="penButton" class="btn btn-outline-dark waves-effect border-0">
+    Pen
+  </button>
+  <button type="button" id="eraserButton" class="btn btn-outline-dark waves-effect border-0">
+    Eraser
+  </button>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -52,6 +57,8 @@
   <script type='text/javascript' src="/asset/js/drawing-text.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-eraser.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-line.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-bezier-curve.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-quadratic-curve.js"></script>
 
 </body>
 

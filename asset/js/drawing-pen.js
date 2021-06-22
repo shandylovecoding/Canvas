@@ -29,7 +29,7 @@ class Pen extends PaintFunction{
     }
 }
 $("#penButton").click(function () {
-    console.log("Line button clicked");
+    console.log("Pen button clicked");
     currentFunction = new Pen(contextReal, contextDraft);
   });
   
