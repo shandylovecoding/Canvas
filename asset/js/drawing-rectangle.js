@@ -33,8 +33,9 @@ class DrawingRectangle extends PaintFunction {
 
     onMouseLeave() {}
     onMouseEnter() {}
+}
 
-$("#rectButton").click(function () {
+$("#rectButton").click(function() {
     console.log("Rectangle Button clicked");
     currentFunction = new DrawingRectangle(contextReal, contextDraft);
 });

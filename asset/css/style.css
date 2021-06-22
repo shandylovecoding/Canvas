@@ -1,3 +1,7 @@
+.container {
+  position: absolute;
+  display: flex;
+}
 #canvas-real{
     border:1px black dotted;
     position: absolute;
@@ -11,25 +15,33 @@
     background-color: transparent;
     z-index: 9999999;
 }
-
-
-#color-input {
-    display: none;
-  }
-  #color-label {
+  #color-input {
+      display: none;
+    }
+  #fillcolor-input {
+      display: none;
+    }  
+  #color-label{
     margin-left: 15px;
     position: absolute;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+  } 
+  #fillcolor-label {
+    margin-left: 15px;
+    position: relative;
+    height: 30px;
+    width: 30px;
   } 
   #color-input:checked ~ #color-picker {
     opacity: 1;
   }
+
   #color-picker {
     position: absolute;
     left: 70px; 
     background-color: white;
-    height: 150px;
+    height: 155px;
     width: 185px;
     border: solid 1px #ccc;
     opacity: 0;
@@ -38,6 +50,7 @@
   canvas:hover {
     cursor: crosshair;
   }
+  
 
 html {
     font-family:Arial, Helvetica, sans-serif;
