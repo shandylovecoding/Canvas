@@ -12,6 +12,33 @@
     z-index: 9999999;
 }
 
+
+#color-input {
+    display: none;
+  }
+  #color-label {
+    margin-left: 15px;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+  } 
+  #color-input:checked ~ #color-picker {
+    opacity: 1;
+  }
+  #color-picker {
+    position: absolute;
+    left: 70px; 
+    background-color: white;
+    height: 150px;
+    width: 185px;
+    border: solid 1px #ccc;
+    opacity: 0;
+    padding: 5px;
+  }
+  canvas:hover {
+    cursor: crosshair;
+  }
+
 html {
     font-family:Arial, Helvetica, sans-serif;
     font-size: small;

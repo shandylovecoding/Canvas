@@ -5,6 +5,7 @@ let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
 let clicks = 0;
+let color ="black"
 
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;
