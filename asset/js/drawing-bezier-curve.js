@@ -6,6 +6,7 @@ class DrawingBezierLine extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
+        console.log(clicks);
         if (clicks == 0) {
             this.contextDraft.strokeStyle = "#002fa7";
             this.contextReal.strokeStyle = "#002fa7";
@@ -23,16 +24,13 @@ class DrawingBezierLine extends PaintFunction {
             this.firstcontrolY = mouseY;
             clicks = 3;
         } else if (clicks == 3) {
-            this.secondcontrolX = mouseX;
-            this.secondcontrolY = mouseY;
-            clicks = 4;
-        } else if (clicks == 4) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextReal.beginPath();
             this.contextReal.moveTo(this.origX, this.origY);
-            this.contextReal.bezierCurveTo(this.firstcontrolX, this.firstcontrolY, this.secondcontrolX, this.secondcontrolY, this.endX, this.endY);
+            this.contextReal.bezierCurveTo(this.firstcontrolX, this.firstcontrolY, mouseX, mouseY, this.endX, this.endY);
             this.contextReal.stroke();
             clicks = 0;
+            getsnapshot();
         }
     }
 
@@ -63,6 +61,7 @@ class DrawingBezierLine extends PaintFunction {
     onMouseLeave() {}
     onMouseEnter() {}
 }
+
 $("#bezierButton").click(function () {
     console.log("Bezier button clicked");
     currentFunction = new DrawingBezierLine(contextReal, contextDraft);

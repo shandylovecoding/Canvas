@@ -12,46 +12,61 @@
 </head>
 
 <body>
-  <div>
-  <canvas id="canvas-real" width="1280" height="720"></canvas>
-  <canvas id="canvas-draft" width="1280" height="720"></canvas>
-</div>
-  <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="rectButton" class="btn border-0">
     Rectangle
   </button>
-  <button type="button" id="circleButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="circleButton" class="btn border-0">
     Circle
   </button>
-  <button type="button" id="polyButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="polyButton" class="btn border-0">
     Polygon
   </button>
-  <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="lineButton" class="btn border-0">
     Line
   </button>
-  <button type="button" id="bezierButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="polylineButton" class="btn border-0">
+    Polyline
+  </button>
+  <button type="button" id="bezierButton" class="btn border-0">
     Bezier
   </button>
-  <button type="button" id="quadraticButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="quadraticButton" class="btn border-0">
     Quadratic
   </button>
-  <button type="button" id="textButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="textButton" class="btn border-0">
     Text
   </button>
-  <button type="button" id="penButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="penButton" class="btn border-0">
     Pen
   </button>
-  <button type="button" id="eraserButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="eraserButton" class="btn border-0">
     Eraser
   </button>
-  <button type="button" id="saveButton" class="btn btn-outline-dark waves-effect border-0">
+  <button type="button" id="undoButton" class="btn border-0">
+    Undo
+  </button>
+  <button type="button" id="redoButton" class="btn border-0">
+    Redo
+  </button>
+  <button type="button" id="clearButton" class="btn border-0">
+    Clear
+  </button>
+  <button type="button" id="saveButton" class="btn border-0">
     Save
   </button>
-      <label for="color-input" id="color-label" style="background-color: red"></label>
+  <span>
+    <label for="color-input" id="color-label" style="background-color: red"></label>
     <input type="checkbox" id="color-input" checked></input>
     <div id="color-picker">
       <canvas id="color-block" height="150" width="150"></canvas>
       <canvas id="color-strip" height="150" width="30"></canvas>
     </div>
+  </span>
+  <div>
+    <canvas id="canvas-real" width="1750" height="900"></canvas>
+    <canvas id="canvas-draft" width="1750" height="900"></canvas>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -61,20 +76,23 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-
   <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
-  <script type='text/javascript' src="./asset/js/canvas-common.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-pen.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-rectangle.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-circle.js"></script>
+
+  <script type='text/javascript' src="/asset/js/canvas-common.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-pen.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-rectangle.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-circle.js"></script>
   <script type='text/javascript' src="./asset/js/drawing-polygon.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-text.js"></script>
-  <script type='text/javascript' src="./asset/js/paint-Bucket.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-eraser.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-line.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-bezier-curve.js"></script>
-  <script type='text/javascript' src="./asset/js/drawing-quadratic-curve.js"></script>
-  <script type='text/javascript' src="./asset/js/save.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-text.js"></script>
+  <script type='text/javascript' src="/asset/js/paint-Bucket.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-eraser.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-line.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-polyline.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-bezier-curve.js"></script>
+  <script type='text/javascript' src="/asset/js/drawing-quadratic-curve.js"></script>
+  <script type='text/javascript' src="/asset/js/clear.js"></script>
+  <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
+  <script type='text/javascript' src="/asset/js/save.js"></script>
 
 </body>
 

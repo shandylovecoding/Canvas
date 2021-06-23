@@ -17,22 +17,23 @@ class DrawingRectangle extends PaintFunction {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
             clicks = 0;
+            getsnapshot();
         }
     }
 
     onDragging() {}
 
     onMouseMove([mouseX, mouseY], e) {
-        if (clicks == 1){
+        if (clicks == 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+            this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
         }
     }
-  
-    onMouseUp() {}
 
+    onMouseUp() {}
     onMouseLeave() {}
     onMouseEnter() {}
+}
 
 $("#rectButton").click(function () {
     console.log("Rectangle Button clicked");

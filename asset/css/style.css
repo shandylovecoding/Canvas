@@ -1,7 +1,6 @@
-#canvas-real{
-    border:1px black dotted;
+#canvas-real {
     position: absolute;
-    top: 0px;
+    top: 25px;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -11,7 +10,6 @@
     background-color: transparent;
     z-index: 9999999;
 }
-
 
 #color-input {
     display: none;
@@ -42,4 +40,8 @@
 html {
     font-family:Arial, Helvetica, sans-serif;
     font-size: small;
+}
+
+label {
+  margin-top: 5px;
 }
