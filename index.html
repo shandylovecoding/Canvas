@@ -18,7 +18,7 @@
   <button type="button" id="circleButton" class="btn border-0">
     Circle
   </button>
-  <button type="button" id="polyButton" class="btn border-0">
+  <button type="button" id="polyButton" class="btn border-0 disabled">
     Polygon
   </button>
   <button type="button" id="lineButton" class="btn border-0">
@@ -27,11 +27,11 @@
   <button type="button" id="polylineButton" class="btn border-0">
     Polyline
   </button>
-  <button type="button" id="bezierButton" class="btn border-0">
-    Bezier
-  </button>
   <button type="button" id="quadraticButton" class="btn border-0">
     Quadratic
+  </button>
+  <button type="button" id="bezierButton" class="btn border-0">
+    Bezier
   </button>
   <button type="button" id="textButton" class="btn border-0">
     Text
@@ -42,10 +42,28 @@
   <button type="button" id="eraserButton" class="btn border-0">
     Eraser
   </button>
-  <button type="button" id="undoButton" class="btn border-0">
+  <button type="button" id="marqueeButton" class="btn border-0 disabled">
+    Marquee
+  </button>
+  <button type="button" id="eyedropper" class="btn border-0">
+    Eyedropper
+  </button>
+  <button type="button" id="fillButton" class="btn border-0 disabled">
+    Fill
+  </button>
+  <button type="button" id="brightnessButton" class="btn border-0">
+    Brightness
+  </button>
+  <button type="button" id="contrastButton" class="btn border-0 disabled">
+    Contrast
+  </button>
+  <button type="button" id="noiseButton" class="btn border-0 disabled">
+    Noise
+  </button>
+  <button type="button" id="undoButton" class="btn border-0 disabled">
     Undo
   </button>
-  <button type="button" id="redoButton" class="btn border-0">
+  <button type="button" id="redoButton" class="btn border-0 disabled">
     Redo
   </button>
   <button type="button" id="clearButton" class="btn border-0">
@@ -54,22 +72,21 @@
   <button type="button" id="saveButton" class="btn border-0">
     Save
   </button>
-   <button type="button" id="eyedropper" class="btn btn-outline-dark waves-effect border-0">
-    Eyedropper
+  <button type="button" id="shareButton" class="btn border-0 disabled">
+    Share
   </button>
-  <div class="container">
-    <label for="color-input" id="color-label" style="background-color:black"></label>
-    <input type="checkbox" id="color-input" ></input>
-    <label for="fillcolor-input" id="fillcolor-label" style="background-color:lightgray"></label>
-    <input type="checkbox" id="fillcolor-input"></input>
-    <div id="color-picker">
-      <canvas id="color-block" height="150" width="150"></canvas>
-      <canvas id="color-strip" height="150" width="30"></canvas>
-    </div>
-  </div>
-  <div>
-    <canvas id="canvas-real" width="1750" height="900"></canvas>
-    <canvas id="canvas-draft" width="1750" height="900"></canvas>
+
+<label for="color-input" id="color-label" style="background-color:black"></label>
+<input type="checkbox" id="color-input" ></input>
+<label for="fillcolor-input" id="fillcolor-label" style="background-color:lightgray"></label>
+<input type="checkbox" id="fillcolor-input"></input>
+<div id="color-picker">
+  <canvas id="color-block" height="150" width="150"></canvas>
+  <canvas id="color-strip" height="150" width="30"></canvas>
+</div>
+  <div id="canvas">
+    <canvas id="canvas-real" width="1950" height="950"></canvas>
+    <canvas id="canvas-draft" width="1950" height="950"></canvas>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -83,12 +100,12 @@
   <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
 
   <script type='text/javascript' src="/asset/js/canvas-common.js"></script>
+  <script type='text/javascript' src="/asset/js/paint-bucket.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-pen.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-rectangle.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-circle.js"></script>
   <script type='text/javascript' src="./asset/js/drawing-polygon.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-text.js"></script>
-  <script type='text/javascript' src="/asset/js/paint-bucket.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-eraser.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-line.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-polyline.js"></script>
@@ -98,6 +115,7 @@
   <script type='text/javascript' src="/asset/js/clear.js"></script>
   <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
   <script type='text/javascript' src="/asset/js/save.js"></script>
+  <script type='text/javascript' src="/asset/js/filter-brightness.js"></script>
 
 </body>
 
