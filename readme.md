@@ -16,7 +16,7 @@
 |       | Tools 5: Eye-dropper              |    A     |                |             |
 |       | Tools 6: JoinLine                 |    K     |                |             |
 |       | Tools 7: Undo/redo                |    S     |                |             |
-|       | Tools 8: Save As                  |    A     |                |             |
+|   X   | Tools 8: Save As                  |    A     |                |             |
 |       | Tools 9: Share                    |    K     |                |             |
 |   x   | Tools 10: Fill/Stroke             |    S     |                |             |
 |       | Tools 11: Line Width              |    A     |                |             |
