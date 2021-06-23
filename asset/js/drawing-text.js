@@ -56,7 +56,7 @@ function inputText(e) {
 
     //function to draw text
     function drawText(text, x, y) {
-        const font = `20px sans-serif`;
+        const font = `${lineWidth}px ${textfont}`;
 
         contextReal.textBaseline = 'top';
         contextReal.textAlign = 'left';

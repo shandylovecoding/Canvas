@@ -14,14 +14,15 @@ class DrawingCircle extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
+
         if (clicks == 0) {
             console.log("working");
             this.contextReal.strokeStyle = `${colorStroke}`;
             this.contextReal.fillStyle = `${colorFill}`;
-            this.contextReal.lineWidth = 5;
+            this.contextReal.lineWidth = lineWidth;
             this.contextDraft.strokeStyle = `${colorStroke}`;
             this.contextDraft.fillStyle = `${colorFill}`;
-            this.contextDraft.lineWidth = 5;
+            this.contextDraft.lineWidth = lineWidth;
             this.origX = mouseX;
             this.origY = mouseY;
             clicks = 1;

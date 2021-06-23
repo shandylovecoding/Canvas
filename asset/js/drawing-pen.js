@@ -5,6 +5,7 @@ class Pen extends PaintFunction{
     }
     
     onMouseDown([mouseX,mouseY],e){
+
         this.context.strokeStyle = `${colorStroke}`;
         this.context.fillStyle = `${colorFill}`;
         this.context.lineWidth = 5;
@@ -17,9 +18,7 @@ class Pen extends PaintFunction{
     }
 
     onMouseMove(){}
-    onMouseUp(){
-        getsnapshot();
-    }
+    onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
 
