@@ -18,7 +18,7 @@
 |   X   | Tools 9: Save As                  |    A     |                |             |
 |       | Tools 10: Share                   |    K     |                |             |
 |   X   | Tools 11: Fill/Stroke             |    S     |                |             |
-|       | Tools 12: Line Width              |    A     |                |             |
+|   X   | Tools 12: Line Width              |    A     |                |             |
 |       | Tools 13: FloodFill               |    S     |                |             |
 
 ## Minor Fixes :wrench:

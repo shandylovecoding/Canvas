@@ -54,7 +54,12 @@
   <button type="button" id="saveButton" class="btn border-0">
     Save
   </button>
-  <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="10" max="300">
+  <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="3" max="300">
+  <select id="textFont" name="textFont" onchange="fontSelect()" style="font-family: Verdana">
+  <option value="Arial">Arial</option>
+  <option value="Courier New">Courier New </option>
+  <option value="Verdana"> Verdana </option>
+  </select>
    <button type="button" id="eyedropper" class="btn btn-outline-dark waves-effect border-0">
     Eyedropper
   </button>
@@ -99,7 +104,7 @@
   <script type='text/javascript' src="./asset/js/clear.js"></script>
   <script type='text/javascript' src="./asset/js/undo-redo.js"></script>
   <script type='text/javascript' src="./asset/js/save.js"></script>
-
+  <script type='text/javascript' src="./asset/js/size.js"></script>
 </body>
 
 </html>
