@@ -53,7 +53,7 @@
     opacity: 0;
     padding: 5px;
   }
-  canvas:hover {
+  #color-picker:hover {
     cursor: crosshair;
   }
   

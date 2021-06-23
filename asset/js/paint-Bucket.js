@@ -12,7 +12,7 @@ var colorLabel = document.getElementById('color-label');
 var fillcolorLabel = document.getElementById('fillcolor-label');
 var colorcolor;
 var fillcolor
-var colorStoke
+var colorStroke
 var colorFill
 var x = 0;
 var y = 0;
@@ -88,8 +88,6 @@ function changeColor(e,label) {
       fillcolorLabel.style.backgroundColor = colorStroke
       console.log(colorStroke);
     }
-    
- 
 
 }
 

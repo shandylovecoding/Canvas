@@ -6,20 +6,18 @@
 | ----- | --------------------------------- | :------: | :------------: | :---------: |
 
 |   X   | Functionality 1: Circle           |    S     |                |             |
-|       | Functionality 2: Polygons         |    A     |                |             |
-
+|   X   | Functionality 2: Polygons         |    A     |                |             |
 |   X   | Functionality 3: Text             |    K     |                |             |
 |   X   | Tools 1: Line (Straight, Curve)   |    K     |                |             |
 |   X   | Tools 2: Pen                      |    A     |                |             |
 |   X   | Tools 3: Eraser                   |    K     |                |             |
-|       | Tools 4:                          |    S     |                |             |
-|       | Tools 5: Eye-dropper              |    A     |                |             |
-|       | Tools 6: JoinLine                 |    K     |                |             |
-|       | Tools 7: Undo/redo                |    S     |                |             |
-|       | Tools 8: Save As                  |    A     |                |             |
-|       | Tools 9: Share                    |    K     |                |             |
-|   x   | Tools 10: Fill/Stroke             |    S     |                |             |
-|       | Tools 11: Line Width              |    A     |                |             |
+|   X   | Tools 4: Eye-dropper              |    S     |                |             |
+|       | Tools 5: JoinLine                 |    K     |                |             |
+|   X   | Tools 6: Undo/redo                |    K     |                |             |
+|       | Tools 7: Save As                  |    A     |                |             |
+|       | Tools 8: Share                    |    K     |                |             |
+|   x   | Tools 9: Fill/Stroke              |    S     |                |             |
+|       | Tools 10: Line Width              |    A     |                |             |
 
 
 ## Useful Links:
