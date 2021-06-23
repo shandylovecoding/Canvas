@@ -20,12 +20,17 @@
 |   X   | Tools 11: Fill/Stroke             |    S     |                |             |
 |   X   | Tools 12: Line Width              |    A     |                |             |
 |       | Tools 13: FloodFill               |    S     |                |             |
+|       | Tools 14: Filters (Noise etc.)    |    K     |                |             |
+|       | Tools 15: Fonts and Sizes         |    K     |                |             |
 
 ## Minor Fixes :wrench:
 
-| Done? | Itemn nn                          |
+| Done? | Item                              |
 | ----- | --------------------------------- |
 |       | Rectangle drawing layer           |
+|       | Polygon drawing preview           |
+|       | Esc functions                     |
+|       | Check colour/line width           |
 
 
 ## Useful Links:
@@ -57,4 +62,25 @@ Canvas is a light web-based sketchpad to make quick sketches and collages that c
 - File Management:
     - Save As
     - Share
+
+| Short | Function                          | Instructions                              |
+| ----- | --------------------------------- | :---------------------------------------: |
+|   X   | Circles                           |    S                                      |
+|   X   | Functionality 2: Polygons         |    A                                      |
+|   X   | Functionality 3: Text             |    K                                      |
+|   X   | Tools 1: Line (Straight, Curve)   |    K                                      |
+|   X   | Tools 2: Polyline                 |    K                                      |
+|   X   | Tools 3: Pen                      |    K                                      |
+|   X   | Tools 4: Eraser                   |    K                                      |
+|       | Tools 5: Lasso                    |    S                                      |
+|   X   | Tools 6: Eye-dropper              |    A                                      |
+|   X   | Tools 7: Undo/redo                |    K                                      |
+|   X   | Tools 8: Clear                    |    K                                      |
+|   X   | Tools 9: Save As                  |    A                                      |
+|       | Tools 10: Share                   |    K                                      |
+|   X   | Tools 11: Fill/Stroke             |    S                                      |
+|   X   | Tools 12: Line Width              |    A                                      |
+|       | Tools 13: FloodFill               |    S                                      |
+|       | Tools 14: Filters (Noise etc.)    |    K                                      |
+|       | Tools 15: Fonts and Sizes         |    K                                      |
 
