@@ -5,22 +5,27 @@
 | Done? | Function                          | PIC      | Estimated Time | Actual Time |
 | ----- | --------------------------------- | :------: | :------------: | :---------: |
 |   X   | Functionality 1: Circle           |    S     |                |             |
-|       | Functionality 2: Polygons         |    A     |                |             |
+|   X   | Functionality 2: Polygons         |    A     |                |             |
 |   X   | Functionality 3: Text             |    K     |                |             |
 |   X   | Tools 1: Line (Straight, Curve)   |    K     |                |             |
 |   X   | Tools 2: Polyline                 |    K     |                |             |
 |   X   | Tools 3: Pen                      |    K     |                |             |
 |   X   | Tools 4: Eraser                   |    K     |                |             |
 |       | Tools 5: Lasso                    |    S     |                |             |
-|       | Tools 6: Eye-dropper              |    A     |                |             |
+|   X   | Tools 6: Eye-dropper              |    A     |                |             |
 |   X   | Tools 7: Undo/redo                |    K     |                |             |
-|       | Tools 8: Clear                    |    K     |                |             |
+|   X   | Tools 8: Clear                    |    K     |                |             |
 |   X   | Tools 9: Save As                  |    A     |                |             |
 |       | Tools 10: Share                   |    K     |                |             |
 |   X   | Tools 11: Fill/Stroke             |    S     |                |             |
 |       | Tools 12: Line Width              |    A     |                |             |
+|       | Tools 13: FloodFill               |    S     |                |             |
 
+## Minor Fixes :wrench:
 
+| Done? | Itemn nn                          |
+| ----- | --------------------------------- |
+|       | Rectangle drawing layer           |
 
 
 ## Useful Links:

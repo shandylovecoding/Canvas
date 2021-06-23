@@ -54,19 +54,23 @@
   <button type="button" id="saveButton" class="btn border-0">
     Save
   </button>
-  <span>
-    <label for="color-input" id="color-label" style="background-color: red"></label>
-    <input type="checkbox" id="color-input" checked></input>
+   <button type="button" id="eyedropper" class="btn btn-outline-dark waves-effect border-0">
+    Eyedropper
+  </button>
+  <div class="container">
+    <label for="color-input" id="color-label" style="background-color:black"></label>
+    <input type="checkbox" id="color-input" ></input>
+    <label for="fillcolor-input" id="fillcolor-label" style="background-color:lightgray"></label>
+    <input type="checkbox" id="fillcolor-input"></input>
     <div id="color-picker">
       <canvas id="color-block" height="150" width="150"></canvas>
       <canvas id="color-strip" height="150" width="30"></canvas>
     </div>
-  </span>
+  </div>
   <div>
     <canvas id="canvas-real" width="1750" height="900"></canvas>
     <canvas id="canvas-draft" width="1750" height="900"></canvas>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -84,12 +88,13 @@
   <script type='text/javascript' src="/asset/js/drawing-circle.js"></script>
   <script type='text/javascript' src="./asset/js/drawing-polygon.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-text.js"></script>
-  <script type='text/javascript' src="/asset/js/paint-Bucket.js"></script>
+  <script type='text/javascript' src="/asset/js/paint-bucket.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-eraser.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-line.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-polyline.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-bezier-curve.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-quadratic-curve.js"></script>
+  <script type='text/javascript' src="/asset/js/eyedropper.js"></script>
   <script type='text/javascript' src="/asset/js/clear.js"></script>
   <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
   <script type='text/javascript' src="/asset/js/save.js"></script>

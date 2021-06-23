@@ -36,7 +36,6 @@ $('#canvas-real').mouseup(function(e){
 
 $('#canvas-real').mouseleave(function(e){
     dragging = false;
-    console.log("Mouse Leave: when user's cursor leaves the element");
     captureMouseEvent(e)
     currentFunction.onMouseLeave([mouseX,mouseY],e);
 });

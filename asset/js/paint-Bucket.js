@@ -9,7 +9,11 @@ var width2 = colorStrip.width;
 var height2 = colorStrip.height;
 
 var colorLabel = document.getElementById('color-label');
-
+var fillcolorLabel = document.getElementById('fillcolor-label');
+var colorcolor;
+var fillcolor
+var colorStroke
+var colorFill
 var x = 0;
 var y = 0;
 var drag = false;
@@ -55,6 +59,7 @@ function fillGradient() {
   ctx1.fillStyle = grdBlack;
   ctx1.fillRect(0, 0, width1, height1);
 }
+
 function mousedown(e) {
     drag = true;
     changeColor(e);
@@ -67,18 +72,34 @@ function mousedown(e) {
   function mouseup(e) {
     drag = false;
   }
-function changeColor(e) {
+function changeColor(e,label) {
     x = e.offsetX;
     y = e.offsetY;
     var imageData = ctx1.getImageData(x, y, 1, 1).data;
-    rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
-    colorLabel.style.backgroundColor = rgbaColor;
-    color = `${rgbaColor}`
+  
+    if (colorcolor) {
+      rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
+      colorFill = `${rgbaColor}`
+      colorLabel.style.backgroundColor = colorFill
+      console.log(colorFill);
+    } else if (fillcolor) {
+      rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
+      colorStroke = `${rgbaColor}`
+      fillcolorLabel.style.backgroundColor = colorStroke
+      console.log(colorStroke);
+    }
+
 }
 
 $("#color-label").click(function () {
     console.log("paintBucket clicked");
-    currentFunction = new paintBucket(contextReal, contextDraft);
+    colorcolor = true;
+    fillcolor = false;
+});
+$("#fillcolor-label").click(function () {
+  console.log("paintBucket clicked");
+  colorcolor = false;
+  fillcolor = true;
 });
 
 

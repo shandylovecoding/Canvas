@@ -6,10 +6,10 @@ class DrawingRectangle extends PaintFunction {
     }
     onMouseDown([mouseX, mouseY], e) {
         if (clicks == 0) {
-            this.contextReal.fillStyle = `${color}`;
-            this.contextDraft.fillStyle = `${color}`;
-            this.contextReal.strokeStyle = "#f44";
-            this.contextDraft.strokeStyle = "#f44";
+            this.contextReal.fillStyle = `${colorFill}`;
+            this.contextDraft.fillStyle = `${colorFill}`;
+            this.contextReal.strokeStyle = `${colorStroke}`;
+            this.contextDraft.strokeStyle = `${colorStroke}`;
             this.origX = mouseX;
             this.origY = mouseY;
             clicks = 1;
@@ -24,18 +24,17 @@ class DrawingRectangle extends PaintFunction {
     onDragging() {}
 
     onMouseMove([mouseX, mouseY], e) {
-        if (clicks == 1) {
-            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+        if (clicks == 1){
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
         }
-    }
-
+    } 
     onMouseUp() {}
     onMouseLeave() {}
     onMouseEnter() {}
 }
 
-$("#rectButton").click(function () {
+$("#rectButton").click(function() {
     console.log("Rectangle Button clicked");
     currentFunction = new DrawingRectangle(contextReal, contextDraft);
 });

@@ -8,8 +8,8 @@ class DrawingQuadraticLine extends PaintFunction {
     onMouseDown([mouseX, mouseY], e) {
         console.log("working")
         if (clicks == 0) {
-            this.contextDraft.strokeStyle = "#002fa7";
-            this.contextReal.strokeStyle = "#002fa7";
+            this.contextDraft.strokeStyle = `${colorStoke}`;
+            this.contextReal.strokeStyle = `${colorStoke}`;
             this.contextDraft.lineWidth = 5;
             this.contextReal.lineWidth = 5;
             this.origX = mouseX;

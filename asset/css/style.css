@@ -1,4 +1,13 @@
+
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+}
+
+
 #canvas-real {
+
     position: absolute;
     top: 25px;
     bottom: 0px;
@@ -11,31 +20,47 @@
     z-index: 9999999;
 }
 
-#color-input {
-    display: none;
-  }
+  #color-input {
+      display: none;
+    }
+  #fillcolor-input {
+      display: none;
+    }  
   #color-label {
+
     margin-left: 15px;
     position: absolute;
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+  } 
+  #fillcolor-label {
+    margin-left:-1px;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    z-index: 99;
   } 
   #color-input:checked ~ #color-picker {
+    opacity: 1;
+  }
+  #fillcolor-input:checked ~ #color-picker {
     opacity: 1;
   }
   #color-picker {
     position: absolute;
     left: 70px; 
     background-color: white;
-    height: 150px;
-    width: 185px;
+    height: 185px;
+    width: 205px;
     border: solid 1px #ccc;
     opacity: 0;
     padding: 5px;
   }
-  canvas:hover {
+  #color-picker:hover {
     cursor: crosshair;
   }
+  
 
 html {
     font-family:Arial, Helvetica, sans-serif;
