@@ -12,8 +12,8 @@ var colorLabel = document.getElementById('color-label');
 var fillcolorLabel = document.getElementById('fillcolor-label');
 var colorcolor;
 var fillcolor
-var colorStroke
-var colorFill
+var colorStroke = 'rgba(0,0,0,1)'
+var colorFill = 'rgba(211,211,211,1)'
 var x = 0;
 var y = 0;
 var drag = false;
@@ -66,7 +66,7 @@ function mousedown(e) {
   }
   function mousemove(e) {
     if (drag) {
-      changeColor(e);
+    changeColor(e);
     }
   }
   function mouseup(e) {

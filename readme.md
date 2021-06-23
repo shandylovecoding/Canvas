@@ -16,8 +16,9 @@
 |   X   | Tools 6: Undo/redo                |    K     |                |             |
 |       | Tools 7: Save As                  |    A     |                |             |
 |       | Tools 8: Share                    |    K     |                |             |
-|   x   | Tools 9: Fill/Stroke              |    S     |                |             |
+|   x   | Tools 9: ColorPlate               |    S     |                |             |
 |       | Tools 10: Line Width              |    A     |                |             |
+|       | Tools 11: ColorBucket             |    S     |                |             |
 
 
 ## Useful Links:
