@@ -6,6 +6,7 @@ class DrawingQuadraticLine extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
+        console.log("working")
         if (clicks == 0) {
             this.contextDraft.strokeStyle = `${colorStoke}`;
             this.contextReal.strokeStyle = `${colorStoke}`;
@@ -25,6 +26,7 @@ class DrawingQuadraticLine extends PaintFunction {
             this.contextReal.quadraticCurveTo(mouseX, mouseY, this.endX, this.endY);
             this.contextReal.stroke();
             clicks = 0;
+            getsnapshot();
         }
     }
 

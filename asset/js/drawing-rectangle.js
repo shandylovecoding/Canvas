@@ -17,6 +17,7 @@ class DrawingRectangle extends PaintFunction {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
             clicks = 0;
+            getsnapshot();
         }
     }
 
@@ -27,8 +28,7 @@ class DrawingRectangle extends PaintFunction {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
         }
-    }
-  
+    } 
     onMouseUp() {}
     onMouseLeave() {}
     onMouseEnter() {}
