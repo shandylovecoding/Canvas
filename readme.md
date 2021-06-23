@@ -13,18 +13,14 @@
 |   X   | Tools 4: Eraser                   |    K     |                |             |
 |       | Tools 5: Lasso                    |    S     |                |             |
 |       | Tools 6: Eye-dropper              |    A     |                |             |
-|       | Tools 7: Undo/redo                |    K     |                |             |
+|   X   | Tools 7: Undo/redo                |    K     |                |             |
 |       | Tools 8: Clear                    |    K     |                |             |
-|       | Tools 9: Save As                  |    A     |                |             |
+|   X   | Tools 9: Save As                  |    A     |                |             |
 |       | Tools 10: Share                   |    K     |                |             |
-|   x   | Tools 11: Fill/Stroke             |    S     |                |             |
+|   X   | Tools 11: Fill/Stroke             |    S     |                |             |
 |       | Tools 12: Line Width              |    A     |                |             |
 
-## Minor Fixes :wrench:
 
-| Done? | Item                              | PIC      |
-| ----- | --------------------------------- | :------: |
-|       |                                   |          |
 
 
 ## Useful Links:

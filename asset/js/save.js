@@ -1,7 +1,10 @@
-$("#saveButton").click(function () {  
+
+$("#saveButton").click(function () {
+    var canvas = document.getElementById('canvas-real');
     var link = document.createElement('a');
-    link.download = 'Canvas.png';
-    link.href = canvasReal.toDataURL()
+    link.download = 'download.png';
+    link.href = canvas.toDataURL();
     link.click();
     link.delete;
-});
+  });
+
