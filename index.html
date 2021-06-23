@@ -48,8 +48,8 @@
   <button type="button" id="eyedropper" class="btn border-0">
     Eyedropper
   </button>
-  <button type="button" id="fillButton" class="btn border-0 disabled">
-    Fill
+  <button type="button" id="fillflood" class="btn border-0">
+    FillFlood
   </button>
   <button type="button" id="brightnessButton" class="btn border-0">
     Brightness
@@ -75,14 +75,12 @@
   <button type="button" id="shareButton" class="btn border-0 disabled">
     Share
   </button>
-
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="3" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()" style="font-family: Verdana">
   <option value="Arial">Arial</option>
   <option value="Courier New">Courier New </option>
   <option value="Verdana"> Verdana </option>
   </select>
-
 <label for="color-input" id="color-label" style="background-color:black"></label>
 <input type="checkbox" id="color-input" ></input>
 <label for="fillcolor-input" id="fillcolor-label" style="background-color:lightgray"></label>
@@ -95,7 +93,6 @@
    <canvas id="canvas-real" width="1950" height="950"></canvas>
    <canvas id="canvas-draft" width="1950" height="950"></canvas>
 </div>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -124,8 +121,10 @@
   <script type='text/javascript' src="/asset/js/clear.js"></script>
   <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
   <script type='text/javascript' src="/asset/js/save.js"></script>
+  <script type='text/javascript' src="/asset/js/fillflood.js"></script>
   <script type='text/javascript' src="/asset/js/filter-brightness.js"></script>
   <script type='text/javascript' src="./asset/js/size.js"></script>
+
 
 </body>
 

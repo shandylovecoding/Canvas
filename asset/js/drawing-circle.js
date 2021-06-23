@@ -14,7 +14,6 @@ class DrawingCircle extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
-
         if (clicks == 0) {
             console.log("working");
             this.contextReal.strokeStyle = `${colorStroke}`;
