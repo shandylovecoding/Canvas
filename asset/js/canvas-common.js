@@ -6,6 +6,12 @@ let currentFunction;
 let dragging = false;
 let clicks = 0;
 let color ="black"
+let lineWidth;
+function getWidth(event){
+    lineWidth = document.getElementById('lineWidth').value;
+    console.log(lineWidth);
+  }
+
 
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;

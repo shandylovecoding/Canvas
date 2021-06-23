@@ -1,4 +1,4 @@
-var side = 5;
+var side = 6;
 var a = ((Math.PI * 2 / side));
 var radius;
 
@@ -13,6 +13,13 @@ class DrawingIrpoly extends PaintFunction {
     if (clicks == 0) {
       this.contextDraft.lineStyle = "#000000";
       this.contextReal.lineStyle = "#000000";
+      this.contextDraft.beginPath();
+      this.contextReal.strokeStyle = `${colorStroke}`;
+        this.contextReal.fillStyle = `${colorFill}`;
+        this.contextReal.lineWidth = lineWidth;
+        this.contextDraft.strokeStyle = `${colorStroke}`;
+        this.contextDraft.fillStyle = `${colorFill}`;
+        this.contextDraft.lineWidth = lineWidth;
       this.origX = mouseX;
       this.origY = mouseY;
       clicks = 1;
@@ -27,6 +34,7 @@ class DrawingIrpoly extends PaintFunction {
         this.contextReal.stroke();
       }
       clicks = 0;
+      getsnapshot();
     }
 
   }
