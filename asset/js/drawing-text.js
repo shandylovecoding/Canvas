@@ -18,7 +18,7 @@ class DrawingText extends PaintFunction {
 };
 
 function inputText(e) {
-    addInput(e.clientX,e.clientY)
+    addInput(e.clientX,e.clientY);
     //function to show input box
     function addInput(x, y) {
 

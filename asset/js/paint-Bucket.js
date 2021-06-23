@@ -19,6 +19,7 @@ var y = 0;
 var drag = false;
 var rgbaColor = 'rgba(255,0,0,1)';
 
+
 ctx1.rect(0, 0, width1, height1);
 fillGradient();
 
@@ -76,12 +77,16 @@ function changeColor(e,label) {
     x = e.offsetX;
     y = e.offsetY;
     var imageData = ctx1.getImageData(x, y, 1, 1).data;
-  
+    R = imageData[0]
+    G = imageData[1]
+    B = imageData[2]
+    console.log('R',R);
+    console.log("G",G);
+
     if (colorcolor) {
       rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
       colorFill = `${rgbaColor}`
       colorLabel.style.backgroundColor = colorFill
-      console.log(colorFill);
     } else if (fillcolor) {
       rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
       colorStroke = `${rgbaColor}`

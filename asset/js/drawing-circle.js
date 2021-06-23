@@ -34,10 +34,11 @@ class DrawingCircle extends PaintFunction {
         this.contextDraft.bezierCurveTo(mouseX, mouseY, this.origX, mouseY, this.origX, this.origY + (mouseY - this.origY) / 2);
         this.contextDraft.closePath()
         this.contextDraft.stroke()
+        
     }
     onMouseMove() { }
     onMouseUp([mouseX, mouseY], e) {
-        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        // this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextReal.beginPath();
         this.contextReal.moveTo(this.origX, this.origY + (mouseY - this.origY) / 2);
         this.contextReal.bezierCurveTo(this.origX, this.origY, mouseX, this.origY, mouseX, this.origY + (mouseY - this.origY) / 2);
