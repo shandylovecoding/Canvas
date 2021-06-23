@@ -6,6 +6,8 @@ let currentFunction;
 let dragging = false;
 let clicks = 0;
 let color ="black"
+let lineWidth;
+let textfont;
 
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;

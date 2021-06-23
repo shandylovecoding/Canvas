@@ -1,72 +1,70 @@
-
-#canvas-real {
-
-    position: absolute;
-    top: 25px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    border:solid 1px black;
-
-}
-
-#canvas-draft{
-    background-color: transparent;
-    z-index: 9999999;
-    border: black;
-
-}
-
-  #color-input {
-      display: none;
-    }
-  #fillcolor-input {
-      display: none;
-    }  
-  #color-label {
-
-    margin-left: 15px;
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    z-index: 99;
-  } 
-  #fillcolor-label {
-    margin-left:-1px;
-    position: relative;
-    height: 20px;
-    width: 7.5px;
-    z-index: 99;
-  } 
-  #color-input:checked ~ #color-picker {
-    opacity: 1;
-  }
-  #fillcolor-input:checked ~ #color-picker {
-    opacity: 1;
-  }
-  #color-picker {
-    position: absolute;
-    left: 70px; 
-    background-color: white;
-    height: 165px;
-    width: 200px;
-    border: solid 1px #ccc;
-    opacity: 0;
-    padding: 5px;
-    justify-content: center;
-    z-index: 999;
-
-  }
-  #color-picker:hover {
-    cursor: crosshair;
-  }
-  
-
 html {
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
 }
 
 label {
   margin-top: 5px;
+}
+
+#canvas-real {
+  position: absolute;
+  top: 40px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+#canvas-draft {
+  background-color: transparent;
+  margin-top: 4px;
+}
+
+
+#color-input {
+  display: none;
+}
+
+#fillcolor-input {
+  display: none;
+}
+
+#color-label {
+  margin-left: 10px;
+  position: relative;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  z-index: 9999;
+}
+
+#fillcolor-label {
+  position: relative;
+  top: 5px;
+  height: 20px;
+  width: 7.5px;
+  z-index: 99;
+}
+
+#color-input:checked~#color-picker {
+  display: flex;
+}
+
+#fillcolor-input:checked~#color-picker {
+  display: flex;
+}
+
+#color-picker {
+  position: absolute;
+  background-color: white;
+  height: 185px;
+  width: 205px;
+  border: solid 1px #ccc;
+  display: none;
+  padding: 5px;
+  z-index: 99999;
+}
+
+#color-picker:hover {
+  cursor: crosshair;
 }
