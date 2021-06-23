@@ -18,9 +18,6 @@ class DrawingIrpoly extends PaintFunction {
       clicks = 1;
     } else if (clicks == 1) {
       var radius = (this.origX - mouseX);
-      console.log(this.origX);
-      console.log(mouseX);
-      console.log(radius);
       this.contextReal.moveTo(this.origX+radius* Math.cos(0),this.origY+radius * Math.sin(0));
       for (var i = 1; i <= side; i++) {
         this.contextReal.lineTo(this.origX + radius * Math.cos(a * i), this.origY + radius * Math.sin(a * i));

@@ -5,7 +5,7 @@ class Pen extends PaintFunction{
     }
     
     onMouseDown([mouseX,mouseY],e){
-        this.context.strokeStyle = `${olorStoke}`;
+        this.context.strokeStyle = `${colorStroke}`;
         this.context.fillStyle = `${colorFill}`;
         this.context.lineWidth = 5;
         this.context.beginPath();
