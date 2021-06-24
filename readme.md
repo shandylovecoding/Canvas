@@ -21,14 +21,14 @@
 |   X   | Tools 12: Line Width              |    A     |                |             |
 |       | Tools 13: FloodFill               |    S     |                |             |
 |       | Tools 14: Filters (Noise etc.)    |    K     |                |             |
-|       | Tools 15: Fonts and Sizes         |    K     |                |             |
+|   X   | Tools 15: Fonts and Sizes         |    K     |                |             |
 
 ## Minor Fixes :wrench:
 
 | Done? | Item                              |
 | ----- | --------------------------------- |
 |       | Rectangle drawing layer           |
-|       | Polygon drawing preview           |
+|   X   | Polygon drawing preview           |
 |       | Esc functions                     |
 |       | Check colour/line width           |
 

@@ -8,7 +8,7 @@ let clicks = 0;
 let color ="black"
 let lineWidth;
 let textfont;
-
+let link;
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;
     this.mouseY = e.offsetY;
