@@ -24,6 +24,7 @@ label {
 
 input {
   border: none;
+  transform: translate(0px, 0.75px);
 }
 
 input::-webkit-inner-spin-button {
@@ -116,5 +117,13 @@ input:focus {
 }
 
 #brightness {
+  display: none;
+}
+
+#contrast {
+  display: none;
+}
+
+#saturate {
   display: none;
 }

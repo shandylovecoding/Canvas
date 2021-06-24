@@ -55,9 +55,14 @@
     Brightness
   </button>
   <input type="number" id="brightness" value="100" onChange="getBrightness()" min="0" max="500">
-  <button type="button" id="contrastButton" class="btn border-0 disabled">
+  <button type="button" id="contrastButton" class="btn border-0">
     Contrast
   </button>
+  <input type="number" id="contrast" value="100" onChange="getContrast()" min="0" max="500">
+  <button type="button" id="saturateButton" class="btn border-0">
+    Saturate
+  </button>
+  <input type="number" id="saturate" value="100" onChange="getContrast()" min="0" max="100">
   <button type="button" id="noiseButton" class="btn border-0 disabled">
     Noise
   </button>
@@ -77,7 +82,7 @@
     Share
   </button>
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="0" max="300">
-  <select id="textFont" name="textFont" onchange="fontSelect()" style="font-family: Verdana">
+  <select id="textFont" name="textFont" onchange="fontSelect()">
   <option value="Arial">Arial</option>
   <option value="Courier New">Courier New </option>
   <option value="Verdana"> Verdana </option>
@@ -125,7 +130,7 @@
   <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
   <script type='text/javascript' src="/asset/js/save.js"></script>
   <script type='text/javascript' src="/asset/js/fillflood.js"></script>
-  <script type='text/javascript' src="/asset/js/filter-brightness.js"></script>
+  <script type='text/javascript' src="/asset/js/filters.js"></script>
   <script type='text/javascript' src="./asset/js/size.js"></script>
 
 </body>
