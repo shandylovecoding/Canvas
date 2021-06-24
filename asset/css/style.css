@@ -3,10 +3,6 @@ html {
   font-size: small;
 }
 
-label {
-  margin-top: 5px;
-}
-
 h1 {
   font-size: 200px;
   opacity: 0.1;
@@ -20,6 +16,27 @@ h1 {
 body {
   opacity: 0;
   transition: 5s;
+}
+
+label {
+  margin-top: 5px;
+}
+
+input {
+  border: none;
+}
+
+input::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+input:active {
+  border: none;
+}
+
+input:focus {
+  border: none;
+  outline:none;
 }
 
 #canvas-real {
@@ -84,23 +101,6 @@ body {
   cursor: crosshair;
 }
 
-#lineWidth {
-  border: none;
-}
-
-#lineWidth::-webkit-inner-spin-button {
-  opacity: 1;
-}
-
-#lineWidth:active {
-  border: none;
-}
-
-#lineWidth:focus {
-  border: none;
-  outline:none;
-}
-
 #textFont {
   margin-left: 10px;
   border: none;
@@ -113,4 +113,8 @@ body {
 #textFont:focus {
   border: none;
   outline:none;
+}
+
+#brightness {
+  display: none;
 }

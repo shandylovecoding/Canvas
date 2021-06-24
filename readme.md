@@ -66,24 +66,27 @@ Canvas is a light web-based sketchpad to make quick sketches and collages that c
     - Save As
     - Share
 
-| Short | Function                          | Instructions                              |
-| ----- | --------------------------------- | :---------------------------------------: |
-|   X   | Circles                           |                                           |
-|   X   | Functionality 2: Polygons         |                                           |
-|   X   | Functionality 3: Text             |                                           |
-|   X   | Tools 1: Line (Straight, Curve)   |                                           |
-|   X   | Tools 2: Polyline                 |                                           |
-|   X   | Tools 3: Pen                      |                                           |
-|   X   | Tools 4: Eraser                   |                                           |
-|       | Tools 5: Lasso                    |                                           |
-|   X   | Tools 6: Eye-dropper              |                                           |
-|   X   | Tools 7: Undo/redo                |                                           |
-|   X   | Tools 8: Clear                    |                                           |
-|   X   | Tools 9: Save As                  |                                           |
-|       | Tools 10: Share                   |                                           |
-|   X   | Tools 11: Fill/Stroke             |                                           |
-|   X   | Tools 12: Line Width              |                                           |
-|       | Tools 13: FloodFill               |                                           |
-|       | Tools 14: Filters (Noise etc.)    |                                           |
-|       | Tools 15: Fonts and Sizes         |                                           |
+| Short | Functions                         | Instructions                                                                                                                   |
+| ----- | --------------------------------- | :-----------------------------------------------------------------------------------------------:                              |
+|       | Rectangle                         | Click for first corner of rectangle, click again for second corner                                                             |
+|       | Circle                            | Click to start drawing circle, click again to finish drawing circle                                                            |
+|       | Polygon                           | Click to start drawing polygon, click again to finish drawing polygon                                                          |
+|       | Line                              | Click to start drawing line, click again to finish drawing line                                                                |
+|       | Polyline                          | Click to start drawing line, click again to add additional points, esc to end function                                         |
+|       | Quadratic                         | Click for starting point of curve, click again for end point, click again for control point                                    |
+|       | Bezier                            | Click for starting point of curve, click again for end point, click again for control point 1, click again for control point 2 |
+|       | Text                              |                                                                                                                                |
+|       | Pen                               |                                                                                                                                |
+|       | Eraser                            |                                                                                                                                |
+|       | Marquee                           |                                                                                                                                |
+|       | Eyedropper                        |                                                                                                                                |
+|       | FillFlood                         |                                                                                                                                |
+|       | Brightness                        |                                                                                                                                |
+|       | Contrast                          |                                                                                                                                |
+|       | Noise                             |                                                                                                                                |
+|       | Undo                              |                                                                                                                                |
+|       | Redo                              |                                                                                                                                |
+|       | Clear                             |                                                                                                                                |
+|       | Save                              |                                                                                                                                |
+|       | Share                             |                                                                                                                                |
 

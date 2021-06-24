@@ -54,6 +54,7 @@
   <button type="button" id="brightnessButton" class="btn border-0">
     Brightness
   </button>
+  <input type="number" id="brightness" value="100" onChange="getBrightness()" min="0" max="500">
   <button type="button" id="contrastButton" class="btn border-0 disabled">
     Contrast
   </button>
@@ -75,7 +76,7 @@
   <button type="button" id="shareButton" class="btn border-0 disabled">
     Share
   </button>
-  <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="3" max="300">
+  <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="0" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()" style="font-family: Verdana">
   <option value="Arial">Arial</option>
   <option value="Courier New">Courier New </option>
