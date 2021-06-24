@@ -1,6 +1,6 @@
 // brightness filter
 let brightbtn = 0
-$("#brightnessButton").click(function () {
+$("#brightnessButton").click(function brightness() {
     if (brightbtn == 0) {
         $("#brightness").css("display", "inline");
         brightbtn = 1;
@@ -17,7 +17,7 @@ function getBrightness(event) {
 
 // contrast filter
 let contrastbtn = 0
-$("#contrastButton").click(function () {
+$("#contrastButton").click(function contrast() {
     if (contrastbtn == 0) {
         $("#contrast").css("display", "inline");
         contrastbtn = 1;
@@ -34,7 +34,7 @@ function getContrast(event) {
 
 // saturation filter
 let saturatebtn = 0
-$("#saturateButton").click(function () {
+$("#saturateButton").click(function saturate() {
     if (saturatebtn == 0) {
         $("#saturate").css("display", "inline");
         saturatebtn = 1;

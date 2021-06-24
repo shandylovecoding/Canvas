@@ -19,8 +19,8 @@
 |       | Tools 10: Share                   |    K     |                |             |
 |   X   | Tools 11: Fill/Stroke             |    S     |                |             |
 |   X   | Tools 12: Line Width              |    A     |                |             |
-|       | Tools 13: FloodFill               |    S     |                |             |
-|       | Tools 14: Filters (Noise etc.)    |    K     |                |             |
+|   X   | Tools 13: FloodFill               |    S     |                |             |
+|   X   | Tools 14: Filters (Noise etc.)    |    K     |                |             |
 |   X   | Tools 15: Fonts and Sizes         |    A     |                |             |
 
 ## Minor Fixes :wrench:
@@ -32,7 +32,6 @@
 |       | Esc functions                     |
 |       | Check colour/line width           |
 |       | Text does not undo                |
-|       | Filters cannot switch off         |
 |       | Color palette auto off            |
 
 
@@ -66,27 +65,28 @@ Canvas is a light web-based sketchpad to make quick sketches and collages that c
     - Save As
     - Share
 
-| Short | Functions                         | Instructions                                                                                                                   |
-| ----- | --------------------------------- | :-----------------------------------------------------------------------------------------------:                              |
-|       | Rectangle                         | Click for first corner of rectangle, click again for second corner                                                             |
-|       | Circle                            | Click to start drawing circle, click again to finish drawing circle                                                            |
-|       | Polygon                           | Click to start drawing polygon, click again to finish drawing polygon                                                          |
-|       | Line                              | Click to start drawing line, click again to finish drawing line                                                                |
-|       | Polyline                          | Click to start drawing line, click again to add additional points, esc to end function                                         |
-|       | Quadratic                         | Click for starting point of curve, click again for end point, click again for control point                                    |
-|       | Bezier                            | Click for starting point of curve, click again for end point, click again for control point 1, click again for control point 2 |
-|       | Text                              |                                                                                                                                |
-|       | Pen                               |                                                                                                                                |
-|       | Eraser                            |                                                                                                                                |
-|       | Marquee                           |                                                                                                                                |
-|       | Eyedropper                        |                                                                                                                                |
-|       | FillFlood                         |                                                                                                                                |
-|       | Brightness                        |                                                                                                                                |
-|       | Contrast                          |                                                                                                                                |
-|       | Noise                             |                                                                                                                                |
-|       | Undo                              |                                                                                                                                |
-|       | Redo                              |                                                                                                                                |
-|       | Clear                             |                                                                                                                                |
-|       | Save                              |                                                                                                                                |
+| Shortcut | Functions                         | Instructions |
+| ----- | --------------------------------- | :-----------------------------------------------------------------------------------------------: |
+| R | Rectangle | Select line width, fill colour and stroke colour; Click on canvas to start drawing rectangle; Click again to finish drawing rectangle |
+| C | Circle | Select line width, fill colour and stroke colour; Click on canvas to start drawing circle; Click again to finish drawing circle |
+|    Shift + P   | Polygon                           | Select line width, fill colour and stroke colour; Click on canvas to start drawing polygon; Click again to finish drawing polgon |
+|   \   | Line                              | Select line width and stroke colour; Click on canvas to start drawing line; Click again to finish drawing line |
+|   Shift + \   | Polyline                          | Select line width and stroke colour; Click on canvas to start drawing line; Click again to for additional points; Esc to end function |
+|    Q   | Quadratic                         | Select line width and stroke colour; Click on canvas for curve start point; Click again for curve end point; Click again to add control point and end function |
+|    B   | Bezier                            | Select line width and stroke colour; Click on canvas for curve start point; Click again for curve end point; Click again to add control point 1; Click again to add control point 2 and end function |
+|    T   | Text                              | Select font and font-size; Click on canvas for input point; Type input and press enter to end function |
+|    P   | Pen                               | Hold mouse down on canvas to start drawing |
+|    E   | Eraser                            | Hold mouse down on canvas to start erasing |
+|    M  | Marquee                           |                                                                                                                                |
+|    I   | Eyedropper                        | Click on canvas area to get colour |
+|    K   | FillFlood                         | Select fill colour; Click on canvas area to fill |
+|    Shift + B   | Brightness                        | Input number between 0 and 500 to adjust brightness (100 leaves canvas unchanged) |
+|   Shift + C    | Contrast                          | Input number between 0 and 500 to adjust contrast (100 leaves canvas unchanged) |
+|    Shift + S   | Saturate                          | Input number between 0 and 500 to adjust saturation (100 leaves canvas unchanged) |
+|    Shift + N   | Noise                             |                                                                                                                                |
+|   Crtl + Z    | Undo                              | Undo last move |
+|    Ctrl + Shift + Z   | Redo                              | Redo last undo |
+|   Ctrl + Backspace    | Clear                             | Clears entire canvas |
+|   Ctrl + Shift + S    | Save                              | Downloads png of canvas |
 |       | Share                             |                                                                                                                                |
 
