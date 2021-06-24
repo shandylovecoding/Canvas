@@ -7,6 +7,21 @@ label {
   margin-top: 5px;
 }
 
+h1 {
+  font-size: 200px;
+  opacity: 0.1;
+  margin-left: 5vh;
+  text-align: center;
+  margin-top: 35vh;
+  position:absolute;
+  transition:opacity 1s;
+}
+
+body {
+  opacity: 0;
+  transition: 5s;
+}
+
 #canvas-real {
   position: absolute;
   top: 40px;
@@ -67,4 +82,35 @@ label {
 
 #color-picker:hover {
   cursor: crosshair;
+}
+
+#lineWidth {
+  border: none;
+}
+
+#lineWidth::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+#lineWidth:active {
+  border: none;
+}
+
+#lineWidth:focus {
+  border: none;
+  outline:none;
+}
+
+#textFont {
+  margin-left: 10px;
+  border: none;
+}
+
+#textFont:active {
+  border: none;
+}
+
+#textFont:focus {
+  border: none;
+  outline:none;
 }

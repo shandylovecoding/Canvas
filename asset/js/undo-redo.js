@@ -40,7 +40,6 @@ $(document).click(function () {
     if (redo_array.length <= 0) {
         $("#redoButton").addClass("disabled")
     } else {
-        console.log("working");
         $("#redoButton").removeClass("disabled")
     }
 })
@@ -49,7 +48,6 @@ $(document).click(function () {
     if (restore_array.length <= 0) {
         $("#undoButton").addClass("disabled")
     } else {
-        console.log("working");
         $("#undoButton").removeClass("disabled")
     }
 })

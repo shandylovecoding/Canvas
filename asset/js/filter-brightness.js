@@ -1,4 +1,3 @@
 $("#brightnessButton").click(function () {   
-    console.log("working");   
-    contextReal.filter = "blur(4px)";
+    contextReal.filter = 'blur(4x)';
 });

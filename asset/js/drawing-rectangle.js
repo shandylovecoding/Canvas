@@ -8,10 +8,10 @@ class DrawingRectangle extends PaintFunction {
         if (clicks == 0) {
             this.contextReal.strokeStyle = `${colorStroke}`;
             this.contextReal.fillStyle = `${colorFill}`;
-            this.contextReal.lineWidth = 10;
+            this.contextReal.lineWidth = lineWidth;
             this.contextDraft.strokeStyle = `${colorStroke}`;
             this.contextDraft.fillStyle = `${colorFill}`;
-            this.contextDraft.lineWidth = 10;
+            this.contextDraft.lineWidth = lineWidth;
             this.origX = mouseX;
             this.origY = mouseY;
             clicks = 1;

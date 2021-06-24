@@ -56,3 +56,7 @@ class PaintFunction{
     onMouseLeave(){}
     onMouseEnter(){}
 }    
+
+$(function() {
+    currentFunction = new Pen(contextReal, contextDraft);
+});

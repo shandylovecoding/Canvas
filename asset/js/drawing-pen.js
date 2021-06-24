@@ -18,7 +18,9 @@ class Pen extends PaintFunction{
     }
 
     onMouseMove(){}
-    onMouseUp(){}
+    onMouseUp(){
+        getsnapshot();
+    }
     onMouseLeave(){}
     onMouseEnter(){}
 
