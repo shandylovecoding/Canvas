@@ -14,14 +14,14 @@ function captureMouseEvent(e){
     this.mouseY = e.offsetY;
 }
 
-$('#canvas-real').mousedown(function(e){
+$('#canvas-draft').mousedown(function(e){
     captureMouseEvent(e)
     console.log("Mouse Down: when user presses mouse");
     currentFunction.onMouseDown([mouseX,mouseY],e);
     dragging = true;
 });
 
-$('#canvas-real').mousemove(function(e){
+$('#canvas-draft').mousemove(function(e){
    captureMouseEvent(e)
     if(dragging){
         console.log("Dragging");
@@ -30,19 +30,19 @@ $('#canvas-real').mousemove(function(e){
     currentFunction.onMouseMove([mouseX,mouseY],e);
 });
 
-$('#canvas-real').mouseup(function(e){
+$('#canvas-draft').mouseup(function(e){
     dragging = false;
     captureMouseEvent(e)
     currentFunction.onMouseUp([mouseX,mouseY],e);
 });
 
-$('#canvas-real').mouseleave(function(e){
+$('#canvas-draft').mouseleave(function(e){
     dragging = false;
     captureMouseEvent(e)
     currentFunction.onMouseLeave([mouseX,mouseY],e);
 });
 
-$('#canvas-real').mouseenter(function(e){
+$('#canvas-draft').mouseenter(function(e){
    captureMouseEvent(e)
     currentFunction.onMouseEnter([mouseX,mouseY],e);
 });

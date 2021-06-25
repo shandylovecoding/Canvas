@@ -49,8 +49,12 @@ input:focus {
 }
 
 #canvas-draft {
+  position: absolute;
   background-color: transparent;
-  margin-top: 1px;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 #color-input {
