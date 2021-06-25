@@ -28,7 +28,7 @@
 | Done? | Item                              |
 | ----- | --------------------------------- |
 |       | Rectangle drawing layer           |
-|       | Polygon drawing preview           |
+|   X   | Polygon drawing preview           |
 |       | Esc functions                     |
 |       | Check colour/line width           |
 
