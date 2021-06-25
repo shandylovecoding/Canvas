@@ -129,3 +129,7 @@ input:focus {
 #saturate {
   display: none;
 }
+
+#side {
+  display: none;
+}
