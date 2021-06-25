@@ -79,8 +79,7 @@ function changeColor(e,label) {
     R = imageData[0]
     G = imageData[1]
     B = imageData[2]
-    console.log('R',R);
-    console.log("G",G);
+
 
     if (colorcolor) {
       rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
