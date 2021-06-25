@@ -31,7 +31,6 @@
 | Done? | Item                              |
 | ----- | --------------------------------- |
 |       | Rectangle drawing layer           |
-|   X   | Polygon drawing preview           |
 |       | Esc functions                     |
 |       | Check colour/line width           |
 |       | Text does not undo                |
@@ -85,11 +84,10 @@ Canvas is a light web-based sketchpad to make quick sketches and collages that c
 |    K   | FillFlood                         | Select fill colour; Click on canvas area to fill |
 |    Shift + B   | Brightness                        | Input number between 0 and 500 to adjust brightness (100 leaves canvas unchanged) |
 |   Shift + C    | Contrast                          | Input number between 0 and 500 to adjust contrast (100 leaves canvas unchanged) |
-|    Shift + S   | Saturate                          | Input number between 0 and 500 to adjust saturation (100 leaves canvas unchanged) |
-|    Shift + N   | Noise                             |                                                                                                                                |
-|   Crtl + Z    | Undo                              | Undo last move |
-|    Ctrl + Shift + Z   | Redo                              | Redo last undo |
-|   Ctrl + Backspace    | Clear                             | Clears entire canvas |
-|   Ctrl + Shift + S    | Save                              | Downloads png of canvas |
+|    Shift + Q   | Saturate                          | Input number between 0 and 500 to adjust saturation (100 leaves canvas unchanged) |
+|   Shift + Z    | Undo                              | Undo last move |
+|    Shift + Y   | Redo                              | Redo last undo |
+|   Shift + Backspace    | Clear                             | Clears entire canvas |
+|   Shift + S    | Save                              | Downloads png of canvas |
 |       | Share                             |                                                                                                                                |
 

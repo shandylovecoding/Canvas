@@ -39,6 +39,7 @@ class DrawingPolyline extends PaintFunction {
                 if (keyCode === 27 || keyCode === 13) {
                     clicks = 0;
                     strokes = [];
+                    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
                 }
             })
         } if (clicks == 1) {

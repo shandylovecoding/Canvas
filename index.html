@@ -12,80 +12,95 @@
 </head>
 
 <body>
-  <button type="button" id="rectButton" class="btn border-0">
-    Rectangle
+  <button type="button" id="fileButton" class="btn border-0">
+    #File
   </button>
-  <button type="button" id="circleButton" class="btn border-0">
-    Circle
+  <span id="filefunctions">
+    <button type="button" id="saveButton" class="btn border-0">
+      Save
+    </button>
+    <button type="button" id="loadButton" class="btn border-0">
+      Load
+    </button>
+    <input type="file" name="load" id="load" class="btn border-0">
+  </span>
+  <button type="button" id="drawButton" class="btn border-0">
+    #Draw
   </button>
-  <button type="button" id="polyButton" class="btn border-0">
-    Polygon
+  <span id="drawfunctions">
+    <button type="button" id="rectButton" class="btn border-0">
+      Rectangle
+    </button>
+    <button type="button" id="circleButton" class="btn border-0">
+      Circle
+    </button>
+    <button type="button" id="polyButton" class="btn border-0">
+      Polygon
+    </button>
+    <button type="button" id="lineButton" class="btn border-0">
+      Line
+    </button>
+    <button type="button" id="polylineButton" class="btn border-0">
+      Polyline
+    </button>
+    <button type="button" id="quadraticButton" class="btn border-0">
+      Quadratic
+    </button>
+    <button type="button" id="bezierButton" class="btn border-0">
+      Bezier
+    </button>
+    <button type="button" id="textButton" class="btn border-0">
+      Text
+    </button>
+    <button type="button" id="penButton" class="btn border-0">
+      Pen
+    </button>
+  </span>
+  <button type="button" id="editButton" class="btn border-0">
+    #Edit
   </button>
-  <button type="button" id="lineButton" class="btn border-0">
-    Line
-  </button>
-  <button type="button" id="polylineButton" class="btn border-0">
-    Polyline
-  </button>
-  <button type="button" id="quadraticButton" class="btn border-0">
-    Quadratic
-  </button>
-  <button type="button" id="bezierButton" class="btn border-0">
-    Bezier
-  </button>
-  <button type="button" id="textButton" class="btn border-0">
-    Text
-  </button>
-  <button type="button" id="penButton" class="btn border-0">
-    Pen
-  </button>
-  <button type="button" id="eraserButton" class="btn border-0">
-    Eraser
-  </button>
-  <button type="button" id="marqueeButton" class="btn border-0 disabled">
-    Marquee
-  </button>
-  <button type="button" id="eyedropper" class="btn border-0">
-    Eyedropper
-  </button>
-  <button type="button" id="fillflood" class="btn border-0">
-    FillFlood
-  </button>
-  <button type="button" id="brightnessButton" class="btn border-0">
-    Brightness
-  </button>
-  <input type="number" id="brightness" value="100" onChange="getBrightness()" min="0" max="500">
-  <button type="button" id="contrastButton" class="btn border-0">
-    Contrast
-  </button>
-  <input type="number" id="contrast" value="100" onChange="getContrast()" min="0" max="500">
-  <button type="button" id="saturateButton" class="btn border-0">
-    Saturate
-  </button>
-  <input type="number" id="saturate" value="100" onChange="getContrast()" min="0" max="100">
-  <button type="button" id="noiseButton" class="btn border-0 disabled">
-    Noise
-  </button>
-  <button type="button" id="undoButton" class="btn border-0 disabled">
-    Undo
-  </button>
-  <button type="button" id="redoButton" class="btn border-0 disabled">
-    Redo
-  </button>
-  <button type="button" id="clearButton" class="btn border-0">
-    Clear
-  </button>
-  <button type="button" id="saveButton" class="btn border-0">
-    Save
-  </button>
-  <input type="file" name="load" id="load" class="btn border-0">
-    Share
-  </button>
+  <span id="editfunctions">
+    <button type="button" id="eraserButton" class="btn border-0">
+      Eraser
+    </button>
+    <button type="button" id="marqueeButton" class="btn border-0 disabled">
+      Marquee
+    </button>
+    <button type="button" id="eyedropper" class="btn border-0">
+      Eyedropper
+    </button>
+    <button type="button" id="fillflood" class="btn border-0">
+      Fillflood
+    </button>
+    <button type="button" id="brightnessButton" class="btn border-0">
+      Brightness
+    </button>
+    <input type="number" id="brightness" value="100" onChange="getBrightness()" min="0" max="500">
+    <button type="button" id="contrastButton" class="btn border-0">
+      Contrast
+    </button>
+    <input type="number" id="contrast" value="100" onChange="getContrast()" min="0" max="500">
+    <button type="button" id="saturateButton" class="btn border-0">
+      Saturate
+    </button>
+    <input type="number" id="saturate" value="100" onChange="getSaturation()" min="0" max="100">
+    <button type="button" id="undoButton" class="btn border-0 disabled">
+      Undo
+    </button>
+    <button type="button" id="redoButton" class="btn border-0 disabled">
+      Redo
+    </button>
+    <button type="button" id="clearButton" class="btn border-0">
+      Clear
+    </button>
+  </span>
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="0" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()">
     <option value="Arial">Arial</option>
     <option value="Courier New">Courier New </option>
-    <option value="Verdana"> Verdana </option>
+    <option value="Helvetic"> Helvetica </option>
+    <option value="Georgia"> Georgia </option>
+    <option value="Times New Roman"> Times New Roman </option>
   </select>
   <label for="color-input" id="color-label" style="background-color:black"></label>
   <input type="checkbox" id="color-input"></input>
@@ -95,6 +110,9 @@
     <canvas id="color-block" height="150" width="150"></canvas>
     <canvas id="color-strip" height="150" width="30"></canvas>
   </div>
+  <button type="button" id="helpButton" class="btn border-0 disabled">
+    #Help
+  </button>
   <div id="canvas">
     <h1>DRAW ANYWHERE</h1>
     <canvas id="canvas-real" width="1950" height="950"></canvas>
