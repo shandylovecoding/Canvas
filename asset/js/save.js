@@ -1,5 +1,5 @@
 
-$("#saveButton").click(function () {
+$("#saveButton").click(function save() {
     var canvas = document.getElementById('canvas-real');
     link = document.createElement('a');
     console.log(canvas);

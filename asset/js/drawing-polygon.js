@@ -67,7 +67,7 @@ class DrawingIrpoly extends PaintFunction {
 
 }
 $("#polyButton").click(function () {
-  console.log("Poly Button clicked");
+  console.log("Polygon Button clicked");
   currentFunction = new DrawingIrpoly(contextReal, contextDraft);
 
 });

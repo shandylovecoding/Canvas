@@ -32,6 +32,7 @@ class DrawingCircle extends PaintFunction {
             this.contextReal.bezierCurveTo(this.origX, this.origY, mouseX, this.origY, mouseX, this.origY + (mouseY - this.origY) / 2);
             this.contextReal.bezierCurveTo(mouseX, mouseY, this.origX, mouseY, this.origX, this.origY + (mouseY - this.origY) / 2);
             this.contextReal.closePath();
+            this.contextReal.fill();
             this.contextReal.stroke();
             getsnapshot();
             clicks = 0;
@@ -47,6 +48,7 @@ class DrawingCircle extends PaintFunction {
             this.contextDraft.bezierCurveTo(this.origX, this.origY, mouseX, this.origY, mouseX, this.origY + (mouseY - this.origY) / 2);
             this.contextDraft.bezierCurveTo(mouseX, mouseY, this.origX, mouseY, this.origX, this.origY + (mouseY - this.origY) / 2);
             this.contextDraft.closePath();
+            this.contextDraft.fill();
             this.contextDraft.stroke();
         }
     }
