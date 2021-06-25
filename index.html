@@ -75,6 +75,9 @@
   <button type="button" id="shareButton" class="btn border-0 disabled">
     Share
   </button>
+  <button type="button" id="select" class="btn border-0">
+    Select
+  </button>
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="3" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()" style="font-family: Verdana">
   <option value="Arial">Arial</option>
@@ -90,8 +93,8 @@
   <canvas id="color-strip" height="150" width="30"></canvas>
 </div>
 <div id="canvas">
-   <canvas id="canvas-real" width="1950" height="950"></canvas>
-   <canvas id="canvas-draft" width="1950" height="950"></canvas>
+   <canvas id="canvas-real" width="850" height="950"></canvas>
+   <canvas id="canvas-draft" width="850" height="950"></canvas>
 </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -124,6 +127,8 @@
   <script type='text/javascript' src="/asset/js/fillflood.js"></script>
   <script type='text/javascript' src="/asset/js/filter-brightness.js"></script>
   <script type='text/javascript' src="./asset/js/size.js"></script>
+  <script type='text/javascript' src="./asset/js/select.js"></script>
+
 
 
 </body>
