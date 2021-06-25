@@ -94,19 +94,25 @@ function changeColor(e,label) {
     }
 
 }
+var colorControl = document.getElementById('color-input')
+var fillcolorControl = document.getElementById('fillcolor-input')
+
 
 $("#color-label").click(function () {
     console.log("paintBucket clicked");
     colorcolor = true;
     fillcolor = false;
+
 });
 $("#fillcolor-label").click(function () {
   console.log("paintBucket clicked");
   colorcolor = false;
   fillcolor = true;
 });
-
-
+$('#canvas-real').click(function(){
+  colorControl.checked = false
+  fillcolorControl.checked = false
+})
 colorStrip.addEventListener("click", click, false);
 colorBlock.addEventListener("mousedown", mousedown, false);
 colorBlock.addEventListener("mouseup", mouseup, false);

@@ -42,7 +42,7 @@ input:focus {
 
 #canvas-real {
   position: absolute;
-  top: 40px;
+  top: 60px;
   bottom: 0px;
   left: 0px;
   right: 0px;
@@ -51,7 +51,7 @@ input:focus {
 #canvas-draft{
     background-color: transparent;
     z-index: 9999999;
-    top: 40px;
+    top: 60px;
 }
 
   #color-input {
@@ -88,7 +88,7 @@ input:focus {
   
 #color-picker {
     position: absolute;
-    left: 70px; 
+    right: 70px; 
     background-color: white;
     height: 165px;
     width: 200px;
