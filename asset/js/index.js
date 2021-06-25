@@ -60,7 +60,6 @@ $(function () {
         }
         // Brightness
         if (e.shiftKey && e.which === 66) {
-            console.log("working");
             brightness();
         }
         // Contrast

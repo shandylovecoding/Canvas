@@ -22,6 +22,8 @@
 |   X   | Tools 13: FloodFill               |    S     |                |             |
 |   X   | Tools 14: Filters (Noise etc.)    |    K     |                |             |
 |   X   | Tools 15: Fonts and Sizes         |    A     |                |             |
+|       | Add Canvas                        |          |                |             |
+|       | Help Modal Box                    |          |                |             |
 
 ## Minor Fixes :wrench:
 
