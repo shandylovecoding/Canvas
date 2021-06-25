@@ -18,7 +18,7 @@
   <button type="button" id="circleButton" class="btn border-0">
     Circle
   </button>
-  <button type="button" id="polyButton" class="btn border-0 disabled">
+  <button type="button" id="polyButton" class="btn border-0">
     Polygon
   </button>
   <button type="button" id="lineButton" class="btn border-0">
@@ -54,9 +54,15 @@
   <button type="button" id="brightnessButton" class="btn border-0">
     Brightness
   </button>
-  <button type="button" id="contrastButton" class="btn border-0 disabled">
+  <input type="number" id="brightness" value="100" onChange="getBrightness()" min="0" max="500">
+  <button type="button" id="contrastButton" class="btn border-0">
     Contrast
   </button>
+  <input type="number" id="contrast" value="100" onChange="getContrast()" min="0" max="500">
+  <button type="button" id="saturateButton" class="btn border-0">
+    Saturate
+  </button>
+  <input type="number" id="saturate" value="100" onChange="getContrast()" min="0" max="100">
   <button type="button" id="noiseButton" class="btn border-0 disabled">
     Noise
   </button>
@@ -72,14 +78,19 @@
   <button type="button" id="saveButton" class="btn border-0">
     Save
   </button>
-  <button type="button" id="shareButton" class="btn border-0 disabled">
+  <input type="file" name="load" id="load" class="btn border-0">
     Share
   </button>
+<<<<<<< HEAD
   <button type="button" id="select" class="btn border-0">
     Select
   </button>
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="3" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()" style="font-family: Verdana">
+=======
+  <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="0" max="300">
+  <select id="textFont" name="textFont" onchange="fontSelect()">
+>>>>>>> origin/main
   <option value="Arial">Arial</option>
   <option value="Courier New">Courier New </option>
   <option value="Verdana"> Verdana </option>
@@ -93,8 +104,14 @@
   <canvas id="color-strip" height="150" width="30"></canvas>
 </div>
 <div id="canvas">
+<<<<<<< HEAD
    <canvas id="canvas-real" width="850" height="950"></canvas>
    <canvas id="canvas-draft" width="850" height="950"></canvas>
+=======
+  <h1>DRAW ANYWHERE</h1>
+   <canvas id="canvas-real" width="1950" height="950"></canvas>
+   <canvas id="canvas-draft" width="1950" height="950"></canvas>
+>>>>>>> origin/main
 </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -107,7 +124,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
-
+  <script type='text/javascript' src="./asset/js/index.js"></script>
   <script type='text/javascript' src="/asset/js/canvas-common.js"></script>
   <script type='text/javascript' src="/asset/js/paint-bucket.js"></script>
   <script type='text/javascript' src="/asset/js/drawing-pen.js"></script>
@@ -125,12 +142,15 @@
   <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
   <script type='text/javascript' src="/asset/js/save.js"></script>
   <script type='text/javascript' src="/asset/js/fillflood.js"></script>
-  <script type='text/javascript' src="/asset/js/filter-brightness.js"></script>
+  <script type='text/javascript' src="/asset/js/filters.js"></script>
   <script type='text/javascript' src="./asset/js/size.js"></script>
+<<<<<<< HEAD
   <script type='text/javascript' src="./asset/js/select.js"></script>
 
 
 
+=======
+>>>>>>> origin/main
 </body>
 
 </html>

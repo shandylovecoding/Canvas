@@ -9,7 +9,7 @@ function getsnapshot() {
     redo_array = [];
 }
 
-$("#undoButton").click(function () {
+$("#undoButton").click(function undo() {
     console.log("undo index", step);
     if (step >= 0) {
         step -= 1;
@@ -25,7 +25,7 @@ $("#undoButton").click(function () {
     }
 });
 
-$("#redoButton").click(function () {
+$("#redoButton").click(function redo() {
     redo_step -= 1;
     step += 1;
     if (redo_step < 0) {
@@ -40,7 +40,6 @@ $(document).click(function () {
     if (redo_array.length <= 0) {
         $("#redoButton").addClass("disabled")
     } else {
-        console.log("working");
         $("#redoButton").removeClass("disabled")
     }
 })
@@ -49,7 +48,6 @@ $(document).click(function () {
     if (restore_array.length <= 0) {
         $("#undoButton").addClass("disabled")
     } else {
-        // console.log("working");
         $("#undoButton").removeClass("disabled")
     }
 })

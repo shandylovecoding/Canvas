@@ -6,9 +6,9 @@ let currentFunction;
 let dragging = false;
 let clicks = 0;
 let color ="black"
-let lineWidth;
+let lineWidth =10;
 let textfont;
-
+let link;
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;
     this.mouseY = e.offsetY;
@@ -56,3 +56,7 @@ class PaintFunction{
     onMouseLeave(){}
     onMouseEnter(){}
 }    
+
+$(function() {
+    currentFunction = new Pen(contextReal, contextDraft);
+});

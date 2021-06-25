@@ -1,52 +1,92 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+}
+
+h1 {
+  font-size: 200px;
+  opacity: 0.1;
+  margin-left: 5vh;
+  text-align: center;
+  margin-top: 35vh;
+  position:absolute;
+  transition:opacity 1s;
+}
+
+body {
+  opacity: 0;
+  transition: 5s;
+}
+
+label {
+  margin-top: 5px;
+}
+
+input {
+  border: none;
+  transform: translate(0px, 0.75px);
+}
+
+input::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+input:active {
+  border: none;
+}
+
+input:focus {
+  border: none;
+  outline:none;
+}
 
 #canvas-real {
-
-    position: absolute;
-    top: 60px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    border:solid 1px black;
-
+  position: absolute;
+  top: 40px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 }
 
 #canvas-draft{
     background-color: transparent;
     z-index: 9999999;
-    border: black;
-    top: 60px;
-
-
+    top: 40px;
 }
 
   #color-input {
       display: none;
     }
-  #fillcolor-input {
+  
+#fillcolor-input {
       display: none;
     }  
-  #color-label {
-
+  
+#color-label {
     margin-left: 15px;
     position: absolute;
     height: 20px;
     width: 20px;
     z-index: 99;
   } 
-  #fillcolor-label {
+  
+#fillcolor-label {
     margin-left:-1px;
     position: relative;
     height: 20px;
     width: 7.5px;
     z-index: 99;
   } 
-  #color-input:checked ~ #color-picker {
+  
+#color-input:checked ~ #color-picker {
     opacity: 1;
   }
-  #fillcolor-input:checked ~ #color-picker {
+ 
+#fillcolor-input:checked ~ #color-picker {
     opacity: 1;
   }
-  #color-picker {
+  
+#color-picker {
     position: absolute;
     left: 70px; 
     background-color: white;
@@ -59,16 +99,33 @@
     z-index: 999;
 
   }
-  #color-picker:hover {
+  
+#color-picker:hover {
     cursor: crosshair;
   }
-  
 
-html {
-    font-family:Arial, Helvetica, sans-serif;
-    font-size: small;
+#textFont {
+  margin-left: 10px;
+  border: none;
 }
 
-label {
-  margin-top: 5px;
+#textFont:active {
+  border: none;
+}
+
+#textFont:focus {
+  border: none;
+  outline:none;
+}
+
+#brightness {
+  display: none;
+}
+
+#contrast {
+  display: none;
+}
+
+#saturate {
+  display: none;
 }
