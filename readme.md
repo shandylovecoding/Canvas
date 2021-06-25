@@ -16,12 +16,12 @@
 |   X   | Tools 7: Undo/redo                |    K     |                |             |
 |   X   | Tools 8: Clear                    |    K     |                |             |
 |   X   | Tools 9: Save As                  |    A     |                |             |
-|       | Tools 10: Share                   |    K     |                |             |
+|   X   | Tools 10: Share                   |    K     |                |             |
 |   X   | Tools 11: Fill/Stroke             |    S     |                |             |
 |   X   | Tools 12: Line Width              |    A     |                |             |
-|       | Tools 13: FloodFill               |    S     |                |             |
+|   X   | Tools 13: FloodFill               |    S     |                |             |
 |       | Tools 14: Filters (Noise etc.)    |    K     |                |             |
-|       | Tools 15: Fonts and Sizes         |    K     |                |             |
+|   X   | Tools 15: Fonts and Sizes         |    K     |                |             |
 
 ## Minor Fixes :wrench:
 
