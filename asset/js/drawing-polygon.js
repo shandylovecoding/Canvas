@@ -1,5 +1,5 @@
-//var side = 8;
-//var a = ((Math.PI * 2 / side));
+var side = lineWidth;
+var a = ((Math.PI * 2 / side));
 var radius;
 
 
@@ -26,7 +26,7 @@ class DrawingIrpoly extends PaintFunction {
       this.origY = mouseY;
       clicks = 1;
     } else if (clicks == 1) {
-      var side = lineWidth;
+      
       console.log (side);
       var a = ((Math.PI * 2 / side));
       this.contextReal.beginPath();
@@ -49,7 +49,7 @@ class DrawingIrpoly extends PaintFunction {
     if (clicks == 1) {
       this.contextDraft.lineStyle = "#000000";
       this.contextReal.lineStyle = "#000000";
-      var side = lineWidth;
+      
       console.log (side);
       var a = ((Math.PI * 2 / side));
       this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height)

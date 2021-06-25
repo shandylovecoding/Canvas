@@ -6,7 +6,7 @@ let currentFunction;
 let dragging = false;
 let clicks = 0;
 let color ="black"
-let lineWidth;
+let lineWidth =10;
 let textfont;
 let link;
 function captureMouseEvent(e){
