@@ -1,9 +1,9 @@
-var side = lineWidth;
-var a = ((Math.PI * 2 / side));
+//var side;
+//var a = ((Math.PI * 2 / side));
 var radius;
 
 
-class DrawingIrpoly extends PaintFunction {
+class DrawingRegpoly extends PaintFunction {
   constructor(contextReal, contextDraft) {
     super();
     this.contextReal = contextReal;
@@ -26,7 +26,7 @@ class DrawingIrpoly extends PaintFunction {
       this.origY = mouseY;
       clicks = 1;
     } else if (clicks == 1) {
-      
+      var side = document.getElementById('side').value;
       console.log (side);
       var a = ((Math.PI * 2 / side));
       this.contextReal.beginPath();
@@ -49,7 +49,7 @@ class DrawingIrpoly extends PaintFunction {
     if (clicks == 1) {
       this.contextDraft.lineStyle = "#000000";
       this.contextReal.lineStyle = "#000000";
-      
+      var side = document.getElementById('side').value;
       console.log (side);
       var a = ((Math.PI * 2 / side));
       this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height)
@@ -65,8 +65,20 @@ class DrawingIrpoly extends PaintFunction {
   }
 
 }
+let polybtn=0;
 $("#polyButton").click(function () {
   console.log("Polygon Button clicked");
-  currentFunction = new DrawingIrpoly(contextReal, contextDraft);
+  if (polybtn == 0) {
+    $("#side").css("display", "inline");
+    polybtn = 1;
+} else if (polybtn == 1) {
+    $("#side").css("display", "none");
+    polybtn = 0;
+}
+function getSide(event){
+  side = document.getElementById('side').value;
+  console.log(side);
+}
+  currentFunction = new DrawingRegpoly(contextReal, contextDraft);
 
 });

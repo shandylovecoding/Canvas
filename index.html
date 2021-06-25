@@ -37,6 +37,7 @@
     <button type="button" id="polyButton" class="btn border-0">
       Polygon
     </button>
+    <input type="number" id="side" value="6" onChange="getSide()" min="3" max="20">
     <button type="button" id="lineButton" class="btn border-0">
       Line
     </button>
@@ -63,8 +64,8 @@
     <button type="button" id="eraserButton" class="btn border-0">
       Eraser
     </button>
-    <button type="button" id="marqueeButton" class="btn border-0 disabled">
-      Marquee
+    <button type="button" id="select" class="btn border-0">
+      Select
     </button>
     <button type="button" id="eyedropper" class="btn border-0">
       Eyedropper
@@ -94,6 +95,7 @@
       Clear
     </button>
   </span>
+
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="0" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()">
     <option value="Arial">Arial</option>
@@ -101,6 +103,7 @@
     <option value="Helvetic"> Helvetica </option>
     <option value="Georgia"> Georgia </option>
     <option value="Times New Roman"> Times New Roman </option>
+
   </select>
   <label for="color-input" id="color-label" style="background-color:black"></label>
   <input type="checkbox" id="color-input"></input>
@@ -110,6 +113,7 @@
     <canvas id="color-block" height="150" width="150"></canvas>
     <canvas id="color-strip" height="150" width="30"></canvas>
   </div>
+
   <button type="button" id="helpButton" class="btn border-0 disabled">
     #Help
   </button>
@@ -130,25 +134,27 @@
   </script>
   <script type='text/javascript' src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script type='text/javascript' src="./asset/js/index.js"></script>
-  <script type='text/javascript' src="/asset/js/canvas-common.js"></script>
-  <script type='text/javascript' src="/asset/js/paint-bucket.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-pen.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-rectangle.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-circle.js"></script>
+  <script type='text/javascript' src="./asset/js/paint-bucket.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-pen.js"></script>
+  <script type='text/javascript' src="./asset/js/canvas-common.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-rectangle.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-circle.js"></script>
   <script type='text/javascript' src="./asset/js/drawing-polygon.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-text.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-eraser.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-line.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-polyline.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-bezier-curve.js"></script>
-  <script type='text/javascript' src="/asset/js/drawing-quadratic-curve.js"></script>
-  <script type='text/javascript' src="/asset/js/eyedropper.js"></script>
-  <script type='text/javascript' src="/asset/js/clear.js"></script>
-  <script type='text/javascript' src="/asset/js/undo-redo.js"></script>
-  <script type='text/javascript' src="/asset/js/save.js"></script>
-  <script type='text/javascript' src="/asset/js/fillflood.js"></script>
-  <script type='text/javascript' src="/asset/js/filters.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-text.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-eraser.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-line.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-polyline.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-bezier-curve.js"></script>
+  <script type='text/javascript' src="./asset/js/drawing-quadratic-curve.js"></script>
+  <script type='text/javascript' src="./asset/js/eyedropper.js"></script>
+  <script type='text/javascript' src="./asset/js/clear.js"></script>
+  <script type='text/javascript' src="./asset/js/undo-redo.js"></script>
+  <script type='text/javascript' src="./asset/js/save.js"></script>
+  <script type='text/javascript' src="./asset/js/fillflood.js"></script>
+  <script type='text/javascript' src="./asset/js/filters.js"></script>
   <script type='text/javascript' src="./asset/js/size.js"></script>
+  <script type='text/javascript' src="./asset/js/select.js"></script>
+
 </body>
 
 </html>
