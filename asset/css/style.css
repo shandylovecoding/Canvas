@@ -9,8 +9,8 @@ h1 {
   margin-left: 5vh;
   text-align: center;
   margin-top: 35vh;
-  position:absolute;
-  transition:opacity 1s;
+  position: absolute;
+  transition: opacity 1s;
 }
 
 body {
@@ -37,7 +37,7 @@ input:active {
 
 input:focus {
   border: none;
-  outline:none;
+  outline: none;
 }
 
 #canvas-real {
@@ -48,61 +48,61 @@ input:focus {
   right: 0px;
 }
 
-#canvas-draft{
-    background-color: transparent;
-    z-index: 9999999;
-    top: 60px;
+#canvas-draft {
+  background-color: transparent;
+  margin-top: 1px;
 }
 
-  #color-input {
-      display: none;
-    }
-  
-#fillcolor-input {
-      display: none;
-    }  
-  
-#color-label {
-    margin-left: 15px;
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    z-index: 99;
-  } 
-  
-#fillcolor-label {
-    margin-left:-1px;
-    position: relative;
-    height: 20px;
-    width: 7.5px;
-    z-index: 99;
-  } 
-  
-#color-input:checked ~ #color-picker {
-    opacity: 1;
-  }
- 
-#fillcolor-input:checked ~ #color-picker {
-    opacity: 1;
-  }
-  
-#color-picker {
-    position: absolute;
-    right: 70px; 
-    background-color: white;
-    height: 165px;
-    width: 200px;
-    border: solid 1px #ccc;
-    opacity: 0;
-    padding: 5px;
-    justify-content: center;
-    z-index: 999;
+#color-input {
+  display: none;
+}
 
-  }
-  
+#fillcolor-input {
+  display: none;
+}
+
+#color-label {
+  margin-left: 10px;
+  position: relative;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  z-index: 99;
+}
+
+#fillcolor-label {
+  margin-left: -1px;
+  position: relative;
+  top: 5px;
+  height: 20px;
+  width: 7.5px;
+  z-index: 99;
+}
+
+#color-input:checked~#color-picker {
+  display: inline;
+}
+
+#fillcolor-input:checked~#color-picker {
+  display: inline;
+}
+
+#color-picker {
+  position: absolute;
+  top: 40px;
+  background-color: white;
+  height: 165px;
+  width: 200px;
+  border: solid 1px #ccc;
+  display: none;
+  padding: 5px;
+  justify-content: center;
+  z-index: 999;
+}
+
 #color-picker:hover {
-    cursor: crosshair;
-  }
+  cursor: crosshair;
+}
 
 #textFont {
   margin-left: 10px;
@@ -115,7 +115,7 @@ input:focus {
 
 #textFont:focus {
   border: none;
-  outline:none;
+  outline: none;
 }
 
 #brightness {
@@ -130,6 +130,28 @@ input:focus {
   display: none;
 }
 
+#load {
+  width: 200px;
+  transform: translate(0px, -0.5px);
+}
+
+#filefunctions {
+  display: none;
+}
+
+#drawfunctions {
+  display: none;
+}
+
+#editfunctions {
+  display: none;
+}
+
+#load {
+  display: none;
+}
+
 #side {
   display: none;
 }
+

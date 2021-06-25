@@ -1,9 +1,7 @@
 
-$("#saveButton").click(function save() {
+$("#saveButton").click(function (){
     var canvas = document.getElementById('canvas-real');
     link = document.createElement('a');
-    console.log(canvas);
-    console.log(link);
     link.download = 'canvas.png';
     link.href = canvas.toDataURL();
     console.log(canvas.toDataURL());
@@ -39,3 +37,15 @@ function getFile(event)
     var imageURL = window.URL.createObjectURL(file);
     loadAndDrawImage(imageURL);
 }
+
+// Load button
+let loadbtn = 0
+$("#loadButton").click(function () {
+    if (loadbtn == 0) {
+        $("#load").css("display", "inline");
+        loadbtn = 1;
+    } else if (loadbtn == 1) {
+        $("#load").css("display", "none");
+        loadbtn = 0;
+    }
+});

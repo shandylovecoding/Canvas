@@ -12,7 +12,9 @@ $("#brightnessButton").click(function brightness() {
 
 function getBrightness(event) {
     var brightnessvalue = $("#brightness").val();
-    contextReal.canvas.style.filter = `brightness(${brightnessvalue}%)`
+    contextReal.canvas.style.filter = `brightness(${brightnessvalue}%)`;
+    contextDraft.canvas.style.filter = `brightness(${brightnessvalue}%)`;
+    getsnapshot();
 }
 
 // contrast filter
@@ -29,7 +31,9 @@ $("#contrastButton").click(function contrast() {
 
 function getContrast(event) {
     var contrastvalue = $("#contrast").val();
-    contextReal.canvas.style.filter = `contrast(${contrastvalue}%)`
+    contextReal.canvas.style.filter = `contrast(${contrastvalue}%)`;
+    contextDraft.canvas.style.filter = `contrast(${contrastvalue}%)`;
+    getsnapshot();
 }
 
 // saturation filter
@@ -46,5 +50,7 @@ $("#saturateButton").click(function saturate() {
 
 function getSaturation(event) {
     var saturatevalue = $("#saturate").val();
-    contextReal.canvas.style.filter = `saturate(${saturatevalue}%)`
+    contextReal.canvas.style.filter = `saturate(${saturatevalue}%)`;
+    contextDraft.canvas.style.filter = `saturate(${saturatevalue}%)`;
+    getsnapshot();
 }

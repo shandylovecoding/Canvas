@@ -6,6 +6,55 @@ $(function () {
         $("h1").css("opacity", "0");
     })
 
+    // Menus
+    let fileFunction = 0;
+    $("#fileButton").click(function () {
+        if (fileFunction == 0) {
+            $("#filefunctions").css("display", "inline");
+            $("#fileButton").css("opacity", "0.2");
+            $("#fileButton").html("<em>#File</em>");
+            fileFunction = 1;
+        } else if (fileFunction == 1) {
+            $("#filefunctions").css("display", "none");
+            $("#fileButton").css("opacity", "1");
+            $("#fileButton").html("#File");
+            fileFunction = 0;
+        }
+    })
+
+    let drawFunction = 0;
+    $("#drawButton").click(function () {
+        if (drawFunction == 0) {
+            $("#drawfunctions").css("display", "inline");
+            $("#drawButton").css("opacity", "0.2");
+            $("#drawButton").html("<em>#Draw</em>");
+            drawFunction = 1;
+        } else if (drawFunction == 1) {
+            $("#drawfunctions").css("display", "none");
+            $("#drawButton").css("opacity", "1");
+            $("#drawButton").html("#Draw");
+            drawFunction = 0;
+        }
+    })
+
+    let editFunction = 0;
+    $("#editButton").click(function () {
+        if (editFunction == 0) {
+            $("#editfunctions").css("display", "inline");
+            $("#editButton").css("opacity", "0.2");
+            $("#editButton").html("<em>#Edit</em>");
+            editFunction = 1;
+        } else if (editFunction == 1) {
+            $("#editfunctions").css("display", "none");
+            $("#editButton").css("opacity", "1");
+            $("#editButton").html("#Edit");
+            editFunction = 0;
+        }
+    })
+
+    // Function Properties
+
+
     // Keyboard Shortcuts
     $(document).keydown(function (e) {
         // Rectangle
@@ -41,15 +90,16 @@ $(function () {
             currentFunction = new DrawingText(contextReal, contextDraft);
         }
         // Pen
-        if (e.which === 69) {
+        if (e.which === 80) {
             currentFunction = new Pen(contextReal, contextDraft);
         }
         // Eraser
-        if (e.which === 80) {
+        if (e.which === 69) {
             currentFunction = new Eraser(contextReal, contextDraft);
         }
         // Marquee
         if (e.which === 77) {}
+        
         // Eyedropper
         if (e.which === 73) {
             currentFunction = new Eyedropper(contextReal, contextDraft);
@@ -60,7 +110,6 @@ $(function () {
         }
         // Brightness
         if (e.shiftKey && e.which === 66) {
-            console.log("working");
             brightness();
         }
         // Contrast
@@ -68,19 +117,15 @@ $(function () {
             contrast();
         }
         // Saturate
-        if (e.shiftKey && e.which === 83) {
+        if (e.shiftKey && e.which === 81) {
             saturate();
         }
-        // Noise
-        if (e.shiftKey && e.which === 78) {
-
-        }
         // Undo
-        if (e.ctrlKey && e.which === 84) {
+        if (e.shiftKey && e.which === 84) {
             undo();
         }
         // Redo
-        if (e.ctrlKey && e.shiftKey && e.which === 84) {
+        if (e.shiftKey && e.which === 89) {
             redo();
         }
         // Clear
@@ -88,7 +133,7 @@ $(function () {
             clear();
         }
         // Save
-        if (e.ctrlKey && e.shiftKey && e.which === 83) {
+        if (e.shiftKey && e.which === 83) {
             save();
         }
     })

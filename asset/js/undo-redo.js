@@ -9,8 +9,7 @@ function getsnapshot() {
     redo_array = [];
 }
 
-$("#undoButton").click(function undo() {
-    console.log("undo index", step);
+$("#undoButton").click(function() {
     if (step >= 0) {
         step -= 1;
         redo_step += 1;

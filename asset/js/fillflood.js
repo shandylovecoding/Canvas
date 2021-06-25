@@ -65,6 +65,7 @@ class Fillflood extends PaintFunction {
           }
       }
       contextReal.putImageData(imgData,0, 0);
+      getsnapshot();
       return;
   }
     floodFill(mouseX, mouseY, newColor) 

@@ -60,7 +60,6 @@ class DrawingRegpoly extends PaintFunction {
         this.contextDraft.lineTo(this.origX + radius * Math.cos(a * i), this.origY + radius * Math.sin(a * i));
         this.contextDraft.stroke();
         this.contextDraft.fill();
-        console.log("a");
       }
     }
   }
