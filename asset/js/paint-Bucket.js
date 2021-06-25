@@ -19,7 +19,6 @@ var y = 0;
 var drag = false;
 var rgbaColor = 'rgba(255,0,0,1)';
 
-
 ctx1.rect(0, 0, width1, height1);
 fillGradient();
 

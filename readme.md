@@ -16,7 +16,7 @@
 |   X   | Tools 7: Undo/redo                |    K     |                |             |
 |   X   | Tools 8: Clear                    |    K     |                |             |
 |   X   | Tools 9: Save As                  |    A     |                |             |
-|       | Tools 10: Share                   |    K     |                |             |
+|   X   | Tools 10: Share                   |    K     |                |             |
 |   X   | Tools 11: Fill/Stroke             |    S     |                |             |
 |   X   | Tools 12: Line Width              |    A     |                |             |
 |   X   | Tools 13: FloodFill               |    S     |                |             |
@@ -25,12 +25,13 @@
 |       | Add Canvas                        |          |                |             |
 |       | Help Modal Box                    |          |                |             |
 
+
 ## Minor Fixes :wrench:
 
 | Done? | Item                              |
 | ----- | --------------------------------- |
 |       | Rectangle drawing layer           |
-|       | Polygon drawing preview           |
+|   X   | Polygon drawing preview           |
 |       | Esc functions                     |
 |       | Check colour/line width           |
 |       | Text does not undo                |
