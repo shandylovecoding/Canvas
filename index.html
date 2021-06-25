@@ -51,6 +51,9 @@
   <button type="button" id="fillflood" class="btn border-0">
     FillFlood
   </button>
+  <button type="button" id="select" class="btn border-0">
+    Select
+  </button>
   <button type="button" id="brightnessButton" class="btn border-0">
     Brightness
   </button>
@@ -83,23 +86,25 @@
   </button>
   <input type="number" id="lineWidth" name="lineWidthy" value="10" onChange="getWidth()" min="0" max="300">
   <select id="textFont" name="textFont" onchange="fontSelect()">
-  <option value="Arial">Arial</option>
-  <option value="Courier New">Courier New </option>
-  <option value="Verdana"> Verdana </option>
+    <option value="Arial">Arial</option>
+    <option value="Courier New">Courier New </option>
+    <option value="Verdana"> Verdana </option>
   </select>
-<label for="color-input" id="color-label" style="background-color:black"></label>
-<input type="checkbox" id="color-input" ></input>
-<label for="fillcolor-input" id="fillcolor-label" style="background-color:lightgray"></label>
-<input type="checkbox" id="fillcolor-input"></input>
-<div id="color-picker">
-  <canvas id="color-block" height="150" width="150"></canvas>
-  <canvas id="color-strip" height="150" width="30"></canvas>
-</div>
-<div id="canvas">
-  <h1>DRAW ANYWHERE</h1>
-   <canvas id="canvas-real" width="1950" height="950"></canvas>
-   <canvas id="canvas-draft" width="1950" height="950"></canvas>
-</div>
+  <label for="color-input" id="color-label" style="background-color:black"></label>
+  <input type="checkbox" id="color-input"></input>
+  <label for="fillcolor-input" id="fillcolor-label" style="background-color:lightgray"></label>
+  <input type="checkbox" id="fillcolor-input"></input>
+  <div id="color-picker">
+    <canvas id="color-block" height="150" width="150"></canvas>
+    <canvas id="color-strip" height="150" width="30"></canvas>
+  </div>
+  <div id="canvas">
+
+    <h1>DRAW ANYWHERE</h1>
+    <canvas id="canvas-real" width="1950" height="950"></canvas>
+    <canvas id="canvas-draft" width="1950" height="950"></canvas>
+
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -131,6 +136,8 @@
   <script type='text/javascript' src="/asset/js/fillflood.js"></script>
   <script type='text/javascript' src="/asset/js/filters.js"></script>
   <script type='text/javascript' src="./asset/js/size.js"></script>
+  <script type='text/javascript' src="./asset/js/select.js"></script>
+
 </body>
 
 </html>
