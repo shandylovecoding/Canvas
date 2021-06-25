@@ -20,7 +20,7 @@ $("#undoButton").click(function () {
             contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
         } else {
             contextReal.putImageData(restore_array[step], 0, 0);
- 
+
         }
     }
 });
@@ -49,7 +49,7 @@ $(document).click(function () {
     if (restore_array.length <= 0) {
         $("#undoButton").addClass("disabled")
     } else {
-        console.log("working");
+        // console.log("working");
         $("#undoButton").removeClass("disabled")
     }
 })
