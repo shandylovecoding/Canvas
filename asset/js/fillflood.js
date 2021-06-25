@@ -1,216 +1,191 @@
-
-var R
-var G
-var B;
-var width = canvasReal.width
-var height = canvasReal.height
-
-class Fillflood extends PaintFunction {
-    constructor(contextReal, contextDraft) {
-        super();
-        this.contextReal = contextReal;
-        this.contextDraft = contextDraft;
-    }
-
-    onMouseDown([mouseX, mouseY], e) {
-    var colorLayer = contextReal.getImageData(mouseX, mouseY, width, height)
-    // console.log("pre",imageData.data);
-    // function floodFill(startX, startY){
-       var pixelStack = [[mouseX, mouseY]];
-    
-        while(pixelStack.length)
-        {
-
-          var newPos, x, y, pixelPos, reachLeft, reachRight;
-          newPos = pixelStack.pop();
-          x = newPos[0];
-          y = newPos[1];
-          console.log("x,y",x,y);
-          pixelPos = (y*width + x) * 4;
-          while(y-- >= 0 && matchStartColor(pixelPos))
-          {
-            pixelPos -= width * 4;
-          }
-          pixelPos += width * 4;
-          ++y;
-          reachLeft = false;
-          reachRight = false;
-          while(y++ < height-1 && matchStartColor(pixelPos))
-          {
-            colorPixel(pixelPos);
-        
-            if(x > 0)
-            {
-              if(matchStartColor(pixelPos - 4))
-              {
-                if(!reachLeft){
-                  pixelStack.push([x - 1, y]);
-                  reachLeft = true;
-                }
-              }
-              else if(reachLeft)
-              {
-                reachLeft = false;
-              }
-            }
-            
-            if(x < width-1)
-            {
-              if(matchStartColor(pixelPos + 4))
-              {
-                if(!reachRight)
-                {
-                  pixelStack.push([x + 1, y]);
-                  reachRight = true;
-                }
-              }
-              else if(reachRight)
-              {
-                reachRight = false;
-              }
-            }
-                    
-            pixelPos += width * 4;
-          }
-        }
-
-          
-        function matchStartColor(pixelPos)
-        {
-          var r = colorLayer.data[pixelPos];	
-          var g = colorLayer.data[pixelPos+1];	
-          var b = colorLayer.data[pixelPos+2];
-        
-          return (r == colorLayer.data[0] && g == colorLayer.data[1] && b == colorLayer.data[2]);
-        }
-        
-        function colorPixel(pixelPos)
-        {
-          colorLayer.data[pixelPos] = R;
-          colorLayer.data[pixelPos+1] = G;
-          colorLayer.data[pixelPos+2] = B;
-          colorLayer.data[pixelPos+3] = 255;
-        }
-        console.log("pre",colorLayer.data);
-        this.contextReal.putImageData(colorLayer, 0, 0);
-        console.log("pos",colorLayer.data);
-
-
-    // }
-    // floodFill(mouseX, mouseY, colorLayer)
-
-    }
-
-    onDragging([mouseX, mouseY], e) {
-       
-
-    }
-
-    onMouseMove([mouseX, mouseY], e) {
-        
-    }
-    onMouseUp([mouseX, mouseY], e) {
-        
-    }
-    onMouseLeave() {}
-    onMouseEnter() {}
-}
-
-$("#fillflood").click(function () {
-    console.log("Fillflood button clicked");
-    currentFunction = new Fillflood(contextReal, contextDraft);
-});
-
-
-
-
-
+// var width = contextReal.width
+// var height = contextReal.height
+// var R
+// var G
+// var B;
 // var RtoFill, GtoFill, BtoFill;
 // var type = 4;
-// var imageData 
-// /* Flood fill */
-// function floodFill(x, y, type){
-// console.log(imageData);
-// console.log(rgbaColor);
+var imageData;
+var colorArray 
+var fillIdx = 0;
 
-// RtoFill = imageData.data[0];
-// GtoFill = imageData.data[1];
-// BtoFill = imageData.data[2];
+// console.log(colorArray);
+// var newImgData
+class Fillflood extends PaintFunction {
+  constructor(contextReal, contextDraft) {
+    super();
+    this.contextReal = contextReal;
+    this.contextDraft = contextDraft;
+  }
 
-// // do not fill if already filled with this color
-// if (RtoFill == R && GtoFill == G && BtoFill == B)
-// return;
- 
-// if (type == 4)
-// {
-// //call flood fill with four directions
-// floodFill4(x, y);
-// }
-// else
-// {
-// //call flood fill with eight directions
-// floodFill8(x, y);
-// }
- 
-// // copy the image data back onto the canvas
-// console.log("post",imageData.data);
-// contextReal.putImageData(imageData, 0, 0);
-// }
- 
-// /* Flood fill algorithm with 4 directions */
-// function floodFill4(x, y){
-//     console.log("x&y",x,y);
-// if (x<0 || x>=width || y<0 || y>=height)
-// {
-// //outside image
-// return;
-// }
- 
-// if (imageData.data[0] != RtoFill ||
-// imageData.data[1] != GtoFill ||
-// imageData.data[2] != BtoFill)
-// {
-// //not color to fill
-// return;
-// }
- 
-// //fill with color
-// imageData.data[0] = R;
-// imageData.data[1] = G;
-// imageData.data[2] = B;
+  onMouseDown([mouseX, mouseY], e) {
+    function componentToHex(c) {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+    
+    function rgbToHex(r, g, b) {
+      return "0xFF" + componentToHex(b) + componentToHex(g) + componentToHex(r);
+    } 
+    var newColor = rgbToHex(R, G, B)
+    console.log(newColor);
+    function floodFill(x, y, newColor) {
+      var left, right, leftEdge, rightEdge;
+      const w = contextReal.canvas.width, h = contextReal.canvas.height, pixels = w * h;
+      const imgData = contextReal.getImageData(0, 0, w, h);
+      const p32 = new Uint32Array(imgData.data.buffer);
+      const stack = [x + y * w]; // add starting pos to stack
+      const targetColor = p32[stack[0]];
+      if (targetColor === newColor || targetColor === undefined) { return } // avoid endless loop
+      while (stack.length) {
+          let idx = stack.pop();
+          while(idx >= w && p32[idx - w] === targetColor) { idx -= w }; // move to top edge
+          right = left = false;   
+          leftEdge = (idx % w) === 0;          
+          rightEdge = ((idx +1) % w) === 0;
+          while (p32[idx] === targetColor) {
+              p32[idx] = newColor;
+              if(!leftEdge) {
+                  if (p32[idx - 1] === targetColor) { // check left
+                      if (!left) {        
+                          stack.push(idx - 1);  // found new column to left
+                          left = true;  // 
+                      }
+                  } else if (left) { left = false }
+              }
+              if(!rightEdge) {
+                  if (p32[idx + 1] === targetColor) {
+                      if (!right) {
+                          stack.push(idx + 1); // new column to right
+                          right = true;
+                      }
+                  } else if (right) { right = false }
+              }
+              idx += w;
+          }
+      }
+      contextReal.putImageData(imgData,0, 0);
+      return;
+  }
+    floodFill(mouseX, mouseY, newColor) 
+  
+    // // imageData = contextReal.getImageData(mouseX, mouseY, 1, 1)
+    // // function floodFill(x, y, type) {
+    // //   // console.log("imageData.data:", imageData);
+    // //   // console.log(rgbaColor);
+    // //   RtoFill = imageData.data[0];
+    // //   GtoFill = imageData.data[1];
+    // //   BtoFill = imageData.data[2];
+    // //   // console.log("RGBtofill", RtoFill, GtoFill, BtoFill);
+    // //   // do not fill if already filled with this color
+    // //   if (RtoFill == R && GtoFill == G && BtoFill == B)
+    // //     return;
 
- 
-// //call in four new directions
-// floodFill4(x-1, y  );
-// floodFill4(x+1, y  );
-// floodFill4(x  , y-1);  
-// floodFill4(x  , y+1);
-// console.log("imgdatachanged",imageData.data[0],imageData.data[1],imageData.data[2]);
-// console.log("towhichcolor",RtoFill,GtoFill,BtoFill);
-// }
- 
-// /* Flood fill algorithm with 8 directions */
-// function floodFill8(x, y)
-// {
-// if (x<0 || x>=width || y<0 || y>=height)
-// {
-// //outside image
-// return;
-// }
- 
-// if (imageData.data[0] != RtoFill ||
-// imageData.data[1] != GtoFill ||
-// imageData.data[2] != BtoFill)
-// {
-// //not color to fill
-// return;
-// }
- 
-// //fill with color
-// imageData.data[0] = R;
-// imageData.data[1] = G;
-// imageData.data[2] = B;
- 
+    // //   if (type == 4) {
+    // //     //call flood fill with four directions
+    // //     // console.log("floodfill start");
+    // //     floodFill4(x, y);
+    // //   }
+    // //   else {
+    // //     //call flood fill with eight directions
+    // //     floodFill8(x, y);
+    // //   }
+    // //   // copy the image data back onto the canvas
+    // //   // console.log("postimagedata", imageData);
+    // //   // console.log("post", imageData.data);
+    // // }
+    // // floodFill(mouseX, mouseY, type)
+
+    // /* Flood fill algorithm with 4 directions */
+    // function floodFill4(x, y) {
+    //   // console.log("pre", imageData.data);
+    //   // console.log("x&y", x, y);
+    //   var newImageData = contextReal.getImageData(x, y, 64, 64)
+
+  
+      
+    //   for(let i =0; i<instance.data.length;i++ ){
+    //     if(array.length<instance.data.length){
+    //     if(i<=3){
+    //       array.push(colorArray[i])
+    //     } else if (i>3){
+    //       i -=4;
+    //       array.push(colorArray[i])
+    //     }
+    //   }
+    //   }
+      
+      
+    //   if (x < 0 || x >= width || y < 0 || y >= height) {
+    //     //outside image
+    //     return;
+    //   }
+
+    //   if (newImageData.data[0] != RtoFill ||
+    //     newImageData.data[1] != GtoFill ||
+    //     newImageData.data[2] != BtoFill) {
+    //     //not color to fill
+    //   // console.log("RGBtofill", RtoFill, GtoFill, BtoFill);
+    //     return;
+    //   }
+    //   //fill with color
+     
+    //   newImageData.data[0] = R;
+    //   newImageData.data[1] = G;
+    //   newImageData.data[2] = B;
+    //   imageData.data[0] = newImageData.data[0];
+    //   imageData.data[1] = newImageData.data[1];
+    //   imageData.data[2] = newImageData.data[2];
+    //   contextReal.putImageData(imageData, x, y);
+
+    //   //call in four new directions
+              
+    //   // floodFill4(x, y + 1);
+    //   // floodFill4(x, y - 1);
+    //   // floodFill4(x - 1, y);
+    //   // floodFill4(x + 1, y);
+    // }
+  }
+
+  onDragging([mouseX, mouseY], e) {
+  }
+}
+$("#fillflood").click(function () {
+  console.log("Fillflood button clicked");
+  currentFunction = new Fillflood(contextReal, contextDraft);
+});
+
+/* Flood fill */
+
+
+/* Flood fill algorithm with 8 directions */
+// function floodFill8(x, y){
+//   var newImageData = contextReal.getImageData(x, y, 1, 1)
+//   // console.log("newImagedata", newImageData.data);
+  
+//   if (x < 0 || x >= width || y < 0 || y >= height) {
+//     //outside image
+//     return;
+//   }
+
+//   if (newImageData.data[0] != RtoFill ||
+//     newImageData.data[1] != GtoFill ||
+//     newImageData.data[2] != BtoFill) {
+//     //not color to fill
+//   // console.log("RGBtofill", RtoFill, GtoFill, BtoFill);
+//     return;
+//   }
+
+//   //fill with color
+//   newImageData.data[0] = R;
+//   newImageData.data[1] = G;
+//   newImageData.data[2] = B;
+//   imageData.data[0] = newImageData.data[0];
+//   imageData.data[1] = newImageData.data[1];
+//   imageData.data[2] = newImageData.data[2];
+
+//   contextReal.putImageData(imageData, x, y);
+
 // //call in eight new directions
 // floodFill8(x-1, y  );
 // floodFill8(x-1, y+1);

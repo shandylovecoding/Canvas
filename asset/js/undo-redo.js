@@ -20,7 +20,7 @@ $("#undoButton").click(function undo() {
             contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
         } else {
             contextReal.putImageData(restore_array[step], 0, 0);
- 
+
         }
     }
 });
