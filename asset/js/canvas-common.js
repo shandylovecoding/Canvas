@@ -2,6 +2,7 @@ let canvasReal = document.getElementById('canvas-real');
 let contextReal = canvasReal.getContext('2d');
 let canvasDraft = document.getElementById('canvas-draft');
 let contextDraft = canvasDraft.getContext('2d');
+
 let currentFunction;
 let dragging = false;
 let clicks = 0;
@@ -47,6 +48,44 @@ $('#canvas-draft').mouseenter(function(e){
     currentFunction.onMouseEnter([mouseX,mouseY],e);
 });
 
+
+
+
+
+$('#canvas-real').mousedown(function(e){
+    captureMouseEvent(e)
+    console.log("Mouse Down: when user presses mouse");
+    currentFunction.MouseDown([mouseX,mouseY],e);
+    dragging = true;
+});
+
+$('#canvas-real').mousemove(function(e){
+   captureMouseEvent(e)
+    if(dragging){
+        console.log("Dragging");
+        currentFunction.onDragging([mouseX,mouseY],e);
+    }
+    currentFunction.MouseMove([mouseX,mouseY],e);
+});
+
+$('#canvas-real').mouseup(function(e){
+    dragging = false;
+    captureMouseEvent(e)
+    currentFunction.MouseUp([mouseX,mouseY],e);
+});
+
+$('#canvas-real').mouseleave(function(e){
+    dragging = false;
+    captureMouseEvent(e)
+    currentFunction.MouseLeave([mouseX,mouseY],e);
+});
+
+$('#canvas-real').mouseenter(function(e){
+   captureMouseEvent(e)
+    currentFunction.MouseEnter([mouseX,mouseY],e);
+});
+
+
 class PaintFunction{
     constructor(){}
     onMouseDown(){}
@@ -55,8 +94,14 @@ class PaintFunction{
     onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
+    MouseDown(){}
+    Dragging(){}
+    MouseMove(){}
+    MouseUp(){}
+    MouseLeave(){}
+    MouseEnter(){}
 }    
 
-$(function() {
-    currentFunction = new Pen(contextReal, contextDraft);
-});
+// $(function() {
+//     currentFunction = new Pen(contextReal, contextDraft);
+// });
