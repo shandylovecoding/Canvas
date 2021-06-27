@@ -2,7 +2,7 @@ $(function () {
 
     $("body").css("opacity", "1");
 
-    $("#canvas-real").mousedown(function () {
+    $("#canvas-draft").mousedown(function () {
         $("h1").css("opacity", "0");
     })
 
@@ -52,9 +52,6 @@ $(function () {
         }
     })
 
-    // Function Properties
-
-
     // Keyboard Shortcuts
     $(document).keydown(function (e) {
         // Rectangle
@@ -67,7 +64,7 @@ $(function () {
         }
         // Polygon
         if (e.shiftKey && e.which === 80) {
-            currentFunction = new DrawingIrpoly(contextReal, contextDraft);
+            currentFunction = new DrawingRegpoly(contextReal, contextDraft);
         }
         // Line
         if (e.which === 220) {
