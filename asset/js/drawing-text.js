@@ -34,7 +34,7 @@ function inputText(e) {
             input.style.background = "transparent";
             input.style.outline = "none";
             input.style.border = "none";
-            input.placeholder = "Text";
+            input.placeholder = "Input Text";
             input.onkeydown = handleInput;
             document.body.appendChild(input);
             hasInput = true;
@@ -56,10 +56,10 @@ function inputText(e) {
 
     //function to draw text
     function drawText(text, x, y) {
-        const font = `${lineWidth}px ${textfont}`;
         contextReal.textBaseline = 'top';
         contextReal.textAlign = 'left';
-        contextReal.font = font;
+        contextReal.font = `${lineWidth}px ${textfont}`;
+        contextReal.fillStyle = `${colorFill}`
         contextReal.fillText(text, e.offsetX, e.offsetY);
         getsnapshot();
     };

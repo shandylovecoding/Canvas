@@ -21,8 +21,10 @@ class DrawingQuadraticLine extends PaintFunction {
             clicks = 2;
         } else if (clicks == 2) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            console.log(this.contextReal)
-            addQuadratic(this.origX, this.origY, mouseX, mouseY, this.endX, this.endY, `${colorStroke}`, lineWidth)
+            this.contextReal.beginPath();
+            this.contextReal.moveTo(this.origX, this.origY);
+            this.contextReal.quadraticCurveTo(mouseX, mouseY, this.endX, this.endY);
+            this.contextReal.stroke();
             clicks = 0;
             getsnapshot();
         }

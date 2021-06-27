@@ -28,14 +28,14 @@ function addRect(x, y, w, h, fill, stroke, lineWidth) {
 
   function addQuadratic(x, y, cx, cy, w, h, stroke, lineWidth) {
     var quadratic = new Quadratic;
-    qquadratic.x = x;
-    qquadratic.y = y;
-    qquadratic.cx = cx;
-    qquadratic.cy = cy;
-    qquadratic.w = w
-    qquadratic.h = h;
-    qquadratic.stroke = stroke
-    qquadratic.lineWidth = lineWidth
+    quadratic.x = x;
+    quadratic.y = y;
+    quadratic.cx = cx;
+    quadratic.cy = cy;
+    quadratic.w = w
+    quadratic.h = h;
+    quadratic.stroke = stroke
+    quadratic.lineWidth = lineWidth
     boxes.push(quadratic);
     console.log(boxes)
     invalidate();

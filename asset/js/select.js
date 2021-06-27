@@ -184,7 +184,6 @@
   function myMove(e){
     if (isDrag) {
       getMouse(e);
-      
       mySel.x = mx - offsetx;
       mySel.y = my - offsety;   
       
@@ -319,8 +318,7 @@
         mySel = boxes[i];
         offsetx = mx - mySel.x;
         offsety = my - mySel.y;
-        mySel.x = mx - offsetx;
-        mySel.y = my - offsety;
+
         isDrag = true;
         
         invalidate();

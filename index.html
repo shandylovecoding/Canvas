@@ -64,7 +64,7 @@
     <button type="button" id="eraserButton" class="btn border-0">
       Eraser
     </button>
-    <button type="button" id="select" class="btn border-0">
+    <button type="button" id="select" class="btn border-0 disabled">
       Select
     </button>
     <button type="button" id="eyedropper" class="btn border-0">
@@ -114,9 +114,165 @@
     <canvas id="color-strip" height="150" width="30"></canvas>
   </div>
 
-  <button type="button" id="helpButton" class="btn border-0 disabled">
+  <button type="button" id="helpButton" class="btn border-0" data-toggle="modal" data-target="#helpModal">
     #Help
   </button>
+
+  <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="exampleModalLongTitle">#Help</h5>
+        </div>
+        <div class="modal-body border-0">
+          <div>Select line width, fill and stroke color using the inputs before drawing.</div><br><br>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Shortcut</th>
+                <th scope="col">Function</th>
+                <th scope="col">Instructions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">#File</th>
+                <td></td>
+                <td>Save</td>
+                <td>Saves canvas as png file</td>
+              </tr>
+              <tr>
+                <th scope="row">#File</th>
+                <td></td>
+                <td>Load</td>
+                <td>Import an image onto the canvas</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>R</td>
+                <td>Rectangle</td>
+                <td>Click 1: Rectangle start point<br>Click 2: Rectangle end point. </td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>C</td>
+                <td>Circle</td>
+                <td>Click 1: Start drawing circle<br>Click 2: Finish drawing circle. </td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>Shift + P</td>
+                <td>Polygon</td>
+                <td>Click 1: Start drawing polygon (default hexagon)<br>Click 2: Finish drawing polygon</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>\</td>
+                <td>Line</td>
+                <td>Click 1: Line start point<br>Click 2: Line end point</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>Shift + \</td>
+                <td>Polyline</td>
+                <td>Click 1: Line start point<br>Click <i>n</i>: Additional line points<br>Esc to end function</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>Q</td>
+                <td>Quadratic</td>
+                <td>Click 1: Curve start point<br>Click 2: Curve end point<br>Click 3: Curve control point</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>B</td>
+                <td>Bezier</td>
+                <td>Click 1: Curve start point<br>Click 2: Curve end point<br>Click 3: Curve control point 1<br>Click 4: Curve control point 2</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>T</td>
+                <td>Text</td>
+                <td>Click 1: Text input location<br>Input text<br>Enter to submit text</td>
+              </tr>
+              <tr>
+                <th scope="row">#Draw</th>
+                <td>P</td>
+                <td>Pen</td>
+                <td>Drag to draw</td>
+              </tr>
+              <tr>
+                <th scope="row">#Edit</th>
+                <td>E</td>
+                <td>Eraser</td>
+                <td>Drag to erase</td>
+              </tr>
+              <tr>
+                <th scope="row">#Edit</th>
+                <td>S</td>
+                <td>Select</td>
+                <td>Select already drawn shapes to transform</td>
+              </tr>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td>I</td>
+              <td>Eyedropper</td>
+              <td>Samples color into fill color</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td>K</td>
+              <td>FillFlood</td>
+              <td>Changes fill color on canvas click</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td></td>
+              <td>Brightness</td>
+              <td>Changes the brightness of the canvas<br>Canvas default: 100</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td></td>
+              <td>Contrast</td>
+              <td>Changes the contrast of the canvas<br>Canvas default: 100</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td></td>
+              <td>Saturation</td>
+              <td>Changes the contrast of the canvas<br>Canvas default: 100</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td></td>
+              <td>Undo</td>
+              <td>Undo last move</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td></td>
+              <td>Redo</td>
+              <td>Redo last undo</td>
+            </tr>
+            <tr>
+              <th scope="row">#Edit</th>
+              <td>Shift + Backspace</td>
+              <td>Clear</td>
+              <td>Clears entire canvas</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn border-0" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="canvas">
     <h1>DRAW ANYWHERE</h1>
     <canvas id="canvas-real" width="1950" height="950"></canvas>
@@ -156,7 +312,6 @@
   <script type='text/javascript' src="./asset/js/select.js"></script>
   <script type='text/javascript' src="./asset/js/shapeClass.js"></script>
   <script type='text/javascript' src="./asset/js/shapeFunction.js"></script>
-
 
 </body>
 

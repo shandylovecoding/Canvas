@@ -22,8 +22,10 @@ class DrawingRectangle extends PaintFunction {
             if (lineWidth != 0){
                 // this.contextReal.strokeRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
                 this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-                console.log(this.contextReal)
-                addRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY, `${colorFill}`,`${colorStroke}`,lineWidth);
+                this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+                if (lineWidth != 0){
+                this.contextReal.strokeRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+                }
             }
             clicks = 0;
             getsnapshot();

@@ -2,7 +2,7 @@ $(function () {
 
     $("body").css("opacity", "1");
 
-    $("#canvas-real").mousedown(function () {
+    $("#canvas-draft").mousedown(function () {
         $("h1").css("opacity", "0");
     })
 
@@ -66,8 +66,8 @@ $(function () {
             currentFunction = new DrawingCircle(contextReal, contextDraft);
         }
         // Polygon
-        if (e.shiftKey && e.which === 80) {
-            currentFunction = new DrawingIrpoly(contextReal, contextDraft);
+        if (e.which === 78) {
+            currentFunction = new DrawingRegpoly(contextReal, contextDraft);
         }
         // Line
         if (e.which === 220) {
@@ -83,7 +83,7 @@ $(function () {
         }
         // Bezier
         if (e.which === 66) {
-            currentFunction = new DrawingQuadraticLine(contextReal, contextDraft);
+            currentFunction = new DrawingBezierLine(contextReal, contextDraft);
         }
         // Text
         if (e.which === 84) {
@@ -109,33 +109,11 @@ $(function () {
         if (e.which === 75) {
             currentFunction = new Fillflood(contextReal, contextDraft);
         }
-        // Brightness
-        if (e.shiftKey && e.which === 66) {
-            brightness();
-        }
-        // Contrast
-        if (e.shiftKey && e.which === 67) {
-            contrast();
-        }
-        // Saturate
-        if (e.shiftKey && e.which === 81) {
-            saturate();
-        }
-        // Undo
-        if (e.shiftKey && e.which === 84) {
-            undo();
-        }
-        // Redo
-        if (e.shiftKey && e.which === 89) {
-            redo();
-        }
         // Clear
         if (e.shiftKey && e.which === 8) {
-            clear();
-        }
-        // Save
-        if (e.shiftKey && e.which === 83) {
-            save();
+            console.log("Clear Button clicked");
+            contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         }
     })
 
