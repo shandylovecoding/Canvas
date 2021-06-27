@@ -1,5 +1,5 @@
 
-  
+  var move
   class Select extends PaintFunction {
     constructor(contextReal) {
         super();
@@ -15,7 +15,13 @@
     onDragging(){
     }
     onMouseMove([mouseX, mouseY], e){
-      myMove(e)
+      if(move ==1 ){
+        rectMove(e)
+        console.log("rectMove");
+      } else if (move ==2 ){
+        lineMove(e)
+        console.log("lineMove");
+      }
     }
     onMouseUp([mouseX, mouseY], e){
       myUp(e)
@@ -49,7 +55,9 @@
   // 0  1  2
   // 3     4
   // 5  6  7
-  var selectionHandles = [];
+  var rectSelectionHandles = [];
+  var lineSelectionHandles = [];
+
   
   // Hold canvas information
   var canvas;
@@ -134,13 +142,14 @@
     // set up the selection handle boxes
     for (var i = 0; i < 8; i ++) {
       var rect = new Rect;
-      selectionHandles.push(rect);
+      rectSelectionHandles.push(rect);
+      console.log("selectionHandles",rectSelectionHandles);
     }
-    for (var i = 0; i < 10; i ++) {
+    for (var i = 0; i < 2; i ++) {
       var line = new Line;
-      selectionHandles.push(line);
+      lineSelectionHandles.push(line);
+      console.log("lineselectionHandles",lineSelectionHandles);
     }
-    
     // add custom initialization here:
   
     
@@ -181,7 +190,7 @@
   }
   
   // Happens when the mouse is moving inside the canvas
-  function myMove(e){
+  function rectMove(e){
     if (isDrag) {
       getMouse(e);
       
@@ -200,7 +209,8 @@
       // 5  6  7
       switch (expectResize) {
         case 0:
-          mySel.x = mx;
+        console.log("rectangle point 1")  
+         mySel.x = mx;
           mySel.y = my;
           mySel.w += oldx - mx;
           mySel.h += oldy - my;
@@ -246,7 +256,7 @@
         // 3     4
         // 5  6  7
         
-        var cur = selectionHandles[i];
+        var cur = rectSelectionHandles[i];
         
         // we dont need to use the ghost context because
         // selection handles will always be rectangles
@@ -313,16 +323,27 @@
       // get image data at the mouse x,y pixel
       var imageData = gctx.getImageData(mx, my, 1, 1);
       var index = (mx + my * imageData.width) * 4;
-      
       // if the mouse pixel exists, select and break
       if (imageData.data[3] > 0) {
         mySel = boxes[i];
+       
         offsetx = mx - mySel.x;
         offsety = my - mySel.y;
         mySel.x = mx - offsetx;
         mySel.y = my - offsety;
+        mySel.w = boxes[i].w
+        mySel.h= boxes[i].h
+
         isDrag = true;
-        
+        console.log("boxes[i].constructor.name",boxes[i].constructor.name);
+        if(boxes[i].constructor.name == "Rect"){
+          move = 1;
+       
+        } else if (boxes[i].constructor.name == "Line"){
+          move = 2; 
+    ;
+          
+        }
         invalidate();
         clear(gctx);
         return;
