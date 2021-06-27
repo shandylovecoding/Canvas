@@ -16,11 +16,8 @@ class DrawingLine extends PaintFunction {
             this.origY = mouseY;
             clicks = 1;
         } else if (clicks == 1) {
-            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            this.contextReal.beginPath();
-            this.contextReal.moveTo(this.origX, this.origY);
-            this.contextReal.lineTo(mouseX, mouseY);
-            this.contextReal.stroke();
+        
+            addLine(this.origX, this.origY, mouseX , mouseY , `${colorFill}`,`${colorStroke}`,lineWidth);
             clicks = 0;
             getsnapshot();
         }

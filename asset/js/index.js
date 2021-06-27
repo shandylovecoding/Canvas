@@ -97,9 +97,10 @@ $(function () {
         if (e.which === 69) {
             currentFunction = new Eraser(contextReal, contextDraft);
         }
-        // Marquee
-        if (e.which === 77) {}
-        
+        // Select
+        if (e.which === 83) {
+            currentFunction = new Select(contextReal, contextDraft);
+        }
         // Eyedropper
         if (e.which === 73) {
             currentFunction = new Eyedropper(contextReal, contextDraft);

@@ -10,8 +10,8 @@ class DrawingQuadraticLine extends PaintFunction {
         if (clicks == 0) {
             this.contextDraft.strokeStyle = `${colorStroke}`;
             this.contextReal.strokeStyle = `${colorStroke}`;
-            this.contextDraft.lineWidth = 5;
-            this.contextReal.lineWidth = 5;
+            this.contextDraft.lineWidth = lineWidth;
+            this.contextReal.lineWidth = lineWidth;
             this.origX = mouseX;
             this.origY = mouseY;
             clicks = 1;
@@ -21,10 +21,7 @@ class DrawingQuadraticLine extends PaintFunction {
             clicks = 2;
         } else if (clicks == 2) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            this.contextReal.beginPath();
-            this.contextReal.moveTo(this.origX, this.origY);
-            this.contextReal.quadraticCurveTo(mouseX, mouseY, this.endX, this.endY);
-            this.contextReal.stroke();
+            addQuadratic(this.origX, this.origY, mouseX, mouseY, this.endX, this.endY, `${colorStroke}`, lineWidth)
             clicks = 0;
             getsnapshot();
         }

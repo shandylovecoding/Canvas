@@ -42,6 +42,7 @@ input:focus {
 
 #canvas-real {
   position: absolute;
+  background-color: transparent;
   top: 60px;
   bottom: 0px;
   left: 0px;

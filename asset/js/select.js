@@ -41,7 +41,7 @@
 
 
   // holds all our boxes
-  var boxes2 = []; 
+  var boxes = []; 
   
   // New, holds the 8 tiny boxes that will be our selection handles
   // the selection handles will be in this order:
@@ -92,117 +92,9 @@
   
   
   
-  // Box object to hold data
-  function Box2() {
-    this.x = 0;
-    this.y = 0;
-    this.w = 1; // default width and height?
-    this.h = 1;
-    this.fill = '#444444';
-    this.stroke = '#444444';
-    this.lineWidth = 5
-  }
-  
-  // New methods on the Box class
-  Box2.prototype = {
-    // we used to have a solo draw function
-    // but now each box is responsible for its own drawing
-    // mainDraw() will call this with the normal canvas
-    // myDown will call this with the ghost canvas with 'black'
-    draw: function(context, optionalColor) {
-        if (context === gctx) {
-          context.fillStyle = 'black';
-          context.strokeStyle = 'black';
-          context.lineWidth = 1
-        } else {
-          context.fillStyle = this.fill;
-          context.strokeStyle = this.stroke;
-          context.lineWidth = this.lineWidth
-        }
-        
-        // We can skip the drawing of elements that have moved off the screen:
-        if (this.x > WIDTH || this.y > HEIGHT) return; 
-        if (this.x + this.w < 0 || this.y + this.h < 0) return;
-        
-        context.fillRect(this.x,this.y,this.w,this.h);
-        context.strokeRect(this.x,this.y,this.w,this.h);
-        
-      // draw selection
-      // this is a stroke along the box and also 8 new selection handles
-      if (mySel === this) {
-       const imgData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
 
-        context.strokeStyle = `${colorStroke}`;
-        context.fillStyle = `${colorFill}`;
-        context.lineWidth = lineWidth;
-        context.strokeRect(this.x,this.y,this.w,this.h);
-        context.fillRect(this.x,this.y,this.w,this.h);
-          
-        console.log(context)
-        
-        // draw the boxes
-        
-        var half = mySelBoxSize / 2;
-        
-        // 0  1  2
-        // 3     4
-        // 5  6  7
-        
-        // top left, middle, right
-        selectionHandles[0].x = this.x-half;
-        selectionHandles[0].y = this.y-half;
-        
-        selectionHandles[1].x = this.x+this.w/2-half;
-        selectionHandles[1].y = this.y-half;
-        
-        selectionHandles[2].x = this.x+this.w-half;
-        selectionHandles[2].y = this.y-half;
-        
-        //middle left
-        selectionHandles[3].x = this.x-half;
-        selectionHandles[3].y = this.y+this.h/2-half;
-        
-        //middle right
-        selectionHandles[4].x = this.x+this.w-half;
-        selectionHandles[4].y = this.y+this.h/2-half;
-        
-        //bottom left, middle, right
-        selectionHandles[6].x = this.x+this.w/2-half;
-        selectionHandles[6].y = this.y+this.h-half;
-        
-        selectionHandles[5].x = this.x-half;
-        selectionHandles[5].y = this.y+this.h-half;
-        
-        selectionHandles[7].x = this.x+this.w-half;
-        selectionHandles[7].y = this.y+this.h-half;
   
-        
-        context.fillStyle = mySelBoxColor;
-        for (var i = 0; i < 8; i ++) {
-          var cur = selectionHandles[i];
-          context.fillRect(cur.x, cur.y, mySelBoxSize, mySelBoxSize);
-        }
-      }
-      
-    } // end draw
-  
-  }
-  
-  //Initialize a new Box, add it, and invalidate the canvas
-  function addRect(x, y, w, h, fill, stroke, lineWidth) {
-    var rect = new Box2;
-    rect.x = x;
-    rect.y = y;
-    rect.w = w
-    rect.h = h;
-    rect.fill = fill;
-    rect.stroke = stroke
-    rect.lineWidth = lineWidth
-    boxes2.push(rect);
-    console.log(boxes2)
-    invalidate();
-  }
-  
+
   // initialize our canvas, add a ghost canvas, set draw loop
   // then add everything we want to intially exist on the canvas
   function init2() {
@@ -213,6 +105,7 @@
     ghostcanvas = document.createElement('canvas');
     ghostcanvas.height = HEIGHT;
     ghostcanvas.width = WIDTH;
+    ghostcanvas.style.backgroundColor = "transparent";
     gctx = ghostcanvas.getContext('2d');
     
     //fixes a problem where double clicking causes text to get selected on the canvas
@@ -239,8 +132,12 @@
     
     // set up the selection handle boxes
     for (var i = 0; i < 8; i ++) {
-      var rect = new Box2;
+      var rect = new Rect;
       selectionHandles.push(rect);
+    }
+    for (var i = 0; i < 10; i ++) {
+      var line = new Line;
+      selectionHandles.push(line);
     }
     
     // add custom initialization here:
@@ -271,10 +168,9 @@
       // Add stuff you want drawn in the background all the time here
       
       // draw all boxes
-      var l = boxes2.length;
+      var l = boxes.length;
       for (var i = 0; i < l; i++) {
-        boxes2[i].draw(ctx); // we used to call drawshape, but now each box draws itself
-        console.log(boxes2)
+        boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
       }
       
       // Add stuff you want drawn on top all the time here
@@ -379,7 +275,8 @@
               this.style.cursor='sw-resize';
               break;
             case 6:
-              this.style.cursor='s-resize';
+   
+            this.style.cursor='s-resize';
               break;
             case 7:
               this.style.cursor='se-resize';
@@ -392,7 +289,6 @@
       // not over a selection box, return to normal
       isResizeDrag = false;
       expectResize = -1;
-      this.style.cursor='auto';
     }
     
   }
@@ -408,10 +304,10 @@
     }
     
     clear(gctx);
-    var l = boxes2.length;
+    var l = boxes.length;
     for (var i = l-1; i >= 0; i--) {
       // draw shape onto ghost context
-      boxes2[i].draw(gctx, 'black');
+      boxes[i].draw(gctx, 'black');
       
       // get image data at the mouse x,y pixel
       var imageData = gctx.getImageData(mx, my, 1, 1);
@@ -419,7 +315,7 @@
       
       // if the mouse pixel exists, select and break
       if (imageData.data[3] > 0) {
-        mySel = boxes2[i];
+        mySel = boxes[i];
         offsetx = mx - mySel.x;
         offsety = my - mySel.y;
         mySel.x = mx - offsetx;
