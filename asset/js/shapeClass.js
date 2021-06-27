@@ -1,3 +1,4 @@
+HI THERE
 // Box object to hold data
 class Rect {
     constructor(x, y, w, h, fill, stroke, lineWidth) {
