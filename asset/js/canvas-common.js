@@ -6,9 +6,9 @@ let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
 let clicks = 0;
-let color ="black"
-let lineWidth =10;
-let textfont;
+let color = "black"
+let lineWidth = 10;
+let textfont = "Helvetica";
 let link;
 function captureMouseEvent(e){
     this.mouseX = e.offsetX;
@@ -102,6 +102,6 @@ class PaintFunction{
     MouseEnter(){}
 }    
 
-// $(function() {
-//     currentFunction = new Pen(contextReal, contextDraft);
-// });
+$(function() {
+    currentFunction = new Pen(contextReal, contextDraft);
+});

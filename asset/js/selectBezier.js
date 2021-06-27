@@ -1,11 +1,12 @@
-
-class Quadratic {
+class Bezier {
     // instantiating a new Line saves the coordinates and color(default: black), does not actually draw it yet
-    constructor(x, y, cx, cy, w, h, stroke, lineWidth) {
+    constructor(x, y, cx1, cy1, cx2, cy2, w, h, stroke, lineWidth) {
         this.x = x;
         this.y = y;
-        this.cx = cx;
-        this.cy = cy;
+        this.cx1 = cx1;
+        this.cy1 = cy1;
+        this.cx2 = cx2;
+        this.cy2 = cy2;
         this.w = w; // default width and height?
         this.h = h;
         this.stroke = stroke;
@@ -24,7 +25,7 @@ class Quadratic {
 
         context.beginPath();
         context.moveTo(this.x, this.y);
-        context.quadraticCurveTo(this.cx,this.cy,this.w, this.h);
+        context.bezierCurveTo(this.cx1,this.cy1,this.cx2,this.cy2,this.w, this.h);
         context.stroke();
 
         if (mySel === this) {
@@ -38,17 +39,20 @@ class Quadratic {
             // 5  6  7
   
             // top left, middle, right
-            quadSelectionHandles[0].x = this.x - half;
-            quadSelectionHandles[0].y = this.y - half;
+            bezierSelectionHandles[0].x = this.x - half;
+            bezierSelectionHandles[0].y = this.y - half;
 
-            quadSelectionHandles[1].x = this.cx - half;
-            quadSelectionHandles[1].y = this.cy - half;
+            bezierSelectionHandles[1].x = this.cx1 - half;
+            bezierSelectionHandles[1].y = this.cy1 - half;
+
+            bezierSelectionHandles[2].x = this.cx2 - half;
+            bezierSelectionHandles[2].y = this.cy2 - half;
+
+            bezierSelectionHandles[3].x = this.w - half;
+            bezierSelectionHandles[3].y = this.h - half;
   
-            quadSelectionHandles[2].x = this.w - half;
-            quadSelectionHandles[2].y = this.h - half;
-  
-            for (var i = 0; i < 3; i++) {
-                var cur = quadSelectionHandles[i];
+            for (var i = 0; i < 4; i++) {
+                var cur = bezierSelectionHandles[i];
                 context.fillRect(cur.x, cur.y, mySelBoxSize, mySelBoxSize);
             }
   
@@ -56,9 +60,9 @@ class Quadratic {
     };
   };
 
-var quadSelectionHandles = [];
+var bezierSelectionHandles = [];
 
-  function quadMove(e){
+  function bezierMove(e){
       if (isDrag) {
         getMouse(e);
         
@@ -77,27 +81,43 @@ var quadSelectionHandles = [];
           case 0:   
               mySel.x = mx;
               mySel.y = my;
-              mySel.cx =mySel.cx;
-              mySel.cy =mySel.cy;
+              mySel.cx1 = mySel.cx1;
+              mySel.cy1 = mySel.cy1;
+              mySel.cx2 = mySel.cx2;
+              mySel.cy2 = mySel.cy2;
               mySel.w = mySel.w;
               mySel.h = mySel.h;
             break;    
           case 1:
-              mySel.x = oldx;
-              mySel.y = oldy;
-              mySel.cx = mx;
-              mySel.cy = my;
-              mySel.w = mySel.w;
-              mySel.h = mySel.h;
+            mySel.x = oldx;
+            mySel.y = oldy;
+            mySel.cx1 = mx;
+            mySel.cy1 = my;
+            mySel.cx2 = mySel.cx2;
+            mySel.cy2 = mySel.cy2;
+            mySel.w = mySel.w;
+            mySel.h = mySel.h;
             break;
             case 2:
-              mySel.x = oldx;
-              mySel.y = oldy;
-              mySel.cx =mySel.cx;
-              mySel.cy =mySel.cy;
-              mySel.w = mx;
-              mySel.h = my;
-            break;
+                mySel.x = oldx;
+                mySel.y = oldy;
+                mySel.cx1 = mySel.cx1;
+                mySel.cy1 = mySel.cy1;
+                mySel.cx2 = mx;
+                mySel.cy2 = my;
+                mySel.w = mySel.w;
+                mySel.h = mySel.h;
+                break;
+            case 3:
+                mySel.x = oldx;
+                mySel.y = oldy;
+                mySel.cx1 = mySel.cx1;
+                mySel.cy1 = mySel.cy1;
+                mySel.cx2 = mySel.cx2;
+                mySel.cy2 = mySel.cy2;
+                mySel.w = mx;
+                mySel.h = my;
+                break;
         }
         invalidate();
       }
@@ -105,9 +125,9 @@ var quadSelectionHandles = [];
       getMouse(e);
       // if there's a selection see if we grabbed one of the selection handles
       if (mySel !== null && !isResizeDrag) {
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < 4; i++) {
   
-          var cur = quadSelectionHandles[i];
+          var cur = bezierSelectionHandles[i];
           
           // we dont need to use the ghost context because
           // selection handles will always be rectangles
@@ -127,4 +147,3 @@ var quadSelectionHandles = [];
       }
       
     }
-

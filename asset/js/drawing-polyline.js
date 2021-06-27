@@ -1,4 +1,5 @@
-const strokes = []
+var strokes = []
+var strokesRedraw =[]
 
 class DrawingPolyline extends PaintFunction {
     constructor(contextReal, contextDraft) {
@@ -11,8 +12,8 @@ class DrawingPolyline extends PaintFunction {
         if (clicks == 0) {
             this.contextDraft.lineJoin = "round";
             this.contextReal.lineJoin = "round";
-            this.contextDraft.strokeStyle = "#002fa7";
-            this.contextReal.strokeStyle = "#002fa7";
+            this.contextDraft.strokeStyle = `${colorStroke}`;
+            this.contextReal.strokeStyle = `${colorStroke}`;
             this.contextDraft.lineWidth = lineWidth;
             this.contextReal.lineWidth = lineWidth;
             this.origX = mouseX;
@@ -21,10 +22,12 @@ class DrawingPolyline extends PaintFunction {
             this.contextReal.moveTo(this.origX, this.origY);
             clicks = 1;
         } else if (clicks >= 1) {
-            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            // this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextReal.lineTo(mouseX, mouseY);
             this.contextReal.stroke();
             strokes.push({x: mouseX, y: mouseY});
+            console.log("strokes",stroke[strokes.length-1].x);
+            addPolyLine(strokes[strokes.length-1].x,strokes[strokes.length-1].y, mouseX , mouseY , `${colorFill}`,`${colorStroke}`,lineWidth);
             clicks++;
             getsnapshot();
         }
@@ -39,19 +42,20 @@ class DrawingPolyline extends PaintFunction {
                 if (keyCode === 27 || keyCode === 13) {
                     clicks = 0;
                     strokes = [];
-                    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+                    // this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
                 }
             })
         } if (clicks == 1) {
+           
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextDraft.beginPath();
-            this.contextDraft.moveTo(this.origX, this.origY);
+            this.contextDraft.moveTo(strokes[strokes.length-1].x, strokes[strokes.length-1].y);
             this.contextDraft.lineTo(mouseX, mouseY);
             this.contextDraft.stroke();
         } if (clicks > 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextDraft.beginPath();
-            this.contextDraft.moveTo(strokes[strokes.length-1]["x"], strokes[strokes.length-1]["y"]);
+            this.contextDraft.moveTo(strokes[strokes.length-1].x, strokes[strokes.length-1].y);
             this.contextDraft.lineTo(mouseX, mouseY);
             this.contextDraft.stroke();
         }

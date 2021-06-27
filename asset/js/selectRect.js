@@ -1,4 +1,5 @@
 // Box object to hold data
+
 class Rect {
     constructor(x, y, w, h, fill, stroke, lineWidth) {
         this.x = x;
@@ -19,7 +20,7 @@ class Rect {
         if (context === gctx) {
             context.fillStyle = 'black';
             context.strokeStyle = 'black';
-            context.lineWidth = 1
+            context.lineWidth = this.lineWidth
         } else {
             context.fillStyle = this.fill;
             context.strokeStyle = this.stroke;
@@ -71,11 +72,11 @@ class Rect {
              rectSelectionHandles[4].y = this.y + this.h / 2 - half;
 
             //bottom left, middle, right
-             rectSelectionHandles[6].x = this.x + this.w / 2 - half;
+            rectSelectionHandles[5].x = this.x - half;
+            rectSelectionHandles[5].y = this.y + this.h - half; 
+            
+            rectSelectionHandles[6].x = this.x + this.w / 2 - half;
              rectSelectionHandles[6].y = this.y + this.h - half;
-
-             rectSelectionHandles[5].x = this.x - half;
-             rectSelectionHandles[5].y = this.y + this.h - half;
 
              rectSelectionHandles[7].x = this.x + this.w - half;
              rectSelectionHandles[7].y = this.y + this.h - half;
@@ -93,6 +94,7 @@ class Rect {
 }
 
 
+var rectSelectionHandles = [];
 
 
 
@@ -115,8 +117,7 @@ function rectMove(e){
       // 3     4
       // 5  6  7
       switch (expectResize) {
-        case 0:
-        console.log("rectangle point 1")  
+        case 0: 
          mySel.x = mx;
           mySel.y = my;
           mySel.w += oldx - mx;

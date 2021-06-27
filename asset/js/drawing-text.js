@@ -56,10 +56,10 @@ function inputText(e) {
 
     //function to draw text
     function drawText(text, x, y) {
-        const font = `${lineWidth}px ${textfont}`;
         contextReal.textBaseline = 'top';
         contextReal.textAlign = 'left';
-        contextReal.font = font;
+        contextReal.font = `${lineWidth}px ${textfont}`;
+        console.log(contextReal.font)
         contextReal.fillText(text, e.offsetX, e.offsetY);
         getsnapshot();
     };

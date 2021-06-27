@@ -10,8 +10,8 @@ class DrawingBezierLine extends PaintFunction {
         if (clicks == 0) {
             this.contextDraft.strokeStyle = `${colorStroke}`;
             this.contextReal.strokeStyle = `${colorStroke}`;
-            this.contextDraft.lineWidth = 5;
-            this.contextReal.lineWidth = 5;
+            this.contextDraft.lineWidth = lineWidth;
+            this.contextReal.lineWidth = lineWidth;
             this.origX = mouseX;
             this.origY = mouseY;
             clicks = 1;
@@ -25,10 +25,8 @@ class DrawingBezierLine extends PaintFunction {
             clicks = 3;
         } else if (clicks == 3) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            this.contextReal.beginPath();
-            this.contextReal.moveTo(this.origX, this.origY);
-            this.contextReal.bezierCurveTo(this.firstcontrolX, this.firstcontrolY, mouseX, mouseY, this.endX, this.endY);
-            this.contextReal.stroke();
+            console.log(this.contextReal)
+            addBezier(this.origX, this.origY, this.firstcontrolX, this.firstcontrolY, mouseX, mouseY, this.endX, this.endY, `${colorStroke}`, lineWidth)
             clicks = 0;
             getsnapshot();
         }

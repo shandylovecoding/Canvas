@@ -27,20 +27,11 @@ class DrawingRegpoly extends PaintFunction {
       clicks = 1;
     } else if (clicks == 1) {
       var side = document.getElementById('side').value;
-      console.log (side);
-      var a = ((Math.PI * 2 / side));
-      this.contextReal.beginPath();
+      var radius = this.origX - mouseX;
       this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-      var radius = (this.origX - mouseX);
-      this.contextReal.moveTo(this.origX+radius* Math.cos(0),this.origY+radius * Math.sin(0));
-      for (var i = 1; i <= side+1; i++) {
-        this.contextReal.lineTo(this.origX + radius * Math.cos(a * i), this.origY + radius * Math.sin(a * i));
-        this.contextReal.stroke();
-      }
+      addPolygon(this.origX, this.origY, mouseX, mouseY, radius, side, `${colorFill}`, `${colorStroke}`, lineWidth)
       clicks = 0;
-      this.contextReal.fill();
       getsnapshot();
-      return;
     }
 
   }

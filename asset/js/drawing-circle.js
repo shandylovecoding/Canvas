@@ -26,13 +26,8 @@ class DrawingCircle extends PaintFunction {
             clicks = 1;
         } else if (clicks == 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            this.contextReal.beginPath();
-            this.contextReal.moveTo(this.origX, this.origY + (mouseY - this.origY) / 2);
-            this.contextReal.bezierCurveTo(this.origX, this.origY, mouseX, this.origY, mouseX, this.origY + (mouseY - this.origY) / 2);
-            this.contextReal.bezierCurveTo(mouseX, mouseY, this.origX, mouseY, this.origX, this.origY + (mouseY - this.origY) / 2);
-            this.contextReal.closePath();
-            this.contextReal.fill();
-            this.contextReal.stroke();
+            console.log(this.contextReal)
+            addCircle(this.origX, this.origY, mouseX, mouseY, `${colorFill}`, `${colorStroke}`, lineWidth)
             getsnapshot();
             clicks = 0;
         }

@@ -1,3 +1,4 @@
+
 class Line {
   // instantiating a new Line saves the coordinates and color(default: black), does not actually draw it yet
   constructor(x, y, w, h, fill, stroke, lineWidth) {
@@ -57,12 +58,16 @@ class Line {
       }
   };
 };
+var lineSelectionHandles = [];
+
 function lineMove(e){
     if (isDrag) {
       getMouse(e);
       
       mySel.x = mx - offsetx;
       mySel.y = my - offsety;
+      mySel.w = mySel.x + offsetx*2;
+      mySel.h = mySel.y + offsety*2;
      
       console.log(mySel);
       // something is changing position so we better invalidate the canvas!

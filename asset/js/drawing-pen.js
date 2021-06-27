@@ -1,5 +1,46 @@
+// class DrawingPen extends PaintFunction{
+//     constructor(contextReal, contextDraft){
+//         super();
+//         this.contextReal = contextReal;
+//         this.contextDraft = contextDraft;  
+//         this.origX = mouseX;
+//         this.origY = mouseY;          
+//     }
+    
+//     onMouseDown([mouseX,mouseY],e){
+//         this.contextDraft.fillStyle = `${colorFill}`;
+//         this.contextDraft.lineWidth = lineWidth;
+//         this.contextDraft.beginPath();
+//         this.draw(mouseX,mouseY);
+//     }
+//     onDragging([mouseX,mouseY],e){
+//         this.draw(mouseX,mouseY);
+//         addPen(this.origX, this.origY, mouseX, mouseY, `${colorFill}`, lineWidth)
+//     }
 
-class Pen extends PaintFunction{
+//     onMouseMove(){}
+//     onMouseUp(){
+//         this.contextDraft.stroke();    
+//         getsnapshot();
+//     }
+//     onMouseLeave(){}
+//     onMouseEnter(){}
+
+//     draw(x,y){
+//         this.contextDraft.lineTo(x,y);
+//         this.contextDraft.moveTo(x,y);
+//         this.contextDraft.closePath();
+//         this.contextDraft.stroke();    
+//     }
+// }
+
+// $("#penButton").click(function () {
+//     console.log("Pen button clicked");
+//     currentFunction = new DrawingPen(contextReal, contextDraft);
+//   });
+  
+
+  class DrawingPen extends PaintFunction{
     constructor(contextReal, contextDraft){
         super();
         this.context = contextReal;            
