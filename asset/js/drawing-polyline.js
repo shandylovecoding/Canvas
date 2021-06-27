@@ -11,8 +11,8 @@ class DrawingPolyline extends PaintFunction {
         if (clicks == 0) {
             this.contextDraft.lineJoin = "round";
             this.contextReal.lineJoin = "round";
-            this.contextDraft.strokeStyle = "#002fa7";
-            this.contextReal.strokeStyle = "#002fa7";
+            this.contextDraft.strokeStyle = `${colorStroke}`;
+            this.contextReal.strokeStyle = `${colorStroke}`;
             this.contextDraft.lineWidth = lineWidth;
             this.contextReal.lineWidth = lineWidth;
             this.origX = mouseX;

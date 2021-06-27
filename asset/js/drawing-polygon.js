@@ -12,8 +12,6 @@ class DrawingRegpoly extends PaintFunction {
 
   onMouseDown([mouseX, mouseY], event) {
     if (clicks == 0) {
-      this.contextDraft.lineStyle = "#000000";
-      this.contextReal.lineStyle = "#000000";
       this.contextDraft.lineJoin = "round";
       this.contextReal.lineJoin = "round";
       this.contextReal.strokeStyle = `${colorStroke}`;
@@ -47,8 +45,6 @@ class DrawingRegpoly extends PaintFunction {
 
   onMouseMove([mouseX, mouseY], e) {
     if (clicks == 1) {
-      this.contextDraft.lineStyle = "#000000";
-      this.contextReal.lineStyle = "#000000";
       var side = document.getElementById('side').value;
       console.log (side);
       var a = ((Math.PI * 2 / side));

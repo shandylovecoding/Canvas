@@ -24,7 +24,7 @@ $("#undoButton").click(function() {
     }
 });
 
-$("#redoButton").click(function redo() {
+$("#redoButton").click(function () {
     redo_step -= 1;
     step += 1;
     if (redo_step < 0) {

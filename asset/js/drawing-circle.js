@@ -1,5 +1,4 @@
 var canvasOffset = $("#canvas-draft").offset();
-console.log(canvasOffset)
 var offsetX = canvasOffset.left;
 var offsetY = canvasOffset.top;
 var startX;

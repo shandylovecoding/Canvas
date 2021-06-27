@@ -1,3 +1,4 @@
+
 class Pen extends PaintFunction{
     constructor(contextReal, contextDraft){
         super();
