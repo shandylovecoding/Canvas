@@ -25,6 +25,5 @@ Canvas is a light web-based sketchpad to make quick sketches and collages that c
 |       | Redo                              | Redo last undo |
 |   Shift + S    | Save                              | Downloads png of canvas |
 |   Shift + Backspace    | Clear                             | Clears entire canvas |
-
 |       | Load                             | Import a jpeg or png onto the canvas                                                                                                                               |
 
