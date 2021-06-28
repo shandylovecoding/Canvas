@@ -15,29 +15,20 @@ class Select extends PaintFunction {
   onMouseMove([mouseX, mouseY], e) {
     if (move == 1) {
       rectMove(e)
-      console.log("rectMove");
     } else if (move == 2) {
       lineMove(e)
-      console.log("lineMove");
     } else if (move == 3) {
       quadMove(e)
-      console.log("quadMove");
     } else if (move == 4) {
       bezierMove(e)
-      console.log("bezierMove");
     } else if (move == 5) {
       penMove()
     } else if (move == 6) {
       circleMove(e)
-      console.log("circleMove");
-    }
-    else if (move == 7) {
+    } else if (move == 7) {
       polyLineMove(e)
-      console.log("polyLineMove");
-    }
-    else if (move == 8) {
+    } else if (move == 8) {
       polygonMove(e)
-      console.log("polygonMove");
     }
   }
     onMouseUp([mouseX, mouseY], e) {
@@ -54,14 +45,6 @@ class Select extends PaintFunction {
 
   // holds all our boxes
   var boxes = [];
-
-// New, holds the 8 tiny boxes that will be our selection handles
-// the selection handles will be in this order:
-// 0  1  2
-// 3     4
-// 5  6  7
-
-
 
 // Hold canvas information
 var canvas;
@@ -102,12 +85,6 @@ var offsetx, offsety;
 // Padding and border style widths for mouse offsets
 var stylePaddingLeft, stylePaddingTop, styleBorderLeft, styleBorderTop;
 
-
-
-
-
-
-
 // initialize our canvas, add a ghost canvas, set draw loop
 // then add everything we want to intially exist on the canvas
 function init2() {
@@ -137,13 +114,6 @@ function init2() {
 
   // make mainDraw() fire every INTERVAL milliseconds
   setInterval(mainDraw, INTERVAL);
-
-  // set our events. Up and down are for dragging,
-  // double click is for making new boxes
-  // canvas.onmousedown = myDown;
-  // canvas.onmouseup = myUp;
-  // canvas.ondblclick = myDblClick;
-  // canvas.onmousemove = myMove;
 
   // set up the selection handle boxes
   for (var i = 0; i < 8; i++) {
@@ -178,18 +148,6 @@ function init2() {
     var pen = new Pen;
     penSelectionHandles.push(pen);
   }
-
-  // add custom initialization here:
-
-
-  // // add a large green rectangle
-  // addRect(260, 70, 60, 65, 'rgba(0,205,0,0.7)');
-
-  // // add a green-blue rectangle
-  // addRect(240, 120, 40, 40, 'rgba(2,165,165,0.7)');  
-
-  // // add a smaller purple rectangle
-  // addRect(45, 60, 25, 25, 'rgba(150,150,250,0.7)');
 }
 
 
@@ -239,8 +197,9 @@ function myDown(e) {
     // if the mouse pixel exists, select and break
     if (imageData.data[3] > 0) {
       mySel = boxes[i];
+
       console.log("Choosen box",mySel);
-      
+      console.log("currentFunction",currentFunction.constructor.name);
 
       offsetx = mx - mySel.x;
       offsety = my - mySel.y;
@@ -248,13 +207,14 @@ function myDown(e) {
       mySel.y = my - offsety;
       mySel.w = boxes[i].w;
       mySel.h = boxes[i].h;
-      boxes[i].fill = `${colorFill}`
-      boxes[i].stroke = `${colorStroke}`
+      mySel.fill = colorFill
+      mySel.stroke = colorStroke
+
+      
 
       
 
       isDrag = true;
-      console.log("boxes[i].constructor.name", boxes[i].constructor.name);
       if (boxes[i].constructor.name == "Rect") {
         move = 1;
       } else if (boxes[i].constructor.name == "Line") {
@@ -270,7 +230,6 @@ function myDown(e) {
       }else if (boxes[i].constructor.name == "Polyline") {
         move = 7;
       }
-      
 
       invalidate();
       clear(gctx);

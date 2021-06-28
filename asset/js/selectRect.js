@@ -38,9 +38,6 @@ class Rect {
         // this is a stroke along the box and also 8 new selection handles
         if (mySel === this) {
             const imgData = context.getImageData(0, 0, context.canvas.width, context.canvas.height);
-
-            context.strokeStyle = `${colorStroke}`;
-            context.fillStyle = `${colorFill}`;
             context.lineWidth = lineWidth;
             context.strokeRect(this.x, this.y, this.w, this.h);
             context.fillRect(this.x, this.y, this.w, this.h);
