@@ -10,20 +10,14 @@ class DrawingText extends PaintFunction {
         inputText(e)
     }
 
-    onDragging(){}
-    onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
 };
 
 function inputText(e) {
-    addInput(e.clientX,e.clientY);
+    addInput(e.clientX, e.clientY);
     //function to show input box
     function addInput(x, y) {
 
         if (hasInput == false) {
-            console.log("creating text box")
             var input = document.createElement('input');
             input.type = 'text';
             input.style.position = 'fixed';
@@ -59,7 +53,6 @@ function inputText(e) {
         contextReal.textBaseline = 'top';
         contextReal.textAlign = 'left';
         contextReal.font = `${lineWidth}px ${textfont}`;
-        console.log(contextReal.font)
         contextReal.fillText(text, e.offsetX, e.offsetY);
         getsnapshot();
     };
@@ -67,6 +60,5 @@ function inputText(e) {
 }
 
 $("#textButton").click(function () {
-    console.log("Text Button clicked");
     currentFunction = new DrawingText(contextReal, contextDraft);
 });

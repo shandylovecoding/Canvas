@@ -88,20 +88,17 @@ function changeColor(e, label) {
     var l = boxes.length;
     for (var i = 0; i < l; i++) {
       if (boxes[i] == mySel) {
-        boxes[i].fill = colorFill;    
-        console.log(boxes[i]);
+        boxes[i].fill = colorFill;
       }
     }
   } else if (fillcolor) {
     rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
     colorStroke = `${rgbaColor}`
     fillcolorLabel.style.backgroundColor = colorStroke
-    console.log(colorStroke);
     var l = boxes.length;
     for (var i = 0; i < l; i++) {
       if (boxes[i] == mySel) {
         boxes[i].stroke = colorStroke
-        console.log(boxes[i]);
       }
     }
 
@@ -113,12 +110,10 @@ var fillcolorControl = document.getElementById('fillcolor-input')
 
 
 $("#color-label").click(function () {
-  console.log("paintBucket clicked");
   colorcolor = true;
   fillcolor = false;
 });
 $("#fillcolor-label").click(function () {
-  console.log("paintBucket clicked");
   colorcolor = false;
   fillcolor = true;
 });

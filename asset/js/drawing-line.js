@@ -6,7 +6,6 @@ class DrawingLine extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
-        console.log("clicks", clicks)
         if (clicks == 0) {
             this.contextDraft.strokeStyle = `${colorStroke}`;
             this.contextReal.strokeStyle = `${colorStroke}`;
@@ -17,15 +16,13 @@ class DrawingLine extends PaintFunction {
             clicks = 1;
         } else if (clicks == 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            addLine(this.origX, this.origY, mouseX , mouseY , `${colorFill}`,`${colorStroke}`,lineWidth);
+            addLine(this.origX, this.origY, mouseX, mouseY, `${colorFill}`, `${colorStroke}`, lineWidth);
             clicks = 0;
             getsnapshot();
         }
     }
 
-    onDragging() {}
-
-    onMouseMove(e) {
+    onMouseMove() {
         if (clicks == 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextDraft.beginPath();
@@ -34,13 +31,9 @@ class DrawingLine extends PaintFunction {
             this.contextDraft.stroke();
         }
     }
-    onMouseUp() {}
-    onMouseLeave() {}
-    onMouseEnter() {}
 
 }
 
 $("#lineButton").click(function () {
-    console.log("Line button clicked");
     currentFunction = new DrawingLine(contextReal, contextDraft);
 });

@@ -17,7 +17,6 @@ function captureMouseEvent(e){
 
 $('#canvas-draft').mousedown(function(e){
     captureMouseEvent(e)
-    console.log("Mouse Down: when user presses mouse");
     currentFunction.onMouseDown([mouseX,mouseY],e);
     dragging = true;
 });
@@ -25,7 +24,6 @@ $('#canvas-draft').mousedown(function(e){
 $('#canvas-draft').mousemove(function(e){
    captureMouseEvent(e)
     if(dragging){
-        console.log("Dragging");
         currentFunction.onDragging([mouseX,mouseY],e);
     }
     currentFunction.onMouseMove([mouseX,mouseY],e);
@@ -54,7 +52,6 @@ $('#canvas-draft').mouseenter(function(e){
 
 $('#canvas-real').mousedown(function(e){
     captureMouseEvent(e)
-    console.log("Mouse Down: when user presses mouse");
     currentFunction.MouseDown([mouseX,mouseY],e);
     dragging = true;
 });
@@ -62,7 +59,6 @@ $('#canvas-real').mousedown(function(e){
 $('#canvas-real').mousemove(function(e){
    captureMouseEvent(e)
     if(dragging){
-        console.log("Dragging");
         currentFunction.onDragging([mouseX,mouseY],e);
     }
     currentFunction.MouseMove([mouseX,mouseY],e);

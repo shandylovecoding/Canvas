@@ -76,7 +76,6 @@ function penMove(e){
       mySel.w = mySel.x + offsetx*2;
       mySel.h = mySel.y + offsety*2;
      
-      console.log(mySel);
       // something is changing position so we better invalidate the canvas!
       invalidate();
     } else if (isResizeDrag) {

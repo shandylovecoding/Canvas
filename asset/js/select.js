@@ -31,20 +31,19 @@ class Select extends PaintFunction {
       polygonMove(e)
     }
   }
-    onMouseUp([mouseX, mouseY], e) {
-      myUp(e)
-    }
-    onMouseLeave() { }
-    onMouseEnter() { }
+  onMouseUp([mouseX, mouseY], e) {
+    myUp(e)
   }
+  onMouseLeave() { }
+  onMouseEnter() { }
+}
 
-  $("#select").click(function () {
-    console.log("select Button clicked");
-    currentFunction = new Select(contextReal, contextDraft);
-  });
+$("#select").click(function () {
+  currentFunction = new Select(contextReal, contextDraft);
+});
 
-  // holds all our boxes
-  var boxes = [];
+// holds all our boxes
+var boxes = [];
 
 // Hold canvas information
 var canvas;
@@ -197,20 +196,12 @@ function myDown(e) {
     // if the mouse pixel exists, select and break
     if (imageData.data[3] > 0) {
       mySel = boxes[i];
-
-      console.log("Choosen box",mySel);
-      console.log("currentFunction",currentFunction.constructor.name);
-
       offsetx = mx - mySel.x;
       offsety = my - mySel.y;
       mySel.x = mx - offsetx;
       mySel.y = my - offsety;
       mySel.w = boxes[i].w;
       mySel.h = boxes[i].h;
-
-      
-
-      
 
       isDrag = true;
       if (boxes[i].constructor.name == "Rect") {
@@ -225,7 +216,7 @@ function myDown(e) {
         move = 5;
       } else if (boxes[i].constructor.name == "Circle") {
         move = 6;
-      }else if (boxes[i].constructor.name == "Polyline") {
+      } else if (boxes[i].constructor.name == "Polyline") {
         move = 7;
       }
 

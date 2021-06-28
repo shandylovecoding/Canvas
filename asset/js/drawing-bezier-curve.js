@@ -6,7 +6,6 @@ class DrawingBezierLine extends PaintFunction {
     }
 
     onMouseDown([mouseX, mouseY], e) {
-        console.log(clicks);
         if (clicks == 0) {
             this.contextDraft.strokeStyle = `${colorStroke}`;
             this.contextReal.strokeStyle = `${colorStroke}`;
@@ -25,14 +24,11 @@ class DrawingBezierLine extends PaintFunction {
             clicks = 3;
         } else if (clicks == 3) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            console.log(this.contextReal)
             addBezier(this.origX, this.origY, this.firstcontrolX, this.firstcontrolY, mouseX, mouseY, this.endX, this.endY, `${colorStroke}`, lineWidth)
             clicks = 0;
             getsnapshot();
         }
     }
-
-    onDragging() {}
 
     onMouseMove([mouseX, mouseY], e) {
         if (clicks == 1) {
@@ -55,12 +51,10 @@ class DrawingBezierLine extends PaintFunction {
             this.contextDraft.stroke();
         }
     }
-    onMouseUp([mouseX, mouseY], e) {}
-    onMouseLeave() {}
-    onMouseEnter() {}
+    onMouseUp([mouseX, mouseY], e) { }
+
 }
 
 $("#bezierButton").click(function () {
-    console.log("Bezier button clicked");
     currentFunction = new DrawingBezierLine(contextReal, contextDraft);
 });

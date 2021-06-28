@@ -46,11 +46,6 @@ class Rect {
 
             var half = mySelBoxSize / 2;
 
-            // 0  1  2
-            // 3     4
-            // 5  6  7
-
-            // top left, middle, right
             rectSelectionHandles[0].x = this.x - half;
             rectSelectionHandles[0].y = this.y - half;
 
@@ -109,10 +104,7 @@ function rectMove(e){
       // time ro resize!
       var oldx = mySel.x;
       var oldy = mySel.y;
-      
-      // 0  1  2
-      // 3     4
-      // 5  6  7
+
       switch (expectResize) {
         case 0: 
          mySel.x = mx;

@@ -9,11 +9,6 @@ class Eyedropper extends PaintFunction {
         pixel(e)
     }
 
-    onDragging(){}
-    onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
 };
 function pixel(e) {
     // calculate the x and y coordinates of the cursor
@@ -23,11 +18,10 @@ function pixel(e) {
     colorLabel.style.backgroundColor = "rgb(" + new_color.join() + ")";
     rgbaColor = "rgb(" + new_color.join() + ")"
     colorFill = rgbaColor
-  }
+}
 
 
 $("#eyedropper").click(function () {
-    console.log("eyedropper Button clicked");
     currentFunction = new Eyedropper(contextReal, contextDraft);
 });
 

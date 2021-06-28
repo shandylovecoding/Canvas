@@ -14,7 +14,6 @@ class DrawingCircle extends PaintFunction {
 
     onMouseDown([mouseX, mouseY], e) {
         if (clicks == 0) {
-            console.log("working");
             this.contextReal.strokeStyle = `${colorStroke}`;
             this.contextReal.fillStyle = `${colorFill}`;
             this.contextReal.lineWidth = lineWidth;
@@ -33,7 +32,7 @@ class DrawingCircle extends PaintFunction {
         }
 
     }
-    onDragging() {}
+    onDragging() { }
     onMouseMove() {
         if (clicks == 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
@@ -46,13 +45,10 @@ class DrawingCircle extends PaintFunction {
             this.contextDraft.stroke();
         }
     }
-    onMouseUp() {}
-    onMouseLeave() {}
-    onMouseEnter() {}
+
 }
 
 $("#circleButton").click(function () {
-    console.log("Circle Button clicked");
     currentFunction = new DrawingCircle(contextReal, contextDraft);
 });
 

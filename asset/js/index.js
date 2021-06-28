@@ -112,7 +112,6 @@ $(function () {
 
         // Clear
         if (e.shiftKey && e.which === 8) {
-            console.log("Clear Button clicked");
             contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             boxes = [];
@@ -123,7 +122,6 @@ $(function () {
             link = document.createElement('a');
             link.download = 'canvas.png';
             link.href = canvas.toDataURL();
-            console.log(canvas.toDataURL());
             link.click();
             link.delete;
         }
