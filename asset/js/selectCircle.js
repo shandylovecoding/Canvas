@@ -78,8 +78,7 @@ function circleMove(e){
       
       mySel.x = mx - offsetx;
       mySel.y = my - offsety; 
-      mySel.w = mySel.x + offsetx*2;
-      mySel.h = mySel.y + offsety*2;
+     
       
       // something is changing position so we better invalidate the canvas!
       invalidate();
@@ -88,9 +87,6 @@ function circleMove(e){
       var oldx = mySel.x;
       var oldy = mySel.y;
       
-      // 0  1  2
-      // 3     4
-      // 5  6  7
       switch (expectResize) {
         case 0:
          mySel.x = mx;
@@ -113,8 +109,8 @@ function circleMove(e){
         case 3:
           mySel.x = mySel.x;
           mySel.y = mySel.y;
-          mySel.w = mx;
-          mySel.h = my;
+          mySel.w = mx ;
+          mySel.h = my ;
           break;
       }
       
