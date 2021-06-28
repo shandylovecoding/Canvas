@@ -54,7 +54,7 @@ var strokesStorePen = []
         this.context.lineWidth = lineWidth;
         this.context.beginPath();
         this.context.moveTo(mouseX,mouseY);
-        // this.draw(mouseX,mouseY);
+        this.draw(mouseX,mouseY);
     }
     onDragging([mouseX,mouseY],e){
         this.draw(mouseX,mouseY);
