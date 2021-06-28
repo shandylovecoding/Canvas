@@ -207,8 +207,6 @@ function myDown(e) {
       mySel.y = my - offsety;
       mySel.w = boxes[i].w;
       mySel.h = boxes[i].h;
-      mySel.fill = colorFill
-      mySel.stroke = colorStroke
 
       
 

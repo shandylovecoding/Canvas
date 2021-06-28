@@ -78,6 +78,8 @@ function circleMove(e){
       
       mySel.x = mx - offsetx;
       mySel.y = my - offsety; 
+      mySel.w = mySel.x + offsetx*2;
+      mySel.h = mySel.y + offsety*2;
       
       // something is changing position so we better invalidate the canvas!
       invalidate();

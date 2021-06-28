@@ -170,34 +170,7 @@ function rectMove(e){
           // we found one!
           expectResize = i;
           invalidate();
-          
-          switch (i) {
-            case 0:
-              this.style.cursor='nw-resize';
-              break;
-            case 1:
-              this.style.cursor='n-resize';
-              break;
-            case 2:
-              this.style.cursor='ne-resize';
-              break;
-            case 3:
-              this.style.cursor='w-resize';
-              break;
-            case 4:
-              this.style.cursor='e-resize';
-              break;
-            case 5:
-              this.style.cursor='sw-resize';
-              break;
-            case 6:
-   
-            this.style.cursor='s-resize';
-              break;
-            case 7:
-              this.style.cursor='se-resize';
-              break;
-          }
+        
           return;
         }
         
