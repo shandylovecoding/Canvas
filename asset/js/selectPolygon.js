@@ -91,7 +91,7 @@ function polygonMove(e){
       // 5  6  7
       switch (expectResize) {
         case 0:
-mySel.radius = (mx-mySel.x)
+mySel.radius = (mx-mySel.x);
 
           break;
         case 1:

@@ -149,37 +149,30 @@ function init2() {
   for (var i = 0; i < 8; i++) {
     var rect = new Rect;
     rectSelectionHandles.push(rect);
-    console.log("rectangleselectionHandles", rectSelectionHandles);
   }
   for (var i = 0; i < 4; i++) {
     var circle = new Circle;
     circleSelectionHandles.push(circle);
-    console.log("circleselectionHandles", circleSelectionHandles);
   }
   for (var i = 0; i < 2; i++) {
     var line = new Line;
     lineSelectionHandles.push(line);
-    console.log("lineselectionHandles", lineSelectionHandles);
   }
   for (var i = 0; i < 3; i++) {
     var quad = new Quadratic;
     quadSelectionHandles.push(quad);
-    console.log("quadselectionHandles", quadSelectionHandles);
   }
   for (var i = 0; i < 4; i++) {
     var bezier = new Bezier;
     bezierSelectionHandles.push(bezier);
-    console.log("bezierselectionHandles", bezierSelectionHandles);
   }
   for (var i = 0; i < 2; i++) {
     var polyLine = new PolyLine;
     polyLineSelectionHandles.push(polyLine);
-    console.log("polyLineselectionHandles", polyLineSelectionHandles);
   }
   for (var i = 0; i < 4; i++) {
     var polygon = new Polygon;
     polygonSelectionHandles.push(polygon);
-    console.log("polygonselectionHandles", polygonSelectionHandles);
   }
 
   // add custom initialization here:

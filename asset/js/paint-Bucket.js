@@ -86,21 +86,22 @@ function changeColor(e,label) {
       colorFill = `${rgbaColor}`
       colorLabel.style.backgroundColor = colorFill
       var l = boxes.length;
-      for (var i = 0; i < l; i++) {
-        boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
-        console.log(boxes)
+      // for (var i = 0; i < l; i++) {
+      //   boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
+      //   console.log(boxes)
 
-      }
+      // }
     } else if (fillcolor) {
       rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
       colorStroke = `${rgbaColor}`
       fillcolorLabel.style.backgroundColor = colorStroke
       console.log(colorStroke);
       var l = boxes.length;
-      for (var i = 0; i < l; i++) {
-        boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
-        console.log(boxes)
-      }
+      // for (var i = 0; i < l; i++) {
+      //   boxes[i].fillStyle = colorStroke
+      //   boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
+      //   console.log(boxes)
+      // }
     }
 
 }

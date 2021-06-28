@@ -39,9 +39,6 @@ class Line {
           context.lineWidth = lineWidth;
           var half = mySelBoxSize / 2;
 
-          // 0  1  2
-          // 3     4
-          // 5  6  7
 
           // top left, middle, right
           lineSelectionHandles[0].x = this.x - half;

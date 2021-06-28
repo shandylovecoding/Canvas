@@ -1,5 +1,6 @@
 var strokes = []
-var strokesRedraw =[]
+var strokesStore = []
+
 
 class DrawingPolyline extends PaintFunction {
     constructor(contextReal, contextDraft) {
@@ -26,8 +27,7 @@ class DrawingPolyline extends PaintFunction {
             this.contextReal.lineTo(mouseX, mouseY);
             this.contextReal.stroke();
             strokes.push({x: mouseX, y: mouseY});
-            console.log("strokes",stroke[strokes.length-1].x);
-            addPolyLine(strokes[strokes.length-1].x,strokes[strokes.length-1].y, mouseX , mouseY , `${colorFill}`,`${colorStroke}`,lineWidth);
+            strokesStore.push({x: mouseX, y: mouseY})
             clicks++;
             getsnapshot();
         }
@@ -39,6 +39,8 @@ class DrawingPolyline extends PaintFunction {
         if (clicks !== 0) {
             $(document).keydown(function (e) {
                 let keyCode = e.keyCode;
+                 console.log(strokesStore);
+                addPolyLine(strokesStore, mouseX , mouseY , `${colorStroke}`,lineWidth);
                 if (keyCode === 27 || keyCode === 13) {
                     clicks = 0;
                     strokes = [];

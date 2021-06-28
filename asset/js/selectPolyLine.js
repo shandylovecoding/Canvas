@@ -1,11 +1,10 @@
 
 class PolyLine {
     // instantiating a new Line saves the coordinates and color(default: black), does not actually draw it yet
-    constructor(x, y, x2, y2 , stroke, lineWidth) {
+    constructor(arr,x,y , stroke, lineWidth) {
+        this.arr = arr
         this.x = x;
         this.y = y;
-        this.x2 = x2;
-        this.y2 = y2;
         this.stroke = stroke;
         this.lineWidth = lineWidth
     };
@@ -18,7 +17,6 @@ class PolyLine {
             context.strokeStyle = 'black';
             context.lineWidth = 1
         } else {
-            context.fillStyle = this.fill;
             context.strokeStyle = this.stroke;
             context.lineWidth = this.lineWidth
         }
@@ -28,7 +26,9 @@ class PolyLine {
         if (this.x + this.w < 0 || this.y + this.h < 0) return;
         context.beginPath();
         context.moveTo(this.x, this.y);
-        context.lineTo(this.x2, this.y2);
+        for(let i =0; i< this.arr.length; i++){
+        context.lineTo(this.arr[i].x, this.arr[i].y);
+        }
         context.stroke();;
   
         if (mySel === this) {

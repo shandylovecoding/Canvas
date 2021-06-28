@@ -85,14 +85,12 @@ function addRect(x, y, w, h, fill, stroke, lineWidth) {
     invalidate();
   }
 
-  function addPolyLine(x, y, w, h, fill, stroke, lineWidth) {
+  function addPolyLine(arr, x, y, stroke, lineWidth) {
     var polyline = new PolyLine;
+    polyline.arr = arr;
     polyline.x = x;
     polyline.y = y;
-    polyline.w = w
-    polyline.h = h;
-    polyline.fill = fill;
-    polyline.stroke = stroke
+    polyline.stroke = stroke;
     polyline.lineWidth = lineWidth
     boxes.push(polyline);
     console.log(boxes)
