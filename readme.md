@@ -1,71 +1,7 @@
-# Presentation Countdown: :five: Days Left :skull_and_crossbones:
-
-## Code Sprint :athletic_shoe:
-
-| Done? | Function                          | PIC      | Estimated Time | Actual Time |
-| ----- | --------------------------------- | :------: | :------------: | :---------: |
-|   X   | Functionality 1: Circle           |    S     |                |             |
-|   X   | Functionality 2: Polygons         |    A     |                |             |
-|   X   | Functionality 3: Text             |    K     |                |             |
-|   X   | Tools 1: Line (Straight, Curve)   |    K     |                |             |
-|   X   | Tools 2: Polyline                 |    K     |                |             |
-|   X   | Tools 3: Pen                      |    K     |                |             |
-|   X   | Tools 4: Eraser                   |    K     |                |             |
-|       | Tools 5: Lasso                    |    S     |                |             |
-|   X   | Tools 6: Eye-dropper              |    A     |                |             |
-|   X   | Tools 7: Undo/redo                |    K     |                |             |
-|   X   | Tools 8: Clear                    |    K     |                |             |
-|   X   | Tools 9: Save As                  |    A     |                |             |
-|   X   | Tools 10: Share                   |    K     |                |             |
-|   X   | Tools 11: Fill/Stroke             |    S     |                |             |
-|   X   | Tools 12: Line Width              |    A     |                |             |
-|   X   | Tools 13: FloodFill               |    S     |                |             |
-|   X   | Tools 14: Filters (Noise etc.)    |    K     |                |             |
-|   X   | Tools 15: Fonts and Sizes         |    A     |                |             |
-|       | Add Canvas                        |          |                |             |
-|       | Help Modal Box                    |          |                |             |
-
-
-## Minor Fixes :wrench:
-
-| Done? | Item                              |
-| ----- | --------------------------------- |
-|       | Rectangle drawing layer           |
-|       | Esc functions                     |
-|       | Check colour/line width           |
-|       | Text does not undo                |
-|       | Color palette auto off            |
-
-
-## Useful Links:
-Drawing textures - http://perfectionkills.com/exploring-canvas-drawing-techniques/
-On drawing polygons - https://www.arungudelli.com/html5/html5-canvas-polygon/
-Image filters - https://www.html5rocks.com/en/tutorials/canvas/imagefilters/
-Firebase (to save photos) - https://firebase.google.com/
-Drag and Drop - https://codeboxsystems.com/tutorials/en/how-to-drag-and-drop-objects-javascript-canvas/
-
 # Canvas
-Canvas is a light web-based sketchpad to make quick sketches and collages that can then be shared or saved. The project is designed to be easy to use on a mouse or trackpad.
+Canvas is a light web-based sketchpad to make quick sketches and collages that can then be shared or saved. The project is designed to be easy to use on a mouse or trackpad. The application itself can be accessed at this link: https://canvas-operation.surge.sh/
 
 ## Features
-- Drawing Tools:
-    - Circles
-    - Rectangles
-    - Polygons
-    - Lines
-    - Curves
-    - Pen
-- Editing Tools:
-    - Fill/Stroke Picker
-    - Eraser
-    - Paint Bucket
-    - Eye Dropper
-    - Lasso
-    - Undo/Redo
-    - Clear Canvas
-- File Management:
-    - Save As
-    - Share
 
 | Shortcut | Functions                         | Instructions |
 | ----- | --------------------------------- | :-----------------------------------------------------------------------------------------------: |
@@ -79,15 +15,16 @@ Canvas is a light web-based sketchpad to make quick sketches and collages that c
 |    T   | Text                              | Select font and font-size; Click on canvas for input point; Type input and press enter to end function |
 |    P   | Pen                               | Hold mouse down on canvas to start drawing |
 |    E   | Eraser                            | Hold mouse down on canvas to start erasing |
-|    M  | Marquee                           |                                                                                                                                |
+|    S  | Select                          | (Testing) Allows users to reselect, move and transform already drawn shapes                                                                                                                               |
 |    I   | Eyedropper                        | Click on canvas area to get colour |
 |    K   | FillFlood                         | Select fill colour; Click on canvas area to fill |
-|    Shift + B   | Brightness                        | Input number between 0 and 500 to adjust brightness (100 leaves canvas unchanged) |
-|   Shift + C    | Contrast                          | Input number between 0 and 500 to adjust contrast (100 leaves canvas unchanged) |
-|    Shift + Q   | Saturate                          | Input number between 0 and 500 to adjust saturation (100 leaves canvas unchanged) |
-|   Shift + Z    | Undo                              | Undo last move |
-|    Shift + Y   | Redo                              | Redo last undo |
-|   Shift + Backspace    | Clear                             | Clears entire canvas |
+|     | Brightness                        | Input number between 0 and 500 to adjust brightness (100 leaves canvas unchanged) |
+|      | Contrast                          | Input number between 0 and 500 to adjust contrast (100 leaves canvas unchanged) |
+|       | Saturate                          | Input number between 0 and 500 to adjust saturation (100 leaves canvas unchanged) |
+|       | Undo                              | Undo last move |
+|       | Redo                              | Redo last undo |
 |   Shift + S    | Save                              | Downloads png of canvas |
-|       | Share                             |                                                                                                                                |
+|   Shift + Backspace    | Clear                             | Clears entire canvas |
+
+|       | Load                             | Import a jpeg or png onto the canvas                                                                                                                               |
 
