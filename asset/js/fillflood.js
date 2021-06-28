@@ -64,6 +64,7 @@ class Fillflood extends PaintFunction {
               idx += w;
           }
       }
+
       contextReal.putImageData(imgData,0, 0);
       getsnapshot();
       return;

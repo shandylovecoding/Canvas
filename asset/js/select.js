@@ -26,7 +26,7 @@ class Select extends PaintFunction {
       bezierMove(e)
       console.log("bezierMove");
     } else if (move == 5) {
-      return;
+      penMove()
     } else if (move == 6) {
       circleMove(e)
       console.log("circleMove");
@@ -166,13 +166,17 @@ function init2() {
     var bezier = new Bezier;
     bezierSelectionHandles.push(bezier);
   }
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < 4; i++) {
     var polyLine = new PolyLine;
-    polyLineSelectionHandles.push(polyLine);
+    polylineSelectionHandles.push(polyLine);
   }
   for (var i = 0; i < 4; i++) {
     var polygon = new Polygon;
     polygonSelectionHandles.push(polygon);
+  }
+  for (var i = 0; i < 4; i++) {
+    var pen = new Pen;
+    penSelectionHandles.push(pen);
   }
 
   // add custom initialization here:
@@ -207,9 +211,7 @@ function mainDraw() {
     for (var i = 0; i < l; i++) {
       boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
     }
-
     // Add stuff you want drawn on top all the time here
-
     canvasValid = true;
   }
 }
@@ -237,6 +239,8 @@ function myDown(e) {
     // if the mouse pixel exists, select and break
     if (imageData.data[3] > 0) {
       mySel = boxes[i];
+      console.log("Choosen box",mySel);
+      
 
       offsetx = mx - mySel.x;
       offsety = my - mySel.y;
@@ -244,7 +248,10 @@ function myDown(e) {
       mySel.y = my - offsety;
       mySel.w = boxes[i].w;
       mySel.h = boxes[i].h;
-      endx = 
+      boxes[i].fill = `${colorFill}`
+      boxes[i].stroke = `${colorStroke}`
+
+      
 
       isDrag = true;
       console.log("boxes[i].constructor.name", boxes[i].constructor.name);
@@ -260,7 +267,10 @@ function myDown(e) {
         move = 5;
       } else if (boxes[i].constructor.name == "Circle") {
         move = 6;
+      }else if (boxes[i].constructor.name == "Polyline") {
+        move = 7;
       }
+      
 
       invalidate();
       clear(gctx);
@@ -282,16 +292,6 @@ function myUp() {
   isResizeDrag = false;
   expectResize = -1;
   getsnapshot();
-}
-
-// adds a new node
-function myDblClick(e) {
-  getMouse(e);
-  // for this method width and height determine the starting X and Y, too.
-  // so I left them as vars in case someone wanted to make them args for something and copy this code
-  var width = 20;
-  var height = 20;
-  addRect(mx - (width / 2), my - (height / 2), width, height, 'rgba(220,205,65,0.7)');
 }
 
 

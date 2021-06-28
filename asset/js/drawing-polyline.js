@@ -40,21 +40,23 @@ class DrawingPolyline extends PaintFunction {
             $(document).keydown(function (e) {
                 let keyCode = e.keyCode;
                  console.log(strokesStore);
-                addPolyLine(strokesStore, mouseX , mouseY , `${colorStroke}`,lineWidth);
                 if (keyCode === 27 || keyCode === 13) {
+                addPolyLine(strokesStore, mouseX , mouseY , `${colorStroke}`,lineWidth);
                     clicks = 0;
                     strokes = [];
                     // this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
                 }
             })
-        } if (clicks == 1) {
+        } 
+        if (clicks == 1) {
            
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextDraft.beginPath();
             this.contextDraft.moveTo(strokes[strokes.length-1].x, strokes[strokes.length-1].y);
             this.contextDraft.lineTo(mouseX, mouseY);
             this.contextDraft.stroke();
-        } if (clicks > 1) {
+        } 
+        if (clicks >= 1) {
             this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
             this.contextDraft.beginPath();
             this.contextDraft.moveTo(strokes[strokes.length-1].x, strokes[strokes.length-1].y);

@@ -11,7 +11,6 @@ class PolyLine {
   
     // actually draws on the context using the commit method
     draw = (context) => {
-        console.log("drawing a line")
         if (context === gctx) {
             context.fillStyle = 'black';
             context.strokeStyle = 'black';
@@ -26,7 +25,7 @@ class PolyLine {
         if (this.x + this.w < 0 || this.y + this.h < 0) return;
         context.beginPath();
         context.moveTo(this.x, this.y);
-        for(let i =0; i< this.arr.length; i++){
+        for(let i in this.arr){
         context.lineTo(this.arr[i].x, this.arr[i].y);
         }
         context.stroke();;
@@ -43,19 +42,26 @@ class PolyLine {
             polylineSelectionHandles[0].x = this.x - half;
             polylineSelectionHandles[0].y = this.y - half;
   
-            lineSelectionHandles[1].x = this.w - half;
-            lineSelectionHandles[1].y = this.h - half;
-  
-            for (var i = 0; i < 2; i++) {
-                var cur = lineSelectionHandles[i];
+            polylineSelectionHandles[1].x = this.w - half;
+            polylineSelectionHandles[1].y = this.h - half;
+
+            polylineSelectionHandles[2].x = this.x - half;
+            polylineSelectionHandles[2].y = this.h - half;
+
+            polylineSelectionHandles[3].x = this.w - half;
+            polylineSelectionHandles[3].y = this.h - half;
+            console.log(polylineSelectionHandles);
+            for (var i = 0; i < 4; i++) {
+                var cur = polylineSelectionHandles[i];
                 context.fillRect(cur.x, cur.y, mySelBoxSize, mySelBoxSize);
             }
   
         }
     };
   };
-  var polyLineSelectionHandles = [];
   
+var polylineSelectionHandles = [];
+
   function polyLineMove(e){
       if (isDrag) {
         getMouse(e);
@@ -86,6 +92,18 @@ class PolyLine {
               mySel.w = mx;
               mySel.h = my;
             break;
+          case 2:
+              mySel.x = mx;
+              mySel.y = mySel.y;
+              mySel.w = mySel.w;
+              mySel.h = my;
+          break;
+          case 3:
+              mySel.x = mySel.x;
+              mySel.y = mySel.y;
+              mySel.w = mx;
+              mySel.h = my;
+          break;
         }
         invalidate();
       }
@@ -95,7 +113,7 @@ class PolyLine {
       if (mySel !== null && !isResizeDrag) {
         for (var i = 0; i < 2; i++) {
   
-          var cur = lineSelectionHandles[i];
+          var cur = polylineSelectionHandles[i];
           
           // we dont need to use the ghost context because
           // selection handles will always be rectangles

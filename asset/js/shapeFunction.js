@@ -72,13 +72,12 @@ function addRect(x, y, w, h, fill, stroke, lineWidth) {
     invalidate();
   }
 
-  function addPen(x, y, x2, y2, fill, lineWidth) {
+  function addPen(arr, x, y, stroke, lineWidth) {
     var pen = new Pen;
+    pen.arr = arr;
     pen.x = x;
     pen.y = y;
-    pen.x2 = x2;
-    pen.y2 = y2;
-    pen.fill = fill;
+    pen.stroke = stroke;
     pen.lineWidth = lineWidth
     boxes.push(pen);
     console.log(boxes)

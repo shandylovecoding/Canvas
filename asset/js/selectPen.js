@@ -1,14 +1,13 @@
 
 // Box object to hold data
 class Pen {
-    constructor(x, y, x2, y2, fill, lineWidth) {
+    constructor(arr,x,y , stroke, lineWidth) {
+        this.arr = arr
         this.x = x;
         this.y = y;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.fill = fill;
+        this.stroke = stroke;
         this.lineWidth = lineWidth
-    }
+    };
     // New methods on the Box class
 
     // we used to have a solo draw function
@@ -29,9 +28,10 @@ class Pen {
         if (this.x + this.w < 0 || this.y + this.h < 0) return;
             
             context.beginPath()
-            context.lineTo(this.x, this.y);
-            context.moveTo(this.x2, this.y2);
-            context.closePath();
+            for(let i in this.arr){
+            context.lineTo(this.arr[i].x, this.arr[i].y);
+            context.moveTo(this.arr[i].x, this.arr[i].y);
+            }
             context.stroke();
 
       if (mySel === this) {
@@ -45,17 +45,96 @@ class Pen {
         // 5  6  7
 
         // top left, middle, right
-        lineSelectionHandles[0].x = this.x - half;
-        lineSelectionHandles[0].y = this.y - half;
+        penSelectionHandles[0].x = this.x - half;
+        penSelectionHandles[0].y = this.y - half;
 
-        lineSelectionHandles[1].x = this.w - half;
-        lineSelectionHandles[1].y = this.h - half;
+        penSelectionHandles[1].x = this.w - half;
+        penSelectionHandles[1].y = this.h - half;
+        
+        penlineSelectionHandles[2].x = this.x - half;
+        penlineSelectionHandles[2].y = this.h - half;
 
-        for (var i = 0; i < 2; i++) {
-            var cur = lineSelectionHandles[i];
+        penlineSelectionHandles[3].x = this.w - half;
+        penlineSelectionHandles[3].y = this.h - half;
+
+        for (var i = 0; i < 4; i++) {
+            var cur = penSelectionHandles[i];
             context.fillRect(cur.x, cur.y, mySelBoxSize, mySelBoxSize);
         }
 
     }
     }
 }
+
+var penSelectionHandles = [];
+function penMove(e){
+    if (isDrag) {
+      getMouse(e);
+      
+      mySel.x = mx - offsetx;
+      mySel.y = my - offsety;
+      mySel.w = mySel.x + offsetx*2;
+      mySel.h = mySel.y + offsety*2;
+     
+      console.log(mySel);
+      // something is changing position so we better invalidate the canvas!
+      invalidate();
+    } else if (isResizeDrag) {
+      // time ro resize!
+      var oldx = mySel.x;
+      var oldy = mySel.y;
+     
+      switch (expectResize) {
+        case 0:   
+            mySel.x = mx;
+            mySel.y = my;
+            mySel.w = mySel.w;
+            mySel.h = mySel.h;
+          break;    
+        case 1:
+            mySel.x = oldx;
+            mySel.y = oldy;
+            mySel.w = mx;
+            mySel.h = my;
+          break;
+        case 2:
+            mySel.x = mx;
+            mySel.y = mySel.y;
+            mySel.w = mySel.w;
+            mySel.h = my;
+        break;
+        case 3:
+            mySel.x = mySel.x;
+            mySel.y = mySel.y;
+            mySel.w = mx;
+            mySel.h = my;
+        break;
+      }
+      invalidate();
+    }
+
+    getMouse(e);
+    // if there's a selection see if we grabbed one of the selection handles
+    if (mySel !== null && !isResizeDrag) {
+      for (var i = 0; i < 2; i++) {
+
+        var cur = penlineSelectionHandles[i];
+        
+        // we dont need to use the ghost context because
+        // selection handles will always be rectangles
+        if (mx >= cur.x && mx <= cur.x + mySelBoxSize &&
+            my >= cur.y && my <= cur.y + mySelBoxSize) {
+          // we found one!
+          expectResize = i;
+          invalidate();
+        
+          return;
+        }
+        
+      }
+      // not over a selection box, return to normal
+      isResizeDrag = false;
+      expectResize = -1;
+    }
+    
+  }
