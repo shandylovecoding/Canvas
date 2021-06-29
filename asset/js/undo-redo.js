@@ -9,7 +9,7 @@ function getsnapshot() {
     redo_array = [];
 }
 
-$("#undoButton").click(function() {
+$("#undoButton").click(function () {
     if (step >= 0) {
         step -= 1;
         redo_step += 1;

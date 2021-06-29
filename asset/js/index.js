@@ -2,7 +2,7 @@ $(function () {
 
     $("body").css("opacity", "1");
 
-    $("#canvas-real").mousedown(function () {
+    $("#canvas-draft").mousedown(function () {
         $("h1").css("opacity", "0");
     })
 
@@ -67,14 +67,14 @@ $(function () {
         }
         // Polygon
         if (e.shiftKey && e.which === 80) {
-            currentFunction = new DrawingIrpoly(contextReal, contextDraft);
+            currentFunction = new DrawingRegpoly(contextReal, contextDraft);
         }
         // Line
         if (e.which === 220) {
             currentFunction = new DrawingLine(contextReal, contextDraft);
         }
         // Polyline
-        if (e.shiftKey && e.which === 220) {
+        if (e.which === 78) {
             currentFunction = new DrawingPolyline(contextReal, contextDraft);
         }
         // Quadratic
@@ -83,7 +83,7 @@ $(function () {
         }
         // Bezier
         if (e.which === 66) {
-            currentFunction = new DrawingQuadraticLine(contextReal, contextDraft);
+            currentFunction = new DrawingBezierLine(contextReal, contextDraft);
         }
         // Text
         if (e.which === 84) {
@@ -91,15 +91,16 @@ $(function () {
         }
         // Pen
         if (e.which === 80) {
-            currentFunction = new Pen(contextReal, contextDraft);
+            currentFunction = new DrawingPen(contextReal, contextDraft);
         }
         // Eraser
         if (e.which === 69) {
             currentFunction = new Eraser(contextReal, contextDraft);
         }
-        // Marquee
-        if (e.which === 77) {}
-        
+        // Select
+        if (e.which === 83) {
+            currentFunction = new Select(contextReal, contextDraft);
+        }
         // Eyedropper
         if (e.which === 73) {
             currentFunction = new Eyedropper(contextReal, contextDraft);
@@ -108,33 +109,21 @@ $(function () {
         if (e.which === 75) {
             currentFunction = new Fillflood(contextReal, contextDraft);
         }
-        // Brightness
-        if (e.shiftKey && e.which === 66) {
-            brightness();
-        }
-        // Contrast
-        if (e.shiftKey && e.which === 67) {
-            contrast();
-        }
-        // Saturate
-        if (e.shiftKey && e.which === 81) {
-            saturate();
-        }
-        // Undo
-        if (e.shiftKey && e.which === 84) {
-            undo();
-        }
-        // Redo
-        if (e.shiftKey && e.which === 89) {
-            redo();
-        }
+
         // Clear
         if (e.shiftKey && e.which === 8) {
-            clear();
+            contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            boxes = [];
         }
         // Save
         if (e.shiftKey && e.which === 83) {
-            save();
+            var canvas = document.getElementById('canvas-real');
+            link = document.createElement('a');
+            link.download = 'canvas.png';
+            link.href = canvas.toDataURL();
+            link.click();
+            link.delete;
         }
     })
 

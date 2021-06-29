@@ -1,226 +1,286 @@
+var move
+class Select extends PaintFunction {
+  constructor(contextReal) {
+    super();
+    this.contextReal = contextReal;
+    this.origX = mouseX;
+    this.origY = mouseY;
+  }
 
-  
-//   class Select extends PaintFunction {
-//     constructor(contextReal) {
-//         super();
-//         this.contextReal = contextReal;
-//         this.origX = mouseX;
-//         this.origY = mouseY;
-//     }
+  onMouseDown([mouseX, mouseY], e) {
+    myDown(e)
+  }
 
-//     onMouseDown([mouseX, mouseY], e) {
-//     }
+  onDragging() { }
+  onMouseMove([mouseX, mouseY], e) {
+    if (move == 1) {
+      rectMove(e)
+    } else if (move == 2) {
+      lineMove(e)
+    } else if (move == 3) {
+      quadMove(e)
+    } else if (move == 4) {
+      bezierMove(e)
+    } else if (move == 5) {
+      penMove()
+    } else if (move == 6) {
+      circleMove(e)
+    } else if (move == 7) {
+      polyLineMove(e)
+    } else if (move == 8) {
+      polygonMove(e)
+    }
+  }
+  onMouseUp([mouseX, mouseY], e) {
+    myUp(e)
+  }
+  onMouseLeave() { }
+  onMouseEnter() { }
+}
 
-//     onDragging(){
-//     }
-//     onMouseMove(){
-//     }
-//     onMouseUp(){
-//     }
-//     onMouseLeave(){}
-//     onMouseEnter(){}
-// };
-//   $("#select").click(function () {
-//     console.log("select Button clicked");
-//     currentFunction = new Select(contextReal, contextDraft);
-// });
+$("#select").click(function () {
+  currentFunction = new Select(contextReal, contextDraft);
+});
 
-// var Rectangle = function(x, y, width, height) {
-//   this.x = x;
-//   this.y = y;
-//   this.width = width;
-//   this.height = height;
-//   this.isDragging = false;
-//   this.render = function(contextReal) {
-//     contextDraft.save();
-//     contextDraft.beginPath();
-//     contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-//     contextReal.rect(this.x - this.width * 0.5, this.y - this.height * 0.5, this.width, this.height);
-//     contextReal.fillStyle = '#2793ef';
-//     contextReal.fill();
-//     contextReal.restore();
-//   }
-// }
+// holds all our boxes
+var boxes = [];
 
-// var Arc = function(x, y, radius, radians) {
-//   this.x = x;
-//   this.y = y;
-//   this.radius = radius;
-//   this.radians = radians;
-//   this.isDragging = false;
+// Hold canvas information
+var canvas;
+var ctx;
+var WIDTH;
+var HEIGHT;
+var INTERVAL = 20; // how often, in milliseconds, we check to see if a redraw is needed
 
-//   this.render = function(contextReal) {
-//     contextReal.save();
+var isDrag = false;
+var isResizeDrag = false;
+var expectResize = -1; // New, will save the # of the selection handle if the mouse is over one.
+var mx, my; // mouse coordinates
 
-//     contextReal.beginPath();
-//     contextReal.arc(this.x, this.y, this.radius, 0, this.radians, false);
-//     contextReal.fillStyle = '#2793ef';
-//     contextReal.fill();
-//     contextReal.restore();
-//   }
-// }
+// when set to true, the canvas will redraw everything
+// invalidate() just sets this to false right now
+// we want to call invalidate() whenever we make a change
+var canvasValid = false;
 
-// var MouseTouchTracker = function(canvas, callback){
+// The node (if any) being selected.
+// If in the future we want to select multiple objects, this will get turned into an array
+var mySel = null;
 
-//   function processEvent(evt) {
-//     var rect = canvas.getBoundingClientRect();
-//     var offsetTop = rect.top;
-//     var offsetLeft = rect.left;
+// The selection color and width. Right now we have a red selection with a small width
+var mySelColor = '#CC0000';
+var mySelWidth = 2;
+var mySelBoxColor = 'darkred'; // New for selection boxes
+var mySelBoxSize = 6;
 
-//     if (evt.touches) {
-//       return {
-//         x: evt.touches[0].clientX - offsetLeft,
-//         y: evt.touches[0].clientY - offsetTop
-//       }
-//     } else {
-//       return {
-//         x: evt.clientX - offsetLeft,
-//         y: evt.clientY - offsetTop
-//       }
-//     }
-//   }
+// we use a fake canvas to draw individual shapes for selection testing
+var ghostcanvas;
+var gctx; // fake canvas context
 
-//   function onDown(evt) {
-//     evt.preventDefault();
-//     var coords = processEvent(evt);
-//     callback('down', coords.x, coords.y);
-//   }
+// since we can drag from anywhere in a node
+// instead of just its x/y corner, we need to save
+// the offset of the mouse when we start dragging.
+var offsetx, offsety;
 
-//   function onUp(evt) {
-//     evt.preventDefault();
-//     callback('up');
-//   }
+// Padding and border style widths for mouse offsets
+var stylePaddingLeft, stylePaddingTop, styleBorderLeft, styleBorderTop;
 
-//   function onMove(evt) {
-//     evt.preventDefault();
-//     var coords = processEvent(evt);
-//     callback('move', coords.x, coords.y);
-//   }
+// initialize our canvas, add a ghost canvas, set draw loop
+// then add everything we want to intially exist on the canvas
+function init2() {
+  canvas = document.getElementById('canvas-real');
+  HEIGHT = canvas.height;
+  WIDTH = canvas.width;
+  ctx = canvas.getContext('2d');
+  ghostcanvas = document.createElement('canvas');
+  ghostcanvas.height = HEIGHT;
+  ghostcanvas.width = WIDTH;
+  ghostcanvas.style.backgroundColor = "transparent";
+  gctx = ghostcanvas.getContext('2d');
 
-//   canvas.ontouchmove = onMove;
-//   canvas.onmousemove = onMove;
-//   canvas.ontouchstart = onDown;
-//   canvas.onmousedown = onDown;
-//   canvas.ontouchend = onUp;
-//   canvas.onmouseup = onUp;
-// }
+  //fixes a problem where double clicking causes text to get selected on the canvas
+  canvas.onselectstart = function () {
+    return false;
+  }
 
-// function isHit(shape, x, y) {
-//   if (shape.constructor.name === 'Arc') {
-//     var dx = shape.x - x;
-//     var dy = shape.y - y;
-//     if (dx * dx + dy * dy < shape.radius * shape.radius) {
-//       return true
-//     }
-//   } else {
-//     if (x > shape.x - shape.width * 0.5 && y > shape.y - shape.height * 0.5 && x < shape.x + shape.width - shape.width * 0.5 && y < shape.y + shape.height - shape.height * 0.5) {
-//       return true;
-//     }
-//   }
+  // fixes mouse co-ordinate problems when there's a border or padding
+  // see getMouse for more detail
+  if (document.defaultView && document.defaultView.getComputedStyle) {
+    stylePaddingLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingLeft'], 10) || 0;
+    stylePaddingTop = parseInt(document.defaultView.getComputedStyle(canvas, null)['paddingTop'], 10) || 0;
+    styleBorderLeft = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderLeftWidth'], 10) || 0;
+    styleBorderTop = parseInt(document.defaultView.getComputedStyle(canvas, null)['borderTopWidth'], 10) || 0;
+  }
 
-//   return false;
-// }
-  
+  // make mainDraw() fire every INTERVAL milliseconds
+  setInterval(mainDraw, INTERVAL);
 
-
-// var startX = 0;
-// var startY = 0;
-
-// var rectangle = new Rectangle(50, 50, 100, 100);
-// rectangle.render(contextReal);
-
-// var circle = new Arc(200, 140, 50, Math.PI * 2);
-// circle.render(contextReal);
-
-// var mtt = new MouseTouchTracker(canvas,
-//   function(evtType, x, y) {
-//     contextReal.clearRect(0, 0, canvas.width, canvas.height);
-
-//     switch(evtType) {
-
-//       case 'down':
-//         startX = x;
-//         startY = y;
-//         if (isHit(rectangle, x, y)) {
-//           rectangle.isDragging = true;
-//         }
-//         if (isHit(circle, x, y)) {
-//           circle.isDragging = true;
-//         }
-//         break;
-
-//       case 'up':
-//         rectangle.isDragging = false;
-//         circle.isDragging = false;
-//         break;
-
-//       case 'move':
-//         var dx = x - startX;
-//         var dy = y - startY;
-//         startX = x;
-//         startY = y;
-
-//         if (rectangle.isDragging) {
-//           rectangle.x += dx;
-//           rectangle.y += dy;
-//         }
-
-//         if (circle.isDragging) {
-//           circle.x += dx;
-//           circle.y += dy;
-//         }
-//         break;
-//     }
-
-//     circle.render(contextReal);
-//     rectangle.render(contextReal);
-//   }
-// );
+  // set up the selection handle boxes
+  for (var i = 0; i < 8; i++) {
+    var rect = new Rect;
+    rectSelectionHandles.push(rect);
+  }
+  for (var i = 0; i < 4; i++) {
+    var circle = new Circle;
+    circleSelectionHandles.push(circle);
+  }
+  for (var i = 0; i < 2; i++) {
+    var line = new Line;
+    lineSelectionHandles.push(line);
+  }
+  for (var i = 0; i < 3; i++) {
+    var quad = new Quadratic;
+    quadSelectionHandles.push(quad);
+  }
+  for (var i = 0; i < 4; i++) {
+    var bezier = new Bezier;
+    bezierSelectionHandles.push(bezier);
+  }
+  for (var i = 0; i < 4; i++) {
+    var polyLine = new PolyLine;
+    polylineSelectionHandles.push(polyLine);
+  }
+  for (var i = 0; i < 4; i++) {
+    var polygon = new Polygon;
+    polygonSelectionHandles.push(polygon);
+  }
+  for (var i = 0; i < 4; i++) {
+    var pen = new Pen;
+    penSelectionHandles.push(pen);
+  }
+}
 
 
+//wipes the canvas context
+function clear(c) {
+  c.clearRect(0, 0, WIDTH, HEIGHT);
+}
+
+// Main draw loop.
+// While draw is called as often as the INTERVAL variable demands,
+// It only ever does something if the canvas gets invalidated by our code
+function mainDraw() {
+  if (canvasValid == false) {
+    clear(ctx);
+    // Add stuff you want drawn in the background all the time here
+
+    // draw all boxes
+    var l = boxes.length;
+    for (var i = 0; i < l; i++) {
+      boxes[i].draw(ctx); // we used to call drawshape, but now each box draws itself
+    }
+    // Add stuff you want drawn on top all the time here
+    canvasValid = true;
+  }
+}
 
 
-// var mtt = new MouseTouchTracker(canvas,
-//   function(evtType, x, y) {
-//     contextReal.clearRect(0, 0, canvas.width, canvas.height);
+// Happens when the mouse is clicked in the canvas
+function myDown(e) {
+  getMouse(e);
 
-//     switch(evtType) {
+  //we are over a selection box
+  if (expectResize !== -1) {
+    isResizeDrag = true;
+    return;
+  }
 
-//       case 'down':
-//         startX = x;
-//         startY = y;
-//         if (isHit(rectangle, x, y)) {
-//           rectangle.isDragging = true;
-//         }
-//         if (isHit(circle, x, y)) {
-//           circle.isDragging = true;
-//         }
-//         break;
+  clear(gctx);
+  var l = boxes.length;
+  for (var i = l - 1; i >= 0; i--) {
+    // draw shape onto ghost context
+    boxes[i].draw(gctx, 'black');
 
-//       case 'up':
-//         rectangle.isDragging = false;
-//         circle.isDragging = false;
-//         break;
+    // get image data at the mouse x,y pixel
+    var imageData = gctx.getImageData(mx, my, 1, 1);
+    var index = (mx + my * imageData.width) * 4;
+    // if the mouse pixel exists, select and break
+    if (imageData.data[3] > 0) {
+      mySel = boxes[i];
+      offsetx = mx - mySel.x;
+      offsety = my - mySel.y;
+      mySel.x = mx - offsetx;
+      mySel.y = my - offsety;
+      mySel.w = boxes[i].w;
+      mySel.h = boxes[i].h;
 
-//       case 'move':
-//         var dx = x - startX;
-//         var dy = y - startY;
-//         startX = x;
-//         startY = y;
+      isDrag = true;
+      if (boxes[i].constructor.name == "Rect") {
+        move = 1;
+      } else if (boxes[i].constructor.name == "Line") {
+        move = 2;
+      } else if (boxes[i].constructor.name == "Quadratic") {
+        move = 3;
+      } else if (boxes[i].constructor.name == "Bezier") {
+        move = 4;
+      } else if (boxes[i].constructor.name == "Pen") {
+        move = 5;
+      } else if (boxes[i].constructor.name == "Circle") {
+        move = 6;
+      } else if (boxes[i].constructor.name == "Polyline") {
+        move = 7;
+      }
 
-//         if (rectangle.isDragging) {
-//           rectangle.x += dx;
-//           rectangle.y += dy;
-//         }
+      invalidate();
+      clear(gctx);
+      return;
+    }
 
-//         if (circle.isDragging) {
-//           circle.x += dx;
-//           circle.y += dy;
-//         }
-//         break;
-//     }
+  }
+  // havent returned means we have selected nothing
+  mySel = null;
+  // clear the ghost canvas for next time
+  clear(gctx);
+  // invalidate because we might need the selection border to disappear
+  invalidate();
+}
 
-//     circle.render(contextReal);
-//     rectangle.render(contextReal);
-//   }
-// );
+
+function myUp() {
+  isDrag = false;
+  isResizeDrag = false;
+  expectResize = -1;
+  getsnapshot();
+}
+
+
+function invalidate() {
+  canvasValid = false;
+}
+
+// Sets mx,my to the mouse position relative to the canvas
+// unfortunately this can be tricky, we have to worry about padding and borders
+function getMouse(e) {
+  var element = canvas,
+    offsetX = 0,
+    offsetY = 0;
+
+  if (element.offsetParent) {
+    do {
+      offsetX += element.offsetLeft;
+      offsetY += element.offsetTop;
+    } while ((element = element.offsetParent));
+  }
+
+  // Add padding and border style widths to offset
+  offsetX += stylePaddingLeft;
+  offsetY += stylePaddingTop;
+
+  offsetX += styleBorderLeft;
+  offsetY += styleBorderTop;
+
+  mx = e.pageX - offsetX;
+  my = e.pageY - offsetY
+}
+
+// If you dont want to use <body onLoad='init()'>
+// You could uncomment this init() reference and place the script reference inside the body tag
+//init();
+window.init2 = init2;
+// })(window);
+
+// Andy added, as a replacement for 
+// <body onLoad="init2()">
+$(document).ready(function () {
+  // Your code here
+  init2();
+});

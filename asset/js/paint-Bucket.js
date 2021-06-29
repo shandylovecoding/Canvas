@@ -61,37 +61,48 @@ function fillGradient() {
 }
 
 function mousedown(e) {
-    drag = true;
+  drag = true;
+  changeColor(e);
+}
+function mousemove(e) {
+  if (drag) {
     changeColor(e);
   }
-  function mousemove(e) {
-    if (drag) {
-    changeColor(e);
-    }
-  }
-  function mouseup(e) {
-    drag = false;
-  }
-function changeColor(e,label) {
-    x = e.offsetX;
-    y = e.offsetY;
-    var imageData = ctx1.getImageData(x, y, 1, 1).data;
-    R = imageData[0]
-    G = imageData[1]
-    B = imageData[2]
-    console.log('R',R);
-    console.log("G",G);
+}
+function mouseup(e) {
+  drag = false;
+}
+function changeColor(e, label) {
+  x = e.offsetX;
+  y = e.offsetY;
+  var imageData = ctx1.getImageData(x, y, 1, 1).data;
+  R = imageData[0]
+  G = imageData[1]
+  B = imageData[2]
 
-    if (colorcolor) {
-      rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
-      colorFill = `${rgbaColor}`
-      colorLabel.style.backgroundColor = colorFill
-    } else if (fillcolor) {
-      rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)'; 
-      colorStroke = `${rgbaColor}`
-      fillcolorLabel.style.backgroundColor = colorStroke
-      console.log(colorStroke);
+
+  if (colorcolor) {
+    rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
+    colorFill = `${rgbaColor}`
+    colorLabel.style.backgroundColor = colorFill
+    var l = boxes.length;
+    for (var i = 0; i < l; i++) {
+      if (boxes[i] == mySel) {
+        boxes[i].fill = colorFill;
+      }
     }
+  } else if (fillcolor) {
+    rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
+    colorStroke = `${rgbaColor}`
+    fillcolorLabel.style.backgroundColor = colorStroke
+    var l = boxes.length;
+    for (var i = 0; i < l; i++) {
+      if (boxes[i] == mySel) {
+        boxes[i].stroke = colorStroke
+      }
+    }
+
+  }
 
 }
 var colorControl = document.getElementById('color-input')
@@ -99,17 +110,14 @@ var fillcolorControl = document.getElementById('fillcolor-input')
 
 
 $("#color-label").click(function () {
-    console.log("paintBucket clicked");
-    colorcolor = true;
-    fillcolor = false;
-
+  colorcolor = true;
+  fillcolor = false;
 });
 $("#fillcolor-label").click(function () {
-  console.log("paintBucket clicked");
   colorcolor = false;
   fillcolor = true;
 });
-$('#canvas-real').click(function(){
+$('#canvas-real').click(function () {
   colorControl.checked = false
   fillcolorControl.checked = false
 })

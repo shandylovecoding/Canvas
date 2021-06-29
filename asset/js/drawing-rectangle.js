@@ -14,37 +14,34 @@ class DrawingRectangle extends PaintFunction {
             this.contextDraft.lineWidth = lineWidth;
             this.origX = mouseX;
             this.origY = mouseY;
+
             clicks = 1;
         } else if (clicks == 1) {
-            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-            this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
-            if (lineWidth != 0){
-                console.log("working");
-                console.log(lineWidth)
-                this.contextReal.strokeRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+            // this.contextReal.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+            // addRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY, `${colorFill}`);
+            if (lineWidth != 0) {
+                // this.contextReal.strokeRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+                this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+                addRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY, `${colorFill}`, `${colorStroke}`, lineWidth);
             }
             clicks = 0;
             getsnapshot();
         }
     }
 
-    onDragging() {}
+    onDragging() { }
 
     onMouseMove([mouseX, mouseY], e) {
-        if (clicks == 1){
-        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
-        if (lineWidth != 0){
-            this.contextDraft.strokeRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+        if (clicks == 1) {
+            this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            this.contextDraft.fillRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+            if (lineWidth != 0) {
+                this.contextDraft.strokeRect(this.origX, this.origY, mouseX - this.origX, mouseY - this.origY);
+            }
         }
-        }
-    } 
-    onMouseUp() {}
-    onMouseLeave() {}
-    onMouseEnter() {}
+    }
 }
 
-$("#rectButton").click(function() {
-    console.log("Rectangle Button clicked");
+$("#rectButton").click(function () {
     currentFunction = new DrawingRectangle(contextReal, contextDraft);
 });
