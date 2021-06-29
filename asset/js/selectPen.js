@@ -40,10 +40,6 @@ class Pen {
         context.lineWidth = lineWidth;
         var half = mySelBoxSize / 2;
 
-        // 0  1  2
-        // 3     4
-        // 5  6  7
-
         // top left, middle, right
         penSelectionHandles[0].x = this.x - half;
         penSelectionHandles[0].y = this.y - half;
@@ -51,11 +47,11 @@ class Pen {
         penSelectionHandles[1].x = this.w - half;
         penSelectionHandles[1].y = this.h - half;
         
-        penlineSelectionHandles[2].x = this.x - half;
-        penlineSelectionHandles[2].y = this.h - half;
+        penSelectionHandles[2].x = this.x - half;
+        penSelectionHandles[2].y = this.h - half;
 
-        penlineSelectionHandles[3].x = this.w - half;
-        penlineSelectionHandles[3].y = this.h - half;
+        penSelectionHandles[3].x = this.w - half;
+        penSelectionHandles[3].y = this.h - half;
 
         for (var i = 0; i < 4; i++) {
             var cur = penSelectionHandles[i];
@@ -115,9 +111,9 @@ function penMove(e){
     getMouse(e);
     // if there's a selection see if we grabbed one of the selection handles
     if (mySel !== null && !isResizeDrag) {
-      for (var i = 0; i < 2; i++) {
+      for (var i = 0; i < 4; i++) {
 
-        var cur = penlineSelectionHandles[i];
+        var cur = penSelectionHandles[i];
         
         // we dont need to use the ghost context because
         // selection handles will always be rectangles
