@@ -1,5 +1,9 @@
 # Canvas
-Canvas is a light web-based sketchpad to make quick sketches and collages that can then be shared or saved. The project is designed to be easy to use on a mouse or trackpad. The application itself can be accessed at this link: https://canvas-operation.surge.sh/
+Canvas is a light web-based sketchpad to make quick sketches and collages that can then be shared or saved. The project is designed to be easy to use on a mouse or trackpad.
+
+Link to demo: https://canvas-operation.surge.sh/
+
+<img src="Demo_1.gif">
 
 ## Features
 
